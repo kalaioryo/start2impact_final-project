@@ -6,10 +6,17 @@ import LoadingComponent from "./LoadingComponent";
 
 
 const ItalyMap = ({typeData}) => {
-  const dataMap = useSelector((state) => state.regions)
-  const {loading, regions, error} = dataMap
+  const [ valueRange, setValueRange ] = useState(0)
+  const dataMap = useSelector((state) => state.regionsLatest)
+  const {loading, regionsLatest, error} = dataMap
 
-  const WordLegenda =  typeData.replace('_', ' ') 
+
+  // console.log(dataMap);
+
+  const WordLegenda =  typeData.replaceAll('_', ' ')
+
+  console.log(typeData);
+  console.log(WordLegenda);
 
   const options = {
     region: "IT", // Italia
@@ -25,14 +32,13 @@ const ItalyMap = ({typeData}) => {
     ["Country", WordLegenda ],
   ]
 
-  console.log(regions);
-
-  const createDataChart = () => {
+  // console.log(regionsLatest);
+  const createDataChart = (typeData) => {
     let trento = 0
     let bolzano = 0
     
+    regionsLatest.map((region) => {
 
-    regions.map((region) => {
       let nameRegion = region.denominazione_regione
       let dataRegion = region[typeData]
       switch (nameRegion) {
@@ -59,13 +65,23 @@ const ItalyMap = ({typeData}) => {
     return dataChart
   }
 
-  createDataChart()
+  createDataChart(typeData)
+
+  // const handleChange = (e) =>{
+  //   console.log(e.target.value);
+  //   setValueRange(e.target.value)
+  // }
+
+  // console.log(valueRange);
 
   return (
-    <div className="mx-[20%] bg-slate-400">
+    <div className=" bg-slate-400">
+
       <div>
-        <h3 className="capitalize text-3xl text-center">{WordLegenda}</h3>
+        <h3 className="first-letter:uppercase text-3xl text-center">{WordLegenda}</h3>
+        <p className="text-center m-2">aggiornati al {regionsLatest[0].data}</p>
       </div>
+
       <div className=" p-4 bg-red-400">
         <Chart
             chartType="GeoChart"
@@ -75,6 +91,10 @@ const ItalyMap = ({typeData}) => {
             options={options}
           />
       </div>
+
+      {/* <div className="flex justify-center">
+        <input onChange={handleChange} type="range" min={0} max={50}/>
+      </div> */}
           
     </div>
     

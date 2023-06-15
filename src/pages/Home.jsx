@@ -1,26 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { fetchDataRegions } from "../features/regions/regionsSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import ItalyMap from "../components/ItalyMap";
+import LoadingComponent from "../components/LoadingComponent";
 
 const Home = () => {
-  const [wordClick, setWordClick] = useState("deceduti");
-  const dispatch = useDispatch();
-  const dataRegion = useSelector((state) => state.regions);
-  const { loading, regions, error } = dataRegion;
+  const [wordClick, setWordClick] = useState("casi_testati");
+  const dataRegion = useSelector((state) => state.regionsLatest);
+  const { loading, regionsLatest, error } = dataRegion;
 
-  useEffect(() => {
-    dispatch(fetchDataRegions());
-  }, []);
+
   const words = [
+    "casi_testati",
     "deceduti",
-    "tamponi",
     "dimessi_guariti",
     "isolamento_domiciliare",
-    "casi_testati",
     "ingressi_terapia_intensiva",
     "nuovi_positivi",
     "ricoverati_con_sintomi",
+    "tamponi",
     "tamponi_test_antigenico_rapido",
     "tamponi_test_molecolare",
     "terapia_intensiva",
@@ -29,14 +26,43 @@ const Home = () => {
     "totale_positivi",
     "totale_positivi_test_antigenico_rapido",
     "totale_positivi_test_molecolare",
-    "variazione_totale_positivi"
+    "variazione_totale_positivi",
   ];
+
+  const handleChange = (e) => {
+    setWordClick(e.target.value);
+  };
 
   return (
     <div>
       <h1>Home</h1>
-      {!loading && regions[0] ? <ItalyMap typeData={wordClick} /> : null}
-      <div className="flex flex-wrap justify-center">
+      <label className="p-2 mx-2 ">
+        <span className="mx-2">Select data:</span>
+        <select
+          value={wordClick}
+          className="p-2 mx2 "
+          name="selectWord"
+          id="words"
+          onChange={handleChange}
+        >
+          {words.map((word) => {
+            return (
+              <option
+                value={word}
+                // selected={optionState === word}
+                key={word}
+                className="first-letter:uppercase"
+              >
+                {word.replaceAll("_", " ")}
+              </option>
+            );
+          })}
+        </select>
+      </label>
+      {loading && <LoadingComponent />}
+      {!loading && regionsLatest[0] ? <ItalyMap typeData={wordClick} /> : null}
+
+      {/* <div className="flex flex-wrap justify-center">
         {words.map((word) => {
           return (
             <button
@@ -44,11 +70,11 @@ const Home = () => {
               className="p-4 m-2 rounded-md bg-red-500"
               onClick={() => setWordClick(word)}
             >
-              {word.replace('_', ' ')}
+              {word.replaceAll("_", " ")}
             </button>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 };
