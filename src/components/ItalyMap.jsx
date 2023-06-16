@@ -66,23 +66,17 @@ const ItalyMap = ({typeData}) => {
   }
 
   createDataChart(typeData)
-
-  // const handleChange = (e) =>{
-  //   console.log(e.target.value);
-  //   setValueRange(e.target.value)
-  // }
-
-  // console.log(valueRange);
+  console.log(dataChart);
 
   return (
-    <div className=" bg-slate-400">
+    <div className="">
 
       <div>
         <h3 className="first-letter:uppercase text-3xl text-center">{WordLegenda}</h3>
         <p className="text-center m-2">aggiornati al {regionsLatest[0].data}</p>
       </div>
 
-      <div className=" p-4 bg-red-400">
+      <div className="p-4 flex justify-center">
         <Chart
             chartType="GeoChart"
             width="100%"

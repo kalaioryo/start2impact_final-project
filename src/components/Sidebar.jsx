@@ -9,7 +9,7 @@ import { LuSyringe, LuSettings, LuLayoutDashboard } from 'react-icons/lu'
 import { SlSettings } from 'react-icons/sl'
 
 const Sidebar = () => {
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
   const [subMenuOpen, setSubMenuOpen] = useState(false)
   const [menuSetting, setMenuSetting] = useState(false)
 
@@ -28,7 +28,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className='flex'>
+    <div className='flex fixed z-10'>
       <div>
         <div className={`bg-primary h-screen p-5 text-ternary min-h-screen h-full pt-8 relative duration-300 ${open ?
         "w-72":"w-20"}`} >

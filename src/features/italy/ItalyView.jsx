@@ -10,7 +10,7 @@ const ItalyView = () => {
   const data = useSelector((state)  => state.italy)
 
   useEffect(() => {
-    dispatch(fetchDataItaly())
+    // dispatch(fetchDataItaly())
   },[])
 
 
