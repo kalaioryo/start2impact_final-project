@@ -6,8 +6,8 @@ import { fetchDataRegionsLatest } from './features/regionsLatest/regionsLatestSl
 import { fetchDataItaly } from './features/italy/italySlice';
 import { fetchDataRegions } from './features/regions/regionsSlice';
 
-import Home from './pages/Home';
-import MapPage from './pages/MapPage';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routes';
 
 import Sidebar from './components/Sidebar'
 import SidebarMobile from './components/SidebarMobile';
@@ -20,16 +20,21 @@ function App() {
     dispatch(fetchDataItaly())
     dispatch(fetchDataRegions())
   },[])
+
   return (
     <div className="App bg-quinary bg-opacity-70">
-      <SidebarMobile/>
-      <div 
+      {/* <SidebarMobile/> */}
+
+      {/* <RouterProvider router={router} /> */}
+
+
+      {/* <div 
       // className='sm:pl-20 '
       className='pt-14'
       >
         <MapPage/>
       </div>
-      
+       */}
     </div>
   );
 }

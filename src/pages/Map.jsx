@@ -5,12 +5,10 @@ import ItalyMap from "../components/ItalyMap";
 import LoadingComponent from "../components/LoadingComponent";
 
 
-const MapPage = () => {
+const Map = () => {
   const [category, setCategory] = useState("casi_testati");
   const dataRegion = useSelector((state) => state.regionsLatest);
   const { loading, regionsLatest, error } = dataRegion;
-
-
 
   const categories = [
     "casi_testati",
@@ -39,15 +37,15 @@ const MapPage = () => {
   return (
     <div>
       <div>
-        <h1>Map Page</h1>
+        <h1 className='text-center p-4'>Map Page</h1>
       </div>
       
-      <div className='flex justify-center'>
-      <label className="p-2 mx-2 bg-ternary text-primary rounded-md ">
-        <span className="mx-2">Select data:</span>
+      <div className='flex justify-center '>
+      <label className="p-2 mx-2  bg-ternary text-primary rounded-md ">
+        <span className="w-[80%] mx-[10%] ">Select data:</span>
         <select
           value={category}
-          className="p-2 mx2 "
+          className="p-2 w-[80%] mx-[10%]"
           name="selectWord"
           id="categories"
           onChange={handleChange}
@@ -71,11 +69,8 @@ const MapPage = () => {
       {loading && <LoadingComponent />}
       {!loading && regionsLatest[0] ? <ItalyMap typeData={category} /> : null}
 
-
-
-
     </div>
   )
 }
 
-export default MapPage
+export default Map

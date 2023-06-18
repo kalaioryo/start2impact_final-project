@@ -4,19 +4,12 @@ import { useSelector } from "react-redux";
 import ErrorComponent from "./ErrorComponent";
 import LoadingComponent from "./LoadingComponent";
 
-
 const ItalyMap = ({typeData}) => {
   const [ valueRange, setValueRange ] = useState(0)
   const dataMap = useSelector((state) => state.regionsLatest)
   const {loading, regionsLatest, error} = dataMap
 
-
-  // console.log(dataMap);
-
   const WordLegenda =  typeData.replaceAll('_', ' ')
-
-  console.log(typeData);
-  console.log(WordLegenda);
 
   const options = {
     region: "IT", // Italia
