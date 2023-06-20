@@ -8,22 +8,26 @@ import { fetchDataRegions } from '../features/regions/regionsSlice';
 
 import SidebarMobile from '../components/SidebarMobile'
 import Footer from '../components/Footer'
+import { fetchDataProvincesLatest } from '../features/provincesLatest/provincesLatestSlice';
 
 const LayoutPublic = () => {
-  const dispatch = useDispatch()
+  const dispatch =  useDispatch()
 
   useEffect(()=>{
     dispatch(fetchDataRegionsLatest())
     dispatch(fetchDataItaly())
     dispatch(fetchDataRegions())
+    dispatch(fetchDataProvincesLatest())
   },[])
 
-  console.log("rendering");
+
+
+  // console.log("rendering");
 
   return (
     <>
       <SidebarMobile/>
-    <main className='mt-14 bg-quaternary w-full h-full'>
+    <main className='mt-14  w-full h-full'>
       <Outlet/>
     </main>
       <Footer/>      

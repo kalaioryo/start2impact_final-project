@@ -16,7 +16,7 @@ const regionsSlice = createSlice({
   name: 'regions',
   initialState,
   extraReducers: builder => {
-    builder.addCase(fetchDataRegions.pending, (state)=>{
+    builder.addCase(fetchDataRegions.pending, (state) => {
       state.loading = true
     })
     builder.addCase(fetchDataRegions.fulfilled, (state, action) => {
