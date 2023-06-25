@@ -19,7 +19,7 @@ const Home = () => {
   const todayData = lastTwoDayData[1]
 
   return (
-    <div className="grid grid-cols-6 gap-4 bg-red-200">
+    <div className=" grid grid-cols-12 gap-4 bg-quaternary/70">
       {/* <h1 className="w-full text-center">Home Page</h1> */}
 
       {
@@ -29,9 +29,10 @@ const Home = () => {
       {
         !loading && italy[0] ?
         <>
-          <h1 className="col-span-6 text-center">Dati aggiornati al {moment(todayData.data).format('L')}</h1>
+          <h1 className="col-span-12 text-center">Dati aggiornati al {moment(todayData.data).format('L')}</h1>
 
           <ItalyCase todayData={todayData} />
+          
           <ItalyUpdateCases todayData={todayData} yesterdayData={yesterdayData}/>
           <ItalyHospitalizations todayData={todayData} yesterdayData={yesterdayData}/>
           <ItalySwabs todayData={todayData} yesterdayData={yesterdayData}/>

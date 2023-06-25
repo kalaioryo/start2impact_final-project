@@ -6,13 +6,16 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        'primary': "#48120E",
-        'secondary': "#AB3E16",
-        'ternary': "#EFAA52",
-        'quaternary': "#E7CC8F",
+        'primary': "#142d4c",
+        'secondary': "#385170",
+        'ternary': "#9fd3c7",
+        'quaternary': "#ececec",
         'quinary': "#F8F3E6",
       }
+
       //["#F8F3E6", "#E7CC8F", "#EFAA52", "#AB3E16", "#48120E"]
+
+      // ["#ececec", "#9fd3c7", "#385170", "#142d4c"]
     },
   },
   plugins: [],

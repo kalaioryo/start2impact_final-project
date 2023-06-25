@@ -1,28 +1,44 @@
-import React from 'react'
+import React from "react";
 
 const ItalyUpdateCases = ({ todayData, yesterdayData }) => {
-  const dead = todayData.deceduti
-  const deadYesterday = yesterdayData.deceduti
+  const dead = todayData.deceduti;
+  const deadYesterday = yesterdayData.deceduti;
 
-  const healed = todayData.dimessi_guariti
-  const healedYesterday = yesterdayData.dimessi_guariti
+  const healed = todayData.dimessi_guariti;
+  const healedYesterday = yesterdayData.dimessi_guariti;
 
-  const { variazione_totale_positivi, totale_positivi} = todayData
+  const { variazione_totale_positivi, totale_positivi } = todayData;
+  const positiveYesterday = yesterdayData.totale_positivi
+
+  // const perceptualUpdate = (( variazione_totale_positivi / totale_positivi) * 100).toFixed(2)
 
   return (
-    <div className='grid grid-cols-6 col-span-6 gap-4  text-center border-4 border-orange-800 '>
-      
-      <h1 className='p-4 col-span-6 border-black border-4  bg-indigo-200 text-center'>ItalyUpdateCases</h1>
-      
-      <div className="col-span-6 md:col-span-2 p-4 border-black border-4  bg-orange-200">Morti {dead - deadYesterday}</div>
-      <div className="col-span-6 md:col-span-2 p-4 border-black border-4 bg-orange-200">Guariti {healed - healedYesterday}</div>
-      <div className="col-span-6 md:col-span-2 p-4 border-black border-4 bg-orange-200">
-        <p>Variazione positivi {variazione_totale_positivi}</p>
-        <p>totale positivi {totale_positivi}</p>
+    <div className="grid grid-cols-12 col-span-12 lg:col-start-3 lg:col-span-4 gap-4  text-center border-4 border-orange-800 ">
+      <div className="p-4 col-span-12 border-black border-4  bg-ternary/30 text-center">
+        <h3 className="text-3xl font-semibold">ItalyUpdateCases</h3>
       </div>
-    
-    </div>
-  )
-}
 
-export default ItalyUpdateCases
+      <div className="test-card">
+        <p>Morti </p>
+        <span className="text-3xl">{(dead - deadYesterday).toLocaleString('it-IT')}</span>
+        <p>Totale morti </p>
+        <span className="text-3xl">{dead.toLocaleString('it-IT')}</span>
+        
+      </div>
+      <div className="test-card">
+        <p>Guariti </p>
+        <span className="text-3xl">{(healed - healedYesterday).toLocaleString('it-IT')}</span>
+        <p>Totale guariti </p>
+        <span className="text-3xl">{healed.toLocaleString('it-IT')}</span>
+      </div>
+      <div className="test-card">
+        <p>Variazione positivi </p>
+        <span className="text-3xl">{variazione_totale_positivi.toLocaleString('it-IT')}</span>
+        <p>totale positivi </p>
+        <span className="text-3xl">{totale_positivi.toLocaleString('it-IT')}</span>
+      </div>
+    </div>
+  );
+};
+
+export default ItalyUpdateCases;

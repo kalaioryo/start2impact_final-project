@@ -31,6 +31,8 @@ const ItalyMap = ({typeData}) => {
     datalessRegionColor: "lightGray",
     defaultColor: "#f5f5f5",
     // chartArea: { width: "100%", height: "70%" }
+    // legend: "none",
+
 
   };
 

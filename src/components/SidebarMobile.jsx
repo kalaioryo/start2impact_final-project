@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import {
@@ -18,11 +18,12 @@ const SidebarMobile = () => {
   const [open, setOpen] = useState(false);
 
   const Modal = ({close}) => {
+
     return (
-      <div className="fixed top-0 left-0 w-screen h-screen bg-secondary flex justify-center flex-col items-center">
+      <div className="fixed top-0 left-0 w-screen h-screen bg-secondary flex justify-center flex-col items-center xl:hidden">
         <ul className="w-screen flex flex-col justify-evenly">
           <NavLink to={"/"} onClick={close} >
-            <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto text-primary bg-ternary rounded-md hover:bg-quaternary active:bg-primary active:text-quinary  ">
+            <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto text-primary bg-quaternary rounded-md hover:bg-ternary active:bg-primary active:text-quinary  ">
               <span className="fixed py-1 text-2xl block float-left">
                 <LuLayoutDashboard />
               </span>
@@ -30,7 +31,7 @@ const SidebarMobile = () => {
             </li>
           </NavLink>
           <NavLink to={"/map"} onClick={close}>
-            <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto text-primary bg-ternary rounded-md hover:bg-quaternary active:bg-primary active:text-quinary ">
+            <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto text-primary bg-quaternary rounded-md hover:bg-ternary active:bg-primary active:text-quinary ">
               <span className="fixed py-1 text-2xl block float-left">
                 <GiItalia />
               </span>
@@ -38,7 +39,7 @@ const SidebarMobile = () => {
             </li>
           </NavLink>
           <NavLink to={"/regions"} onClick={close}>
-            <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto text-primary bg-ternary rounded-md hover:bg-quaternary active:bg-primary active:text-quinary ">
+            <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto text-primary bg-quaternary rounded-md hover:bg-ternary active:bg-primary active:text-quinary ">
               <span className="fixed py-1 text-2xl block float-left">
                 <GiHills />
               </span>
@@ -46,7 +47,7 @@ const SidebarMobile = () => {
             </li>
           </NavLink>
           <NavLink onClick={close}>
-            <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto text-primary bg-ternary rounded-md hover:bg-quaternary active:bg-primary active:text-quinary ">
+            <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto text-primary bg-quaternary rounded-md hover:bg-ternary active:bg-primary active:text-quinary ">
               <span className="fixed py-1 text-2xl block float-left">
                 <LuSettings />
               </span>
@@ -54,7 +55,7 @@ const SidebarMobile = () => {
             </li>
           </NavLink>
           <NavLink to={"/about"} onClick={close}>
-            <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto text-primary bg-ternary rounded-md hover:bg-quaternary active:bg-primary active:text-quinary ">
+            <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto text-primary bg-quaternary rounded-md hover:bg-ternary active:bg-primary active:text-quinary ">
               <span className="fixed py-1 text-2xl block float-left">
                 <GiInfo />
               </span>
@@ -76,12 +77,12 @@ const SidebarMobile = () => {
   };
 
   return (
-    <nav className="flex fixed top-0 right-0 w-screen justify-end bg-secondary p-2 z-10">
+    <nav className="flex fixed top-0 right-0 w-screen justify-end bg-secondary p-2 z-10 lg:hidden border-b-2 shadow-2xl">
       {open && <Modal close={closeSidebar} />}
 
       <div className="z-20">
         <GiHamburgerMenu
-          className={` active:bg-ternary cursor-pointer text-4xl rounded-xl  p-1  border-primary bg-secondary text-primary " 
+          className={` active:bg-ternary cursor-pointer text-4xl rounded-xl  p-1  border-primary bg-secondary text-quaternary " 
           } `} //${!open && "rotate-180"}
           onClick={toggleSidebar}
         />
