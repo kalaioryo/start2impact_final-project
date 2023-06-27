@@ -1,80 +1,78 @@
 import React, { useState } from "react";
-import Chart from "react-google-charts";
-import LoadingComponent from "./LoadingComponent";
-import { MyResponsiveBar } from "./MyResponsiveBar";
+
 import { GiOpenBook } from "react-icons/gi";
+
+import LoadingComponent from "./LoadingComponent";
 import BaseBar from "./chart/BaseBar";
+import SwitchTextChart from "./button/SwitchTextChart";
+import RingPie from "./chart/RingPie";
 
-// const initialState = {
-//   a: false,
-//   b: false,
-//   c: false
-// };
-
-const ItalySwabs = ({ todayData, yesterdayData }) => {
-  const [isText, setIsText] = useState( {
+const ItalySwabs = ({ lastDayData, prevDayData }) => {
+  const [isText, setIsText] = useState({
     a: false,
     b: false,
-    c: false
   });
-  const [isToday, setIsToday] = useState(true);
+  const [isLastDay, setIsLastDay] = useState(true);
 
-  console.log(isText);
-
-  //tot swabs today data
+  //tot swabs lastDay data
   const {
     tamponi,
     totale_positivi_test_molecolare,
     totale_positivi_test_antigenico_rapido,
     tamponi_test_molecolare,
     tamponi_test_antigenico_rapido,
-  } = todayData;
+  } = lastDayData;
 
-  //tot swabs yesterday data
-  const totSwabsYesterday = yesterdayData.tamponi;
-  const totSwabsMolPositiveYesterday =
-    yesterdayData.totale_positivi_test_molecolare;
-  const totQuickSwabsPositiveYesterday =
-    yesterdayData.totale_positivi_test_antigenico_rapido;
-  const totSwabsMolYesterday = yesterdayData.tamponi_test_molecolare;
-  const totQuickSwabsYesterday = yesterdayData.tamponi_test_antigenico_rapido;
+  //tot swabs PrevDay data
+  const totSwabsPrevDay = prevDayData.tamponi;
+  const totSwabsMolPositivePrevDay =
+    prevDayData.totale_positivi_test_molecolare;
+  const totQuickSwabsPositivePrevDay =
+    prevDayData.totale_positivi_test_antigenico_rapido;
+  const totSwabsMolPrevDay = prevDayData.tamponi_test_molecolare;
+  const totQuickSwabsPrevDay = prevDayData.tamponi_test_antigenico_rapido;
 
-  //swabs today
-  const todaySwabs = tamponi - totSwabsYesterday;
-  const todaySwabsMolPositive =
-    totale_positivi_test_molecolare - totSwabsMolPositiveYesterday;
-  const todayQuickSwabsPositive =
-    totale_positivi_test_antigenico_rapido - totQuickSwabsPositiveYesterday;
-  const todaySwabsMol = tamponi_test_molecolare - totSwabsMolYesterday;
-  const todayQuickSwabs =
-    tamponi_test_antigenico_rapido - totQuickSwabsYesterday;
+  //swabs lastDay
+  const lastDaySwabs = tamponi - totSwabsPrevDay;
+  const lastDaySwabsMolPositive =
+    totale_positivi_test_molecolare - totSwabsMolPositivePrevDay;
+  const lastDayQuickSwabsPositive =
+    totale_positivi_test_antigenico_rapido - totQuickSwabsPositivePrevDay;
+  const lastDaySwabsMol = tamponi_test_molecolare - totSwabsMolPrevDay;
+  const lastDayQuickSwabs =
+    tamponi_test_antigenico_rapido - totQuickSwabsPrevDay;
 
   //positive %
-  const totTodaySwabsPositive = todaySwabsMolPositive + todayQuickSwabsPositive;
+  const totLastDaySwabsPositive = lastDaySwabsMolPositive + lastDayQuickSwabsPositive;
+
   const perceptualPositive = (
-    (totTodaySwabsPositive / todaySwabs) *
+    (totLastDaySwabsPositive / lastDaySwabs) *
     100
   ).toFixed(1);
 
-  const dataBar2 = [
-    {id: "Oggi",
-      molecolari: todaySwabsMol,
-      antigenici: todayQuickSwabs,}
-  ]
+  const perceptualNegative = 100 - perceptualPositive;
 
-  const dataTotal2 = [
+  //Data Chart Component A
+
+  const barDataSwabs = [
+    { id: "questa settimana", molecolari: lastDaySwabsMol, antigenici: lastDayQuickSwabs },
+  ];
+
+  const barDataTotSwabs = [
     {
       id: "Totali",
       molecolari: tamponi_test_molecolare,
       antigenici: tamponi_test_antigenico_rapido,
-    }
-  ]
+    },
+  ];
+
+  //Data Chart Component B
 
   const dataBar = [
     {
-      id: "Oggi",
-      molecolari: todaySwabsMolPositive,
-      antigenici: todayQuickSwabsPositive,
+      id: "questa settimana",
+      molecolari: lastDaySwabsMolPositive,
+      antigenici: lastDayQuickSwabsPositive,
     },
   ];
 
@@ -86,35 +84,60 @@ const ItalySwabs = ({ todayData, yesterdayData }) => {
     },
   ];
 
-  const keysBar = ["molecolari", "antigenici"];
-  const keysBar2 = ["molecolari", "antigenici"];
+  //dataPie
 
+  const dataPie = [
+    {
+      id: "Positive",
+      label: "Positive",
+      value: perceptualPositive,
+    },
+    {
+      id: "Negative",
+      label: "Negative",
+      value: perceptualNegative,
+    },
+  ];
+
+  //Keys for Charts
+
+  const keysBar = ["molecolari", "antigenici"];
+
+  const handleClickSwitch = (component) => {
+    setIsText({
+      ...isText,
+      [component]: !isText[component],
+    });
+  };
 
   return (
-    <div className="grid grid-cols-12 relative col-span-12 lg:col-start-5 lg:col-span-5 gap-4  text-center border-4 border-orange-800">
+    <div className="test-container">
       
-      <div className="p-4 col-span-12 border-black border-4  bg-ternary/30 text-center">
-        <h3 className="text-3xl font-semibold">Tamponi {isToday ? "Oggi" : "Totali"}</h3>
-        <span className="text-3xl font-bold">
-          {isToday ? todaySwabs.toLocaleString("it-IT") : tamponi.toLocaleString('it-IT')}
+      <div className="p-4 col-span-12 xl:col-span-3 border-black border-4  bg-ternary/30 text-center">
+        <h3 className="text-2xl font-semibold">
+          Tamponi {isLastDay ? "ultimi dati" : "Totali"}
+        </h3>
+        <span className="block p-3 text-3xl font-bold">
+          {isLastDay
+            ? lastDaySwabs.toLocaleString("it-IT")
+            : tamponi.toLocaleString("it-IT")}
         </span>
         {/* <h3>Totale Tamponi {tamponi.toLocaleString('it-IT')}</h3> */}
-
 
         <div className="flex justify-evenly">
           <button className="my-6">
             <span
               className="p-4 bg-quaternary rounded-lg"
-              onClick={() => setIsToday(true)}
+              onClick={() => setIsLastDay(true)}
             >
-              Oggi
+              Ultimi dati
             </span>
           </button>
 
           <button className="my-2">
             <span
               className="p-4 bg-quaternary rounded-lg"
-              onClick={() => setIsToday(false)}
+              onClick={() => setIsLastDay(false)}
             >
               Totale
             </span>
@@ -122,91 +145,94 @@ const ItalySwabs = ({ todayData, yesterdayData }) => {
         </div>
       </div>
 
-      {/* component A*/}
+      {/* ##### component A ##### */}
 
       <div className="test-card relative">
+        <SwitchTextChart
+          component={"a"}
+          switchText={handleClickSwitch}
+          isText={isText.a}
+        />
 
-      <button className="absolute right-5 top-4 z-10">
-          <span
-            className="cursor-pointer text-3xl text-primary rounded"
-            onClick={() => setIsText({...isText, a: !isText.a })}
-          >
-            <GiOpenBook />
-          </span>
-        </button>
-
-        {
-          isText.a ?
+        {isText.a ? (
           <>
             <p>Tamponi molecolari </p>
             <span className="text-3xl">
-              {isToday ? todaySwabsMol.toLocaleString("it-IT") : tamponi_test_molecolare.toLocaleString("it-IT") }
+              {isLastDay
+                ? lastDaySwabsMol.toLocaleString("it-IT")
+                : tamponi_test_molecolare.toLocaleString("it-IT")}
             </span>
             <p>Tamponi antigenico </p>
             <span className="text-3xl">
-            {isToday ? todayQuickSwabs.toLocaleString("it-IT") : tamponi_test_antigenico_rapido.toLocaleString("it-IT")}
+              {isLastDay
+                ? lastDayQuickSwabs.toLocaleString("it-IT")
+                : tamponi_test_antigenico_rapido.toLocaleString("it-IT")}
             </span>
-          </> :
-          <>
+          </>
+        ) : (
           <div className="h-[250px]">
+            <h3>Tamponi usati</h3>
             <BaseBar
-              data={isToday ? dataBar2 : dataTotal2}
-              keysBar={keysBar2}
+              data={isLastDay ? barDataSwabs : barDataTotSwabs}
+              keysBar={keysBar}
               layout={"horizontal"}
             />
           </div>
-        </>
-        }
-        
-        
+        )}
       </div>
 
-      {/* component B*/}
+      {/* #### component B ##### */}
 
       <div className="test-card relative">
-
-        <button className="absolute right-5 top-4 z-10">
-          <span
-            className="cursor-pointer text-3xl text-primary rounded"
-            onClick={() => setIsText({...isText, b: !isText.b })}
-          >
-            <GiOpenBook />
-          </span>
-        </button>
+        <SwitchTextChart
+          component={"b"}
+          switchText={handleClickSwitch}
+          isText={isText.b}
+        />
 
         {isText.b ? (
           <>
             <p className="pt-6">Positivi molecolari </p>
             <span className="text-3xl">
-              {isToday
-                ? todaySwabsMolPositive.toLocaleString("it-IT")
+              {isLastDay
+                ? lastDaySwabsMolPositive.toLocaleString("it-IT")
                 : totale_positivi_test_molecolare.toLocaleString("it-IT")}
             </span>
             <p>Positivi antigenico </p>
             <span className="text-3xl">
-            {isToday
-                ? todayQuickSwabsPositive.toLocaleString("it-IT")
-                : totale_positivi_test_antigenico_rapido.toLocaleString("it-IT")}
+              {isLastDay
+                ? lastDayQuickSwabsPositive.toLocaleString("it-IT")
+                : totale_positivi_test_antigenico_rapido.toLocaleString(
+                    "it-IT"
+                  )}
             </span>
           </>
         ) : (
-          <>
-            <div className="h-[250px]">
-              <BaseBar
-                data={isToday ? dataBar : dataTotalBar}
-                keysBar={keysBar}
-                layout={"horizontal"}
-              />
-            </div>
-          </>
+          <div className="h-[250px]">
+            <h3>Tamponi positivi</h3>
+
+            <BaseBar
+              data={isLastDay ? dataBar : dataTotalBar}
+              keysBar={keysBar}
+              layout={"horizontal"}
+            />
+          </div>
         )}
       </div>
 
       {/* component C*/}
 
-      <div className="test-card ">
-        <p>Positività</p>
-        <span className="text-3xl">{perceptualPositive}%</span>
+      <div className="test-card relative">
+        <div className="absolute top-[34%] left-[38%] sm:left-[43%] lg:[40%] xl:left-[42%] 2xl:left-[44%]">
+          <p className="p-2 text-xl ">Positività</p>
+          <span className="block text-3xl ">{perceptualPositive}%</span>
+        </div>
+
+        <div className="h-[200px] ">
+          <RingPie data={dataPie} perceptual={true} />
+
+          {/* <TestPie/> */}
+        </div>
       </div>
     </div>
   );

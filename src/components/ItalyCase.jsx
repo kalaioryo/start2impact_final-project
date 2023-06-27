@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-const ItalyCase = ({ todayData }) => {
+const ItalyCase = ({ lastDayData }) => {
 
-  const { nuovi_positivi , totale_casi } = todayData
+  const { nuovi_positivi , totale_casi } = lastDayData
 
   return (
     <div className='p-4 text-center col-span-12 lg:col-span-7 lg:col-start-4 border-4 border-red-800 bg-ternary/50 '>

@@ -10,13 +10,15 @@ import ItalyHospitalizations from "../components/ItalyHospitalizations";
 import ItalySwabs from "../components/ItalySwabs";
 
 const Home = () => {
-  const [category, setCategory] = useState("casi_testati");
+  // const [category, setCategory] = useState("casi_testati");
   const dataItaly = useSelector((state) => state.italy);
   const { loading, italy, error } = dataItaly;
 
-  const lastTwoDayData = italy.slice(-2)
-  const yesterdayData = lastTwoDayData[0]
-  const todayData = lastTwoDayData[1]
+  const lastWeek = italy.slice(-14)
+
+  const lastTwoDaysData = italy.slice(-2)
+  const prevDayData = lastTwoDaysData[0]
+  const lastDayData = lastTwoDaysData[1]
 
   return (
     <div className=" grid grid-cols-12 gap-4 bg-quaternary/70">
@@ -29,13 +31,13 @@ const Home = () => {
       {
         !loading && italy[0] ?
         <>
-          <h1 className="col-span-12 text-center">Dati aggiornati al {moment(todayData.data).format('L')}</h1>
+          <h1 className="col-span-12 text-center">Dati aggiornati al {moment(lastDayData.data).format('L')}</h1>
 
-          <ItalyCase todayData={todayData} />
+          <ItalyCase lastDayData={lastDayData} />
           
-          <ItalyUpdateCases todayData={todayData} yesterdayData={yesterdayData}/>
-          <ItalyHospitalizations todayData={todayData} yesterdayData={yesterdayData}/>
-          <ItalySwabs todayData={todayData} yesterdayData={yesterdayData}/>
+          <ItalyUpdateCases lastDayData={lastDayData} prevDayData={prevDayData}/> 
+          <ItalyHospitalizations lastDayData={lastDayData} prevDayData={prevDayData} lastWeek={lastWeek}/>
+          <ItalySwabs lastDayData={lastDayData} prevDayData={prevDayData}/>
         </>
 
       : null
