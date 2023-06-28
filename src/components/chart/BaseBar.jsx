@@ -26,6 +26,19 @@ const BaseBar = ({ data, keysBar, groupMode, layout }) => (
       "fontSize": 18,
       }
     }
+
+    tooltip={({ id, value, color }) => (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          padding: 12,
+          color,
+          background: "#222222",
+        }}
+      ><span>{id}</span><span>{value.toLocaleString("it-IT")}</span></div>
+    )}
+
     // legends={undefined} //la proprietà accetta undefined
 
     legends={[
@@ -53,6 +66,7 @@ const BaseBar = ({ data, keysBar, groupMode, layout }) => (
       },
     ]}
   />
+
   // </ThemeProvider>
   
 );

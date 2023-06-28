@@ -6,6 +6,7 @@ body{
   background-image: url('./assets/svg/topography.svg');
   //background-color: white;
   -webkit-tap-highlight-color: transparent;
+  
 }
 
 @layer components {

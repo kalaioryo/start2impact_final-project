@@ -5,7 +5,7 @@ import { BsPieChartFill } from 'react-icons/bs'
 
 const SwitchTextChart = ({component, switchText, isText}) => {
   return (
-    <button className="absolute right-5 top-4 z-10">
+    <button className="absolute left-5 top-4 z-10">
           <span
             className="cursor-pointer text-3xl text-primary rounded"
             onClick={() => switchText(component)}

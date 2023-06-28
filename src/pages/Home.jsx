@@ -14,9 +14,11 @@ const Home = () => {
   const dataItaly = useSelector((state) => state.italy);
   const { loading, italy, error } = dataItaly;
 
-  const lastWeek = italy.slice(-14)
+  const lastMonth = italy.slice(-30)
+  const lastTwoWeek = lastMonth.slice(-14)
 
   const lastTwoDaysData = italy.slice(-2)
+
   const prevDayData = lastTwoDaysData[0]
   const lastDayData = lastTwoDaysData[1]
 
@@ -36,7 +38,7 @@ const Home = () => {
           <ItalyCase lastDayData={lastDayData} />
           
           <ItalyUpdateCases lastDayData={lastDayData} prevDayData={prevDayData}/> 
-          <ItalyHospitalizations lastDayData={lastDayData} prevDayData={prevDayData} lastWeek={lastWeek}/>
+          <ItalyHospitalizations lastDayData={lastDayData} prevDayData={prevDayData} lastTwoWeek={lastTwoWeek} lastMonth={lastMonth}/>
           <ItalySwabs lastDayData={lastDayData} prevDayData={prevDayData}/>
         </>
 

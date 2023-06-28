@@ -147,7 +147,7 @@ const ItalySwabs = ({ lastDayData, prevDayData }) => {
 
       {/* ##### component A ##### */}
 
-      <div className="test-card relative">
+      <div className="test-card relative px-16">
         <SwitchTextChart
           component={"a"}
           switchText={handleClickSwitch}
@@ -183,7 +183,7 @@ const ItalySwabs = ({ lastDayData, prevDayData }) => {
 
       {/* #### component B ##### */}
 
-      <div className="test-card relative">
+      <div className="test-card relative px-16">
         <SwitchTextChart
           component={"b"}
           switchText={handleClickSwitch}
@@ -223,7 +223,7 @@ const ItalySwabs = ({ lastDayData, prevDayData }) => {
       {/* component C*/}
 
       <div className="test-card relative">
-        <div className="absolute top-[34%] left-[38%] sm:left-[43%] lg:[40%] xl:left-[42%] 2xl:left-[44%]">
+        <div className="absolute top-[34%] left-[38%] sm:left-[43%] lg:[40%] xl:left-[42%] 2xl:left-[44%] z">
           <p className="p-2 text-xl ">Positività</p>
           <span className="block text-3xl ">{perceptualPositive}%</span>
         </div>
