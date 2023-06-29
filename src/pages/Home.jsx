@@ -37,7 +37,7 @@ const Home = () => {
 
           <ItalyCase lastDayData={lastDayData} />
           
-          <ItalyUpdateCases lastDayData={lastDayData} prevDayData={prevDayData}/> 
+          <ItalyUpdateCases lastDayData={lastDayData} prevDayData={prevDayData} lastMonth={lastMonth}/> 
           <ItalyHospitalizations lastDayData={lastDayData} prevDayData={prevDayData} lastTwoWeek={lastTwoWeek} lastMonth={lastMonth}/>
           <ItalySwabs lastDayData={lastDayData} prevDayData={prevDayData}/>
         </>

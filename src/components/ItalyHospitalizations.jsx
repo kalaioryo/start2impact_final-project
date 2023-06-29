@@ -48,26 +48,26 @@ const ItalyHospitalizations = ({ lastDayData, prevDayData, lastTwoWeek, lastMont
 
   //##### Data for Bar Chart ####
 
-  const dataBarHospitalized = getTimeRange[timeRange].map((Day) => {
+  const dataBarHospitalized = getTimeRange[timeRange].map((day) => {
     const arrayHospitalized = {
-      id: moment(Day.data).format("MMM D"),
-      hospitalized: Day.totale_ospedalizzati,
+      id: moment(day.data).format("MMM D"),
+      hospitalized: day.totale_ospedalizzati,
     };
     return arrayHospitalized;
   });
 
-  const dataBarIsolation = getTimeRange[timeRange].map((Day) => {
+  const dataBarIsolation = getTimeRange[timeRange].map((day) => {
     const arrayIsolation = {
-      id: moment(Day.data).format("MMM D"),
-      isolation: Day.isolamento_domiciliare,
+      id: moment(day.data).format("MMM D"),
+      isolation: day.isolamento_domiciliare,
     };
     return arrayIsolation;
   });
 
-  const dataBarIntensiveCare = getTimeRange[timeRange].map((Day) => {
+  const dataBarIntensiveCare = getTimeRange[timeRange].map((day) => {
     const arrayIntensiveCare = {
-      id: moment(Day.data).format("MMM D"),
-      "intensive care": Day.terapia_intensiva,
+      id: moment(day.data).format("MMM D"),
+      "intensive care": day.terapia_intensiva,
     };
     return arrayIntensiveCare;
   });
