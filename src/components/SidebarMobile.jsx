@@ -77,7 +77,7 @@ const SidebarMobile = () => {
   };
 
   return (
-    <nav className="flex fixed top-0 right-0 w-screen justify-end bg-secondary p-2 z-20 lg:hidden border-b-2 shadow-2xl">
+    <nav className="flex fixed top-0 left-0  w-full justify-end bg-secondary p-2 z-20 lg:hidden border-b-2 shadow-2xl">
       {open && <Modal close={closeSidebar} />}
 
       <div className="z-20">

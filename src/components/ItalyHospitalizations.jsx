@@ -7,7 +7,10 @@ import SelectTimeRange from "./button/SelectTimeRange";
 
 const ItalyHospitalizations = ({ lastDayData, prevDayData, lastTwoWeek, lastMonth }) => {
   const [isText, setIsText] = useState({
+    main: false,
     a: false,
+    b: false,
+    c: false
   });
   const [currentKeyBar, setCurrentKeyBar] = useState(["hospitalized"]);
   const [timeRange, setTimeRange] = useState('month')
@@ -92,17 +95,17 @@ const ItalyHospitalizations = ({ lastDayData, prevDayData, lastTwoWeek, lastMont
 
   return (
     <div className="relative grid grid-cols-12 col-span-12 lg:col-start-8 lg:col-span-4 xl:col-span-10 xl:col-start-2 gap-4  text-center border-4 border-orange-800">
-      {!isText.a ? (
+      {!isText.main ? (
         <>
           <div className="relative">
               <SwitchTextChart
-                component={"a"}
+                component={"main"}
                 switchText={handleClickSwitch}
-                isText={isText.a}
+                isText={isText.main}
               />
             </div>
 
-            <div className="flex justify-center col-span-12">
+            <div className="flex justify-end mr-[2%] col-span-12">
             <SelectTimeRange
               text={"week"}
               setTimeRange={setTimeRange}
@@ -119,10 +122,8 @@ const ItalyHospitalizations = ({ lastDayData, prevDayData, lastTwoWeek, lastMont
               text={"month"}
               setTimeRange={setTimeRange}
               timeRange={"month"}
-            />
-          
+            />          
             </div>
-
             
 
           <div className="h-[400px] col-span-12">
@@ -155,9 +156,9 @@ const ItalyHospitalizations = ({ lastDayData, prevDayData, lastTwoWeek, lastMont
         <>
           <div className="relative col-span-12  xl:col-span-3 p-4 border-black border-4  bg-ternary/50 text-center">
             <SwitchTextChart
-              component={"a"}
+              component={"main"}
               switchText={handleClickSwitch}
-              isText={isText.a}
+              isText={isText.main}
             />
 
             <h3 className="text-2xl font-semibold">Ospedalizzazioni</h3>

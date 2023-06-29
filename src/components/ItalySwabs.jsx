@@ -223,19 +223,27 @@ const ItalySwabs = ({ lastDayData, prevDayData }) => {
       {/* component C*/}
 
       <div className="test-card relative">
-        <div className="absolute top-[34%] left-[38%] sm:left-[43%] lg:[40%] xl:left-[42%] 2xl:left-[44%] z">
-          <p className="p-2 text-xl ">Positività</p>
-          <span className="block text-3xl ">{perceptualPositive}%</span>
+
+        <div className="col-span-1 col-start-2">
+          <p className="p-2 text-xl text-center absolute top-[30%] left-[40%]">Positività</p>
+          <span className="block text-3xl absolute top-[42%] left-[45%]">{perceptualPositive}%</span>
+          <div className="h-[200px]">
+            <RingPie data={dataPie} perceptual={true} />
+          </div>
+
         </div>
 
-        <div className="h-[200px] ">
+        {/* <div className="h-[200px]">
           <RingPie data={dataPie} perceptual={true} />
+        </div> */}
 
-          {/* <TestPie/> */}
-        </div>
+        
+
       </div>
     </div>
   );
 };
 
 export default ItalySwabs;
+
+//top-[34%] left-[38%] sm:left-[43%] lg:[40%] xl:left-[42%] 2xl:left-[44%] z
