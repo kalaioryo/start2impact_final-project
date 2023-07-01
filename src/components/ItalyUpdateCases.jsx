@@ -2,15 +2,24 @@ import React, { useState } from "react";
 import SwitchTextChart from "./button/SwitchTextChart";
 import StandardLine from "./chart/StandardLine";
 import moment from "moment";
+import SelectTimeRange from "./button/SelectTimeRange";
+import SelectCategoryInput from "./input/SelectCategoryInput";
 
-const ItalyUpdateCases = ({ lastDayData, prevDayData, lastMonth, day31 }) => {
-  const [timeRange, setTimeRange] = useState("month");
+const ItalyUpdateCases = ({lastMonth, day31Ago }) => {
+  const [timeRange, setTimeRange] = useState("week");
+  const [category, setCategory] = useState("morti")
   const [isText, setIsText] = useState({
     main: false,
     a: false,
     b: false,
     c: false,
   });
+
+  console.log(category);
+
+  const lastTwoDay = lastMonth.slice(-2)
+  const prevDay = lastTwoDay[0]
+  const lastDay = lastTwoDay[1]
 
   //Time Range of data chart
 
@@ -23,7 +32,7 @@ const ItalyUpdateCases = ({ lastDayData, prevDayData, lastMonth, day31 }) => {
   //add one day for diff data
 
   const dayForDiffData = {
-    month: day31[0].dimessi_guariti,
+    month: day31Ago[0].dimessi_guariti,
     twoWeek: lastMonth.slice(-15, -14)[0].dimessi_guariti,
     week: lastMonth.slice(-8, -7)[0].dimessi_guariti,
   };
@@ -91,38 +100,57 @@ const ItalyUpdateCases = ({ lastDayData, prevDayData, lastMonth, day31 }) => {
     return dataLineNewHealed;
   };
 
+//categories for props select input
+
+  const categories = [
+    "nuovi dati",
+    "nuovi positivi",
+    "nuovi guariti",
+    "morti",
+    "guariti"
+  ]
+
+  //All categories data
+
   const categoryData = [
-    // {
-    //   id: "dead",
-    //   data: dataLineDead
-    // },
-    // {
-    //   id: "healed",
-    //   data: dataLineHealed
-    // },
-    // {
-    //   id: "Nuovi Positivi",
-    //   data: dataLineNewPositive
-    // },
+    {
+      id: "Nuovi Positivi",
+      data: dataLineNewPositive
+    },
     {
       id: "Nuovi Guariti",
       data: wrapperNewHealed(),
     },
+    {
+      id: "dead",
+      data: dataLineDead
+    },
+    {
+      id: "healed",
+      data: dataLineHealed
+    },
   ];
 
-  // console.log(categoryData);
+  //Data selected from select input
+
+  const selectCategory = {
+    "nuovi dati": categoryData.slice(0,2),
+    "nuovi positivi": [categoryData[0]],
+    "nuovi guariti": [categoryData[1]],
+    "morti" : [categoryData[2]],
+    "guariti" : [categoryData[3]]
+  }
+
 
   // deconstruction data
+  const dead = lastDay.deceduti;
+  const deadPrevDay = prevDay.deceduti;
 
-  const dead = lastDayData.deceduti;
-  const deadPrevDay = prevDayData.deceduti;
-  console.log(dead);
+  const healed = lastDay.dimessi_guariti;
+  const healedPrevDay = prevDay.dimessi_guariti;
 
-  const healed = lastDayData.dimessi_guariti;
-  const healedPrevDay = prevDayData.dimessi_guariti;
-
-  const { variazione_totale_positivi, totale_positivi } = lastDayData;
-  const positivePrevDay = prevDayData.totale_positivi;
+  const { variazione_totale_positivi, totale_positivi } = lastDay;
+  const positivePrevDay = prevDay.totale_positivi;
 
   // const perceptualUpdate = (( variazione_totale_positivi / totale_positivi) * 100).toFixed(2)
 
@@ -133,10 +161,15 @@ const ItalyUpdateCases = ({ lastDayData, prevDayData, lastMonth, day31 }) => {
     });
   };
 
+  const handleChangeCategory = (e) => {
+    setCategory(e.target.value)
+  }
+
   return (
     <div className="test-container relative">
       {!isText.main ? (
         <>
+
           <div className=" absolute">
             <SwitchTextChart
               component={"main"}
@@ -145,10 +178,49 @@ const ItalyUpdateCases = ({ lastDayData, prevDayData, lastMonth, day31 }) => {
             />
           </div>
 
-          <div className="h-[400px] col-span-12">
-            <StandardLine data={categoryData} />
+          <div className="col-span-12 pt-4 text-xl">
+            <h3 >Aggiornamento Casi</h3>
           </div>
+
+          {/* Select Input */}
+          <div className="col-span-12">
+            <SelectCategoryInput
+              categorySelect={category}
+              categories={categories}
+              handleChangeCategory={handleChangeCategory}
+            />
+          </div>
+
+          {/* button select time range */}
+
+          <div className="flex justify-end mr-[2%] col-span-12">
+            <SelectTimeRange
+              text={"week"}
+              setTimeRange={setTimeRange}
+              timeRange={"week"}
+            />
+
+            <SelectTimeRange
+              text={"twoWeek"}
+              setTimeRange={setTimeRange}
+              timeRange={"twoWeek"}
+            />
+
+            <SelectTimeRange
+              text={"month"}
+              setTimeRange={setTimeRange}
+              timeRange={"month"}
+            />          
+            </div>
+
+            {/* Line chart */}
+
+          <div className="h-[400px] col-span-12">
+            <StandardLine data={selectCategory[category]} />
+          </div>        
         </>
+
+
       ) : (
         <>
           <div className="absolute">

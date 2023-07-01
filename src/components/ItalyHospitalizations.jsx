@@ -5,7 +5,7 @@ import SwitchTextChart from "./button/SwitchTextChart";
 import SelectCurrentKey from "./button/SelectCurrentKey";
 import SelectTimeRange from "./button/SelectTimeRange";
 
-const ItalyHospitalizations = ({ lastDayData, prevDayData, lastTwoWeek, lastMonth }) => {
+const ItalyHospitalizations = ({lastMonth}) => {
   const [isText, setIsText] = useState({
     main: false,
     a: false,
@@ -14,6 +14,10 @@ const ItalyHospitalizations = ({ lastDayData, prevDayData, lastTwoWeek, lastMont
   });
   const [currentKeyBar, setCurrentKeyBar] = useState(["hospitalized"]);
   const [timeRange, setTimeRange] = useState('month')
+
+  const lastTwoDay = lastMonth.slice(-2)
+  const prevDay = lastTwoDay[0]
+  const lastDay = lastTwoDay[1]
 
 
   //Time Range of data chart
@@ -34,12 +38,12 @@ const ItalyHospitalizations = ({ lastDayData, prevDayData, lastTwoWeek, lastMont
     totale_ospedalizzati,
     isolamento_domiciliare,
     ingressi_terapia_intensiva,
-  } = lastDayData;
+  } = lastDay;
 
   //previous Day
 
-  const HospitalizedPrevDay = prevDayData.ricoverati_con_sintomi;
-  const isolationPrevDay = prevDayData.isolamento_domiciliare;
+  const HospitalizedPrevDay = prevDay.ricoverati_con_sintomi;
+  const isolationPrevDay = prevDay.isolamento_domiciliare;
 
   //last Day
 
@@ -97,6 +101,7 @@ const ItalyHospitalizations = ({ lastDayData, prevDayData, lastTwoWeek, lastMont
     <div className="relative grid grid-cols-12 col-span-12 lg:col-start-8 lg:col-span-4 xl:col-span-10 xl:col-start-2 gap-4  text-center border-4 border-orange-800">
       {!isText.main ? (
         <>
+
           <div className="relative">
               <SwitchTextChart
                 component={"main"}

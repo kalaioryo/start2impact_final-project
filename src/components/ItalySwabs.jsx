@@ -7,12 +7,16 @@ import BaseBar from "./chart/BaseBar";
 import SwitchTextChart from "./button/SwitchTextChart";
 import RingPie from "./chart/RingPie";
 
-const ItalySwabs = ({ lastDayData, prevDayData }) => {
+const ItalySwabs = ({ lastMonth }) => {
   const [isText, setIsText] = useState({
     a: false,
     b: false,
   });
   const [isLastDay, setIsLastDay] = useState(true);
+
+  const lastTwoDay = lastMonth.slice(-2)
+  const prevDay = lastTwoDay[0]
+  const lastDay = lastTwoDay[1]
 
   //tot swabs lastDay data
   const {
@@ -21,16 +25,16 @@ const ItalySwabs = ({ lastDayData, prevDayData }) => {
     totale_positivi_test_antigenico_rapido,
     tamponi_test_molecolare,
     tamponi_test_antigenico_rapido,
-  } = lastDayData;
+  } = lastDay;
 
   //tot swabs PrevDay data
-  const totSwabsPrevDay = prevDayData.tamponi;
+  const totSwabsPrevDay = prevDay.tamponi;
   const totSwabsMolPositivePrevDay =
-    prevDayData.totale_positivi_test_molecolare;
+    prevDay.totale_positivi_test_molecolare;
   const totQuickSwabsPositivePrevDay =
-    prevDayData.totale_positivi_test_antigenico_rapido;
-  const totSwabsMolPrevDay = prevDayData.tamponi_test_molecolare;
-  const totQuickSwabsPrevDay = prevDayData.tamponi_test_antigenico_rapido;
+    prevDay.totale_positivi_test_antigenico_rapido;
+  const totSwabsMolPrevDay = prevDay.tamponi_test_molecolare;
+  const totQuickSwabsPrevDay = prevDay.tamponi_test_antigenico_rapido;
 
   //swabs lastDay
   const lastDaySwabs = tamponi - totSwabsPrevDay;

@@ -17,6 +17,8 @@ const StandardLine = ({data}) => (
         }}
         yFormat=" >-,"
 
+        
+
   // data={[
   //   {
   //     "id": "japan",
@@ -39,6 +41,13 @@ const StandardLine = ({data}) => (
   // ]}
 
   margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+  axisBottom={{
+    tickSize: 6,
+    tickPadding: 4,
+    tickRotation: -47,
+    // legend: 'transportation',
+    legendOffset: 36,
+    legendPosition: 'middle'}}
 
   legends={[
     {

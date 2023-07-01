@@ -15,11 +15,10 @@ const Home = () => {
   const { loading, italy, error } = dataItaly;
 
   const lastMonth = italy.slice(-30)
-  const lastTwoWeek = lastMonth.slice(-14)
 
   const lastTwoDaysData = italy.slice(-2)
 
-  const prevDayData = lastTwoDaysData[0]
+  const day31Ago = italy.slice(-31,-30)
   const lastDayData = lastTwoDaysData[1]
 
   return (
@@ -37,9 +36,9 @@ const Home = () => {
 
           <ItalyCase lastDayData={lastDayData} />
           
-          <ItalyUpdateCases lastDayData={lastDayData} prevDayData={prevDayData} lastMonth={lastMonth}/> 
-          <ItalyHospitalizations lastDayData={lastDayData} prevDayData={prevDayData} lastTwoWeek={lastTwoWeek} lastMonth={lastMonth}/>
-          <ItalySwabs lastDayData={lastDayData} prevDayData={prevDayData}/>
+          <ItalyUpdateCases lastMonth={lastMonth} day31Ago={day31Ago}/> 
+          <ItalyHospitalizations lastMonth={lastMonth}/>
+          <ItalySwabs lastMonth={lastMonth}/>
         </>
 
       : null
