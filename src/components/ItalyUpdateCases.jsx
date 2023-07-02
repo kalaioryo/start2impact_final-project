@@ -63,6 +63,14 @@ const ItalyUpdateCases = ({lastMonth, day31Ago }) => {
     return objectNewPositive;
   });
 
+  const dataLineVariation = getTimeRange[timeRange].map((day) => {
+    const objectVaration = {
+      x: moment(day.data).format("MMM D"),
+      y: day.variazione_totale_positivi
+    }
+    return objectVaration
+  })
+
   //#### array element - arrayCopied element
   const wrapperNewHealed = () => {
 
@@ -107,7 +115,8 @@ const ItalyUpdateCases = ({lastMonth, day31Ago }) => {
     "nuovi positivi",
     "nuovi guariti",
     "morti",
-    "guariti"
+    "guariti",
+    "Variazione totale positivi"
   ]
 
   //All categories data
@@ -129,6 +138,10 @@ const ItalyUpdateCases = ({lastMonth, day31Ago }) => {
       id: "healed",
       data: dataLineHealed
     },
+    {
+      id: "Variazione totale positivi",
+      data: dataLineVariation
+    }
   ];
 
   //Data selected from select input
@@ -138,8 +151,12 @@ const ItalyUpdateCases = ({lastMonth, day31Ago }) => {
     "nuovi positivi": [categoryData[0]],
     "nuovi guariti": [categoryData[1]],
     "morti" : [categoryData[2]],
-    "guariti" : [categoryData[3]]
+    "guariti" : [categoryData[3]],
+    "Variazione totale positivi" : [categoryData[4]]
   }
+
+  console.log(categoryData[0]);
+  console.log(categoryData[4]);
 
 
   // deconstruction data
@@ -191,7 +208,7 @@ const ItalyUpdateCases = ({lastMonth, day31Ago }) => {
             />
           </div>
 
-          {/* button select time range */}
+          {/* buttons select time range */}
 
           <div className="flex justify-end mr-[2%] col-span-12">
             <SelectTimeRange
