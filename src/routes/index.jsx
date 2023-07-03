@@ -6,7 +6,7 @@ import Map from "../pages/Map";
 import About from "../pages/About";
 import NotFound from "../pages/NotFound";
 import LayoutPublic from "../layout/LayoutPublic";
-import Region from "../pages/Region";
+import Provinces from "../pages/Provinces";
 
 export  const router = createBrowserRouter([
   {
@@ -30,8 +30,8 @@ export  const router = createBrowserRouter([
             element: <Regions/>,
           },
           {
-            path: "/regions/:id",
-            element: <Region/>
+            path: "/provinces",
+            element: <Provinces/>
           },
           {
             path: "/about",

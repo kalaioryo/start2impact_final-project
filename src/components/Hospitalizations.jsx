@@ -5,7 +5,7 @@ import SwitchTextChart from "./button/SwitchTextChart";
 import SelectCurrentKey from "./button/SelectCurrentKey";
 import SelectTimeRange from "./button/SelectTimeRange";
 
-const ItalyHospitalizations = ({lastMonth}) => {
+const Hospitalizations = ({lastMonth}) => {
   const [isText, setIsText] = useState({
     main: false,
     a: false,
@@ -13,7 +13,7 @@ const ItalyHospitalizations = ({lastMonth}) => {
     c: false
   });
   const [currentKeyBar, setCurrentKeyBar] = useState(["hospitalized"]);
-  const [timeRange, setTimeRange] = useState('month')
+  const [timeRange, setTimeRange] = useState('week')
 
   const lastTwoDay = lastMonth.slice(-2)
   const prevDay = lastTwoDay[0]
@@ -208,4 +208,4 @@ const ItalyHospitalizations = ({lastMonth}) => {
   );
 };
 
-export default ItalyHospitalizations;
+export default Hospitalizations;

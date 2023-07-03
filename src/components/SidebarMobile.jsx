@@ -14,6 +14,9 @@ import {
 
 import { LuSyringe, LuSettings, LuLayoutDashboard } from "react-icons/lu";
 
+import {TbMapSearch} from "react-icons/tb"
+import {FaCity} from "react-icons/fa"
+
 const SidebarMobile = () => {
   const [open, setOpen] = useState(false);
 
@@ -25,7 +28,7 @@ const SidebarMobile = () => {
           <NavLink to={"/"} onClick={close} >
             <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto text-primary bg-quaternary rounded-md hover:bg-ternary active:bg-primary active:text-quinary  ">
               <span className="fixed py-1 text-2xl block float-left">
-                <LuLayoutDashboard />
+                <GiItalia />
               </span>
               Home
             </li>
@@ -33,9 +36,9 @@ const SidebarMobile = () => {
           <NavLink to={"/map"} onClick={close}>
             <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto text-primary bg-quaternary rounded-md hover:bg-ternary active:bg-primary active:text-quinary ">
               <span className="fixed py-1 text-2xl block float-left">
-                <GiItalia />
+                <TbMapSearch />
               </span>
-              Italia
+              Mappa
             </li>
           </NavLink>
           <NavLink to={"/regions"} onClick={close}>
@@ -43,15 +46,15 @@ const SidebarMobile = () => {
               <span className="fixed py-1 text-2xl block float-left">
                 <GiHills />
               </span>
-              Regions
+              Regioni
             </li>
           </NavLink>
-          <NavLink onClick={close}>
+          <NavLink to={"/provinces"} onClick={close}>
             <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto text-primary bg-quaternary rounded-md hover:bg-ternary active:bg-primary active:text-quinary ">
               <span className="fixed py-1 text-2xl block float-left">
-                <LuSettings />
+                <FaCity />
               </span>
-              Setting
+              Province
             </li>
           </NavLink>
           <NavLink to={"/about"} onClick={close}>

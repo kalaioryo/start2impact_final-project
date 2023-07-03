@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import SwitchTextChart from "./button/SwitchTextChart";
-import StandardLine from "./chart/StandardLine";
 import moment from "moment";
+
+import StandardLine from "./chart/StandardLine";
+
+import SwitchTextChart from "./button/SwitchTextChart";
 import SelectTimeRange from "./button/SelectTimeRange";
 import SelectCategoryInput from "./input/SelectCategoryInput";
 
-const ItalyUpdateCases = ({lastMonth, day31Ago }) => {
+const UpdateCases = ({lastMonth, day31Ago }) => {
   const [timeRange, setTimeRange] = useState("week");
-  const [category, setCategory] = useState("morti")
+  const [category, setCategory] = useState("nuovi dati")
   const [isText, setIsText] = useState({
     main: false,
     a: false,
@@ -249,7 +251,7 @@ const ItalyUpdateCases = ({lastMonth, day31Ago }) => {
           </div>
 
           <div className="p-4 col-span-12 xl:col-span-3 border-black border-4  bg-ternary/30 text-center">
-            <h3 className="text-2xl font-semibold">ItalyUpdateCases</h3>
+            <h3 className="text-2xl font-semibold">UpdateCases</h3>
           </div>
 
           <div className="test-card relative">
@@ -305,4 +307,4 @@ const ItalyUpdateCases = ({lastMonth, day31Ago }) => {
   );
 };
 
-export default ItalyUpdateCases;
+export default UpdateCases;

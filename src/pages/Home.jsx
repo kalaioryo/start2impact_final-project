@@ -4,15 +4,17 @@ import { useSelector } from "react-redux";
 import moment from "moment/moment";
 
 import LoadingComponent from "../components/LoadingComponent";
-import ItalyCase from "../components/ItalyCase";
-import ItalyUpdateCases from "../components/ItalyUpdateCases";
-import ItalyHospitalizations from "../components/ItalyHospitalizations";
-import ItalySwabs from "../components/ItalySwabs";
+import Cases from "../components/Cases";
+import UpdateCases from "../components/UpdateCases";
+import Hospitalizations from "../components/Hospitalizations";
+import Swabs from "../components/Swabs";
 
 const Home = () => {
-  // const [category, setCategory] = useState("casi_testati");
   const dataItaly = useSelector((state) => state.italy);
   const { loading, italy, error } = dataItaly;
+  console.log(dataItaly);
+
+  console.log(loading);
 
   const lastMonth = italy.slice(-30)
 
@@ -34,19 +36,15 @@ const Home = () => {
         <>
           <h1 className="col-span-12 text-center">Dati aggiornati al {moment(lastDayData.data).format('L')}</h1>
 
-          <ItalyCase lastDayData={lastDayData} />
+          <Cases lastDayData={lastDayData} />
           
-          <ItalyUpdateCases lastMonth={lastMonth} day31Ago={day31Ago}/> 
-          <ItalyHospitalizations lastMonth={lastMonth}/>
-          <ItalySwabs lastMonth={lastMonth}/>
+          <UpdateCases lastMonth={lastMonth} day31Ago={day31Ago}/> 
+          <Hospitalizations lastMonth={lastMonth}/>
+          <Swabs lastMonth={lastMonth}/>
         </>
 
       : null
       }
-
-
-
-      
     </div>
   );
 };

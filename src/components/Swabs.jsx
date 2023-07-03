@@ -7,7 +7,7 @@ import BaseBar from "./chart/BaseBar";
 import SwitchTextChart from "./button/SwitchTextChart";
 import RingPie from "./chart/RingPie";
 
-const ItalySwabs = ({ lastMonth }) => {
+const Swabs = ({ lastMonth }) => {
   const [isText, setIsText] = useState({
     a: false,
     b: false,
@@ -248,6 +248,6 @@ const ItalySwabs = ({ lastMonth }) => {
   );
 };
 
-export default ItalySwabs;
+export default Swabs;
 
 //top-[34%] left-[38%] sm:left-[43%] lg:[40%] xl:left-[42%] 2xl:left-[44%] z
