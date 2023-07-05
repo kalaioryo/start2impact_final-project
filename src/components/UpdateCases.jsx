@@ -17,7 +17,7 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
     c: false,
   });
 
-  console.log(category);
+  // console.log(category);
 
   const lastTwoDay = lastMonth.slice(-2)
   const prevDay = lastTwoDay[0]
