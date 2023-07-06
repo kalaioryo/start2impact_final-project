@@ -23,10 +23,10 @@ const Provinces = () => {
   })
 
   const columnsData = [
-    {
-      Header: "Regione",
-      accessor: "denominazione_regione"
-    },
+    // {
+    //   Header: "Regione",
+    //   accessor: "denominazione_regione"
+    // },
     {
       Header: "Provincia",
       accessor: "denominazione_provincia"
