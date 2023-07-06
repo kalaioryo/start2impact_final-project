@@ -16,7 +16,7 @@ const Provinces = () => {
   const dataTable = provincesLatest.map((province) => {
     const provinceObject = {
       denominazione_regione: province.denominazione_regione,
-      denominazione_provincia: province.denominazione_provincia,
+      denominazione_provincia: province.denominazione_provincia.replace("/", " "),
       totale_casi: province.totale_casi.toLocaleString('it-IT')
     }
     return provinceObject

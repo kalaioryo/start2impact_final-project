@@ -12,7 +12,7 @@ const BasicTable = ({ dataTable, columnsData }) => {
   return (
     <div className="grid grid-cols-12 col-span-10 col-start-2 lg:col-span-6 lg:col-start-4">
       <div className="col-span-12 bg-quaternary/50">
-        <table {...getTableProps()} className="w-full ">
+        <table {...getTableProps()} className="w-full">
           <thead className="border bg-ternary/50">
             {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>
