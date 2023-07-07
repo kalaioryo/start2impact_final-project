@@ -6,6 +6,7 @@ import LoadingComponent from "./LoadingComponent";
 import BaseBar from "./chart/BaseBar";
 import SwitchTextChart from "./button/SwitchTextChart";
 import RingPie from "./chart/RingPie";
+import StandardPie from "./chart/StandardPie";
 
 const Swabs = ({ lastMonth }) => {
   const [isText, setIsText] = useState({
@@ -14,9 +15,9 @@ const Swabs = ({ lastMonth }) => {
   });
   const [isLastDay, setIsLastDay] = useState(true);
 
-  const lastTwoDay = lastMonth.slice(-2)
-  const prevDay = lastTwoDay[0]
-  const lastDay = lastTwoDay[1]
+  const lastTwoDay = lastMonth.slice(-2);
+  const prevDay = lastTwoDay[0];
+  const lastDay = lastTwoDay[1];
 
   //tot swabs lastDay data
   const {
@@ -29,8 +30,7 @@ const Swabs = ({ lastMonth }) => {
 
   //tot swabs PrevDay data
   const totSwabsPrevDay = prevDay.tamponi;
-  const totSwabsMolPositivePrevDay =
-    prevDay.totale_positivi_test_molecolare;
+  const totSwabsMolPositivePrevDay = prevDay.totale_positivi_test_molecolare;
   const totQuickSwabsPositivePrevDay =
     prevDay.totale_positivi_test_antigenico_rapido;
   const totSwabsMolPrevDay = prevDay.tamponi_test_molecolare;
@@ -47,7 +47,8 @@ const Swabs = ({ lastMonth }) => {
     tamponi_test_antigenico_rapido - totQuickSwabsPrevDay;
 
   //positive %
-  const totLastDaySwabsPositive = lastDaySwabsMolPositive + lastDayQuickSwabsPositive;
+  const totLastDaySwabsPositive =
+    lastDaySwabsMolPositive + lastDayQuickSwabsPositive;
 
   const perceptualPositive = (
     (totLastDaySwabsPositive / lastDaySwabs) *
@@ -58,17 +59,21 @@ const Swabs = ({ lastMonth }) => {
 
   //Data Chart Component A
 
-  const barDataSwabs = [
-    { id: "questa settimana", molecolari: lastDaySwabsMol, antigenici: lastDayQuickSwabs },
-  ];
+  // const barDataSwabs = [
+  //   {
+  //     id: "questa settimana",
+  //     molecolari: lastDaySwabsMol,
+  //     antigenici: lastDayQuickSwabs,
+  //   },
+  // ];
 
-  const barDataTotSwabs = [
-    {
-      id: "Totali",
-      molecolari: tamponi_test_molecolare,
-      antigenici: tamponi_test_antigenico_rapido,
-    },
-  ];
+  // const barDataTotSwabs = [
+  //   {
+  //     id: "Totali",
+  //     molecolari: tamponi_test_molecolare,
+  //     antigenici: tamponi_test_antigenico_rapido,
+  //   },
+  // ];
 
   //Data Chart Component B
 
@@ -103,6 +108,60 @@ const Swabs = ({ lastMonth }) => {
     },
   ];
 
+  //Data Pie chart
+
+  const dataPieSwabs = [
+    {
+      id: "Molecolari",
+      label: "Molecolari",
+      value: lastDaySwabsMol,
+    },
+    {
+      id: "Antigenico",
+      label: "Antigenico",
+      value: lastDayQuickSwabs,
+    },
+  ];
+
+  const dataPieTotalSwabs = [
+    {
+      id: "Molecolari",
+      label: "Molecolari",
+      value: tamponi_test_molecolare,
+    },
+    {
+      id: "Antigenico",
+      label: "Antigenico",
+      value: tamponi_test_antigenico_rapido,
+    },
+  ];
+
+  const dataPiePositive = [
+    {
+      id: "Molecolari",
+      label: "Molecolari",
+      value: lastDaySwabsMolPositive,
+    },
+    {
+      id: "Antigenico",
+      label: "Antigenico",
+      value: lastDayQuickSwabsPositive,
+    },
+  ];
+
+  const dataPieTotalPositive = [
+    {
+      id: "Molecolari",
+      label: "Molecolari",
+      value: totale_positivi_test_molecolare,
+    },
+    {
+      id: "Antigenico",
+      label: "Antigenico",
+      value: totale_positivi_test_antigenico_rapido,
+    },
+  ];
+
   //Keys for Charts
 
   const keysBar = ["molecolari", "antigenici"];
@@ -116,7 +175,6 @@ const Swabs = ({ lastMonth }) => {
 
   return (
     <div className="test-container">
-      
       <div className="p-4 col-span-12 xl:col-span-3 border-black border-4  bg-ternary/30 text-center">
         <h3 className="text-2xl font-semibold">
           Tamponi {isLastDay ? "ultimi dati" : "Totali"}
@@ -174,13 +232,14 @@ const Swabs = ({ lastMonth }) => {
             </span>
           </>
         ) : (
-          <div className="h-[250px]">
+          <div className="h-[300px]">
             <h3>Tamponi usati</h3>
-            <BaseBar
+            <StandardPie data={isLastDay ? dataPieSwabs : dataPieTotalSwabs} />
+            {/* <BaseBar
               data={isLastDay ? barDataSwabs : barDataTotSwabs}
               keysBar={keysBar}
               layout={"horizontal"}
-            />
+            /> */}
           </div>
         )}
       </div>
@@ -188,6 +247,8 @@ const Swabs = ({ lastMonth }) => {
       {/* #### component B ##### */}
 
       <div className="test-card relative px-16">
+        <h3>Tamponi positivi</h3>
+
         <SwitchTextChart
           component={"b"}
           switchText={handleClickSwitch}
@@ -212,14 +273,16 @@ const Swabs = ({ lastMonth }) => {
             </span>
           </>
         ) : (
-          <div className="h-[250px]">
-            <h3>Tamponi positivi</h3>
+          <div className="h-[300px]">
+            <StandardPie
+              data={isLastDay ? dataPiePositive : dataPieTotalPositive}
+            />
 
-            <BaseBar
+            {/* <BaseBar
               data={isLastDay ? dataBar : dataTotalBar}
               keysBar={keysBar}
               layout={"horizontal"}
-            />
+            /> */}
           </div>
         )}
       </div>
@@ -227,22 +290,21 @@ const Swabs = ({ lastMonth }) => {
       {/* component C*/}
 
       <div className="test-card relative">
-
         <div className="col-span-1 col-start-2">
-          <p className="p-2 text-xl text-center absolute top-[30%] left-[40%]">Positività</p>
-          <span className="block text-3xl absolute top-[42%] left-[45%]">{perceptualPositive}%</span>
-          <div className="h-[200px]">
+          <p className="p-2 text-xl text-center absolute top-[35%] left-[40%]">
+            Positività
+          </p>
+          <span className="block text-3xl absolute top-[45%] left-[45%]">
+            {perceptualPositive}%
+          </span>
+          <div className="h-[300px]">
             <RingPie data={dataPie} perceptual={true} />
           </div>
-
         </div>
 
         {/* <div className="h-[200px]">
           <RingPie data={dataPie} perceptual={true} />
         </div> */}
-
-        
-
       </div>
     </div>
   );
