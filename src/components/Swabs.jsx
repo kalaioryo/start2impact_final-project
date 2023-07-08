@@ -232,7 +232,7 @@ const Swabs = ({ lastMonth }) => {
             </span>
           </>
         ) : (
-          <div className="h-[300px]">
+          <div className="h-[350px]">
             <h3>Tamponi usati</h3>
             <StandardPie data={isLastDay ? dataPieSwabs : dataPieTotalSwabs} />
             {/* <BaseBar
@@ -273,7 +273,7 @@ const Swabs = ({ lastMonth }) => {
             </span>
           </>
         ) : (
-          <div className="h-[300px]">
+          <div className="h-[350px]">
             <StandardPie
               data={isLastDay ? dataPiePositive : dataPieTotalPositive}
             />

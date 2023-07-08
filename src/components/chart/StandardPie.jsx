@@ -6,7 +6,7 @@ const StandardPie = ({ data, keysPie, perceptual}) => (
 
   <ResponsivePie
     data={data}
-    margin={{ top: 30, right: 20, bottom: 10, left: 20 }}
+    margin={{ top: 60, right: 60, bottom: 60, left: 60 }}
     valueFormat={">-,"}    
     startAngle={0}
     endAngle={360}
@@ -15,6 +15,7 @@ const StandardPie = ({ data, keysPie, perceptual}) => (
     cornerRadius={3}
     activeOuterRadiusOffset={8}
     borderWidth={1}
+    enableArcLinkLabels={false}
     // colors={{ scheme: 'dark2' }}
     borderColor={{
       from: "color",
@@ -59,11 +60,11 @@ const StandardPie = ({ data, keysPie, perceptual}) => (
 
     legends={[
       {
-        anchor: "bottom-right",
-        direction: "column",
+        anchor: "top",
+        direction: "row",
         justify: false,
-        translateX: 10,
-        translateY: 0,
+        translateX: 0,
+        translateY: -40,
         itemsSpacing: 20,
         itemWidth: 100,
         itemHeight: 18,
