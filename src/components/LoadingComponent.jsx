@@ -1,8 +1,12 @@
 import React from 'react'
 
+import LottieLoading from './lottie-components/LottieLoading'
+
 const LoadingComponent = () => {
   return (
-    <div>LoadingComponent</div>
+    <div>
+      <LottieLoading/>
+    </div>
   )
 }
 

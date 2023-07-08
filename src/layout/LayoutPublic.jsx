@@ -1,36 +1,48 @@
-import React, { useEffect } from 'react'
-import { Outlet } from 'react-router-dom'
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from "react";
+import { Outlet } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
-import { fetchDataRegionsLatest } from '../features/regionsLatest/regionsLatestSlice';
-import { fetchDataItaly } from '../features/italy/italySlice';
-import { fetchDataRegions } from '../features/regions/regionsSlice';
+import { fetchDataRegionsLatest } from "../features/regionsLatest/regionsLatestSlice";
+import { fetchDataItaly } from "../features/italy/italySlice";
+import { fetchDataRegions } from "../features/regions/regionsSlice";
 
-import SidebarMobile from '../components/SidebarMobile'
-import Footer from '../components/Footer'
-import { fetchDataProvincesLatest } from '../features/provincesLatest/provincesLatestSlice';
-import Sidebar from '../components/Sidebar';
+import SidebarMobile from "../components/SidebarMobile";
+import Footer from "../components/Footer";
+import { fetchDataProvincesLatest } from "../features/provincesLatest/provincesLatestSlice";
+import Sidebar from "../components/Sidebar";
+import LoadingComponent from "../components/LoadingComponent";
 
 const LayoutPublic = () => {
-  const dispatch =  useDispatch()
+  const { loading } = useSelector((state) => state.italy);
+  const dispatch = useDispatch();
 
-  useEffect(()=>{
-    dispatch(fetchDataRegionsLatest())
-    dispatch(fetchDataItaly())
-    dispatch(fetchDataRegions())
-    dispatch(fetchDataProvincesLatest())
-  },[])
+  useEffect(() => {
+    dispatch(fetchDataRegionsLatest());
+    dispatch(fetchDataItaly());
+    dispatch(fetchDataRegions());
+    dispatch(fetchDataProvincesLatest());
+  }, []);
+
+  const loading4Ever = true;
 
   return (
     <>
-      <SidebarMobile/>
-      <Sidebar/>
-    <main className='mt-14 w-full h-full lg:mt-0'>
-      <Outlet/>
-    </main>
-      <Footer/>      
+      <SidebarMobile />
+      <Sidebar />
+      <main className="mt-14 w-full h-full lg:mt-0">
+        {loading ? (
+          <div className="" >
+            <p className="mt-32 text-2xl text-center">caricamento dei dati corso</p>
+            <LoadingComponent />
+          </div>
+        ) : (
+          <Outlet />
+        )}
+      </main>
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default LayoutPublic
+export default LayoutPublic;
