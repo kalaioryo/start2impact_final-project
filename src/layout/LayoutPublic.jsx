@@ -24,15 +24,14 @@ const LayoutPublic = () => {
     dispatch(fetchDataProvincesLatest());
   }, []);
 
-  const loading4Ever = true;
 
   return (
     <>
       <SidebarMobile />
       <Sidebar />
       <main className="mt-14 w-full h-full lg:mt-0">
-        {loading ? (
-          <div className="" >
+        { loading ? (
+          <div className="mt-14 w-full h-[73vh] lg:mt-0" >
             <p className="mt-32 text-2xl text-center">caricamento dei dati corso</p>
             <LoadingComponent />
           </div>

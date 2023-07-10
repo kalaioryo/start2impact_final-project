@@ -98,16 +98,23 @@ const Hospitalizations = ({lastMonth}) => {
   };
 
   return (
-    <div className="relative grid grid-cols-12 col-span-12 lg:col-start-8 lg:col-span-4 xl:col-span-10 xl:col-start-2 gap-4  text-center border-4 border-orange-800">
+    <div className="relative test-container ">
       {!isText.main ? (
         <>
 
-          <div className="relative">
+          <div className="absolute">
               <SwitchTextChart
                 component={"main"}
                 switchText={handleClickSwitch}
                 isText={isText.main}
               />
+            </div>
+
+            <div className="col-span-12 pt-4 text-xl">
+            <h3 className="text-2xl font-semibold">Ospedalizzazioni</h3>
+            {/* <span className="text-3xl font-bold"> */}
+              {totale_ospedalizzati.toLocaleString("it-IT")}
+            {/* </span> */}
             </div>
 
             <div className="flex justify-end mr-[2%] col-span-12">
@@ -131,7 +138,7 @@ const Hospitalizations = ({lastMonth}) => {
             </div>
             
 
-          <div className="h-[400px] col-span-12">
+          <div className="h-[400px] col-span-12 bg-white/70 rounded-md">
             <StandardBar
               data={currentDatabar[currentKeyBar]}
               keysBar={currentKeyBar}
@@ -159,7 +166,7 @@ const Hospitalizations = ({lastMonth}) => {
         </>
       ) : (
         <>
-          <div className="relative col-span-12  xl:col-span-3 p-4 border-black border-4  bg-ternary/50 text-center">
+          <div className="relative col-span-12 p-4 border-primary/50 border-2 rounded-t-md  bg-quaternary/50 text-center">
             <SwitchTextChart
               component={"main"}
               switchText={handleClickSwitch}

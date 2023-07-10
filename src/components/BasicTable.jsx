@@ -10,7 +10,7 @@ const BasicTable = ({ dataTable, columnsData }) => {
     useTable({ columns, data });
 
   return (
-    <div className="grid grid-cols-12 col-span-10 col-start-2 lg:col-span-6 lg:col-start-4">
+    <div className="grid grid-cols-12 col-span-10 col-start-2 md:col-span-9 md:col-start-3 lg:col-span-6 lg:col-start-4">
       <div className="col-span-12 bg-quaternary/50">
         <table {...getTableProps()} className="w-full">
           <thead className="border bg-ternary/50">

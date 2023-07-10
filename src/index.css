@@ -18,19 +18,67 @@ body{
   
   }
 
+  .test-container {
+    @apply p-2;
+    @apply grid;
+    
+    @apply grid-cols-12;
+    @apply col-span-12;
+
+
+    /* @apply md:bg-green-700; //testing layout
+    @apply lg:bg-violet-800;
+    @apply xl:bg-blue-600; */
+
+    @apply md:col-span-9;
+    @apply md:col-start-3;
+
+    @apply lg:col-span-9;
+    @apply lg:col-start-3;
+
+
+
+
+    @apply xl:col-span-9;
+    @apply xl:col-start-3;
+
+    @apply gap-4;
+    @apply text-center;
+
+    @apply shadow-xl;
+    @apply border-2;
+    @apply border-primary/50;
+    @apply bg-primary/10;
+    @apply rounded-md;
+
+    @apply relative;
+  }
+
   .test-card{
     @apply h-[350px];
     @apply col-span-12;
-    @apply md:col-span-4;
-    @apply lg:col-span-12;
-    @apply xl:col-span-5;
-    @apply 2xl:col-span-3;
+
+    /* @apply md:bg-red-500; // testing layout
+    @apply lg:bg-orange-700;
+    @apply xl:bg-yellow-500; */
+
+    @apply md:col-span-8;
+    @apply md:col-start-3;
+
+    @apply lg:col-span-6;
+    
+    @apply xl:col-span-4;
+
     @apply p-4;
-    @apply border-black; 
-    @apply border-4;
+
+    @apply border-primary/50; 
+    @apply border-2;
     @apply bg-quaternary;
     @apply font-bold;
-    @apply rounded-md
+    @apply rounded-md;
+
+
+
   }
 
   .test-card > p {
@@ -42,24 +90,6 @@ body{
     
   }
 
-  .test-container {
-    @apply grid;
-    
-    @apply grid-cols-12;
-    @apply col-span-12;
-
-    @apply lg:col-start-5;
-    @apply lg:col-span-5;
-
-    @apply xl:col-span-10;
-    @apply xl:col-start-2;
-
-    @apply gap-4;
-    @apply text-center;
-    @apply border-4;
-    @apply border-orange-800;
-
-    @apply relative;
-  }
+  
 
 }

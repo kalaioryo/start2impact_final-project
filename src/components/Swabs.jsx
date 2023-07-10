@@ -175,7 +175,7 @@ const Swabs = ({ lastMonth }) => {
 
   return (
     <div className="test-container">
-      <div className="p-4 col-span-12 xl:col-span-3 border-black border-4  bg-ternary/30 text-center">
+      <div className="p-4 col-span-12 shadow-lg border-2 rounded-md  bg-quaternary/80 text-center">
         <h3 className="text-2xl font-semibold">
           Tamponi {isLastDay ? "ultimi dati" : "Totali"}
         </h3>
@@ -232,7 +232,7 @@ const Swabs = ({ lastMonth }) => {
             </span>
           </>
         ) : (
-          <div className="h-[350px]">
+          <div className="h-[300px]">
             <h3>Tamponi usati</h3>
             <StandardPie data={isLastDay ? dataPieSwabs : dataPieTotalSwabs} />
             {/* <BaseBar
@@ -273,7 +273,7 @@ const Swabs = ({ lastMonth }) => {
             </span>
           </>
         ) : (
-          <div className="h-[350px]">
+          <div className="h-[300px]">
             <StandardPie
               data={isLastDay ? dataPiePositive : dataPieTotalPositive}
             />
@@ -291,10 +291,10 @@ const Swabs = ({ lastMonth }) => {
 
       <div className="test-card relative">
         <div className="col-span-1 col-start-2">
-          <p className="p-2 text-xl text-center absolute top-[35%] left-[40%]">
+          <p className="p-2 text-xl text-center absolute top-[35%] left-[42%] md:left-[38%]">
             Positività
           </p>
-          <span className="block text-3xl absolute top-[45%] left-[45%]">
+          <span className="block text-3xl absolute top-[45%] left-[45%]  md:left-[41%]">
             {perceptualPositive}%
           </span>
           <div className="h-[300px]">

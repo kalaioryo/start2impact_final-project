@@ -6,7 +6,7 @@ const StandardPie = ({ data, keysPie, perceptual}) => (
 
   <ResponsivePie
     data={data}
-    margin={{ top: 60, right: 60, bottom: 60, left: 60 }}
+    margin={{ top: 90, right: 10, bottom: 20, left: 10 }}
     valueFormat={">-,"}    
     startAngle={0}
     endAngle={360}
@@ -61,11 +61,11 @@ const StandardPie = ({ data, keysPie, perceptual}) => (
     legends={[
       {
         anchor: "top",
-        direction: "row",
+        direction: "column",
         justify: false,
         translateX: 0,
-        translateY: -40,
-        itemsSpacing: 20,
+        translateY: -70,
+        itemsSpacing: 10,
         itemWidth: 100,
         itemHeight: 18,
         itemTextColor: "#999",

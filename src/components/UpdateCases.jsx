@@ -234,7 +234,7 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
 
             {/* Line chart */}
 
-          <div className="h-[400px] col-span-12">
+          <div className="h-[400px] col-span-12 bg-white/70 rounded-md">
             <StandardLine data={selectCategory[category]} />
           </div>        
         </>
@@ -250,7 +250,7 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
             />
           </div>
 
-          <div className="p-4 col-span-12 xl:col-span-3 border-black border-4  bg-ternary/30 text-center">
+          <div className="p-4 col-span-12 border-primary/50 border-2 rounded-md bg-quaternary/50 text-center">
             <h3 className="text-2xl font-semibold">UpdateCases</h3>
           </div>
 

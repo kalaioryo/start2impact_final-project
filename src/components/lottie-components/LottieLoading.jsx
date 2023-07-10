@@ -9,8 +9,8 @@ const LottieLoading = () => {
   // const lottieRef = useRef()
 
   const style = {
-    width: '300px',
-    margin: '0 20%'
+    width: '200px',
+    margin: 'auto'
     // backgroundColor: 'red'
   }
 
