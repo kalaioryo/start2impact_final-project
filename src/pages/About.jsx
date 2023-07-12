@@ -23,7 +23,7 @@ const About = () => {
 
       
 
-      <div className='bg-ternary/20 flex flex-col w-3/4 md:w-2/4 xl:w-1/4 m-auto'>
+      <div className='bg-ternary/20 flex flex-col w-3/4 md:w-2/4 lg:w-2/6 xl:w-1/4 m-auto'>
 
         <NavLink to={"https://www.linkedin.com/in/antonio-iorio-5376511bb/"} target="_blank">
           <div className='flex p-4'>

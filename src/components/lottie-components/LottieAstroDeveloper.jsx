@@ -7,7 +7,7 @@ import astroDev from '../../assets/lotties/astro-developer.json'
 const LottieAstroDeveloper = () => {
 
   const style = {
-    width: '200px',
+    width: '250px',
     margin: 'auto'
     // backgroundColor: 'red'
   }
