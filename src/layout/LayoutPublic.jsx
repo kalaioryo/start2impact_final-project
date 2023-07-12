@@ -29,7 +29,7 @@ const LayoutPublic = () => {
     <>
       <SidebarMobile />
       <Sidebar />
-      <main className="mt-14 w-full h-full lg:mt-0">
+      <main className="mt-14 w-full h-full md:mt-0">
         { loading ? (
           <div className="mt-14 w-full h-[73vh] lg:mt-0" >
             <p className="mt-32 text-2xl text-center">caricamento dei dati corso</p>

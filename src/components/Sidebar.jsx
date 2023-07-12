@@ -125,10 +125,15 @@ const Sidebar = () => {
             </li>
             </NavLink>
 
+
+
             <li className="text-quaternary text-sm flex items-center gap-x-4 p-2 hover:bg-ternary/10 rounded-md mt-2">
-              <span className="text-2xl block float-left">
-                <GiInfo />
-              </span>
+              <NavLink to={'/about'}>
+                <span className="text-2xl block float-left">
+                  <GiInfo />
+                </span>
+              </NavLink>
+              
               <span
                 className={`text-base font-medium flex-1 ${!open && "hidden"}`}
               >
