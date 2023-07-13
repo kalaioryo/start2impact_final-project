@@ -10,14 +10,14 @@ import LottieAstroDeveloper from '../components/lottie-components/LottieAstroDev
 
 const About = () => {
   return (
-    <div className='bg-quaternary/70 pb-28'>
+    <div className='bg-quaternary/70'>
       <h1 className="py-5 w-full text-3xl text-center">About me</h1>
 
       <div>
         <LottieAstroDeveloper/>
       </div>
 
-      <div className='py-5 text-center'>
+      <div className='py-5 px-2 text-center'>
         <p>Se il  sito ti è piaciuto e vuoi saperne di più su di me:</p>
       </div>
 
