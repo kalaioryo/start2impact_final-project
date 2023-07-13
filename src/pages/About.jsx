@@ -10,7 +10,7 @@ import LottieAstroDeveloper from '../components/lottie-components/LottieAstroDev
 
 const About = () => {
   return (
-    <div className='bg-quaternary/70 h-[81vh] md:h-[87vh]'>
+    <div className='bg-quaternary/70'>
       <h1 className="py-5 w-full text-3xl text-center">About me</h1>
 
       <div>
