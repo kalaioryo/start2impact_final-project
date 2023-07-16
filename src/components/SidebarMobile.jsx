@@ -16,6 +16,7 @@ import { LuSyringe, LuSettings, LuLayoutDashboard } from "react-icons/lu";
 
 import {TbMapSearch} from "react-icons/tb"
 import {FaCity} from "react-icons/fa"
+import DarkMode from "./button/DarkMode";
 
 const SidebarMobile = () => {
   const [open, setOpen] = useState(false);
@@ -23,7 +24,7 @@ const SidebarMobile = () => {
   const Modal = ({close}) => {
 
     return (
-      <div className="fixed top-0 left-0 w-screen h-screen bg-secondary flex justify-center flex-col items-center xl:hidden">
+      <div className="fixed top-0 left-0 w-screen h-screen bg-secondary flex justify-center flex-col items-center xl:hidden">       
         <ul className="w-screen flex flex-col justify-evenly">
           <NavLink to={"/"} onClick={close} >
             <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto text-primary bg-quaternary rounded-md hover:bg-ternary active:bg-primary active:text-quinary  ">
@@ -82,6 +83,8 @@ const SidebarMobile = () => {
   return (
     <nav className="flex fixed top-0 left-0  w-full justify-end bg-secondary p-2 z-20 md:hidden border-b-2 shadow-2xl">
       {open && <Modal close={closeSidebar} />}
+
+      <DarkMode/>
 
       <div className="z-20">
         <GiHamburgerMenu
