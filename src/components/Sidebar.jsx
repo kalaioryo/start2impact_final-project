@@ -18,6 +18,7 @@ import { SiWorldhealthorganization } from "react-icons/si";
 import { LuSyringe, LuSettings, LuLayoutDashboard } from "react-icons/lu";
 import { SlSettings } from "react-icons/sl";
 import { TbMapSearch } from "react-icons/tb";
+import DarkMode from "./button/DarkMode";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
@@ -70,6 +71,14 @@ const Sidebar = () => {
               Covid-19
             </h1>
           </div>
+
+              <div className="h-[45px] w-[50px]">
+                <DarkMode/>
+              </div>
+          
+
+          
+
 
 
           <ul className="pt-2">

@@ -4,7 +4,7 @@ import LottieDarkMode from '../lottie-components/LottieDarkMode'
 
 const DarkMode = () => {
   return (
-    <div>
+    <div className='h-full'>
       <LottieDarkMode/>
     </div>
   )

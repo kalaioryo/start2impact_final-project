@@ -17,7 +17,7 @@ const About = () => {
         <LottieAstroDeveloper/>
       </div>
 
-      <div className='py-5 px-2 text-center'>
+      <div className='py-5 px-  2 text-center'>
         <p>Se il  sito ti è piaciuto e vuoi saperne di più su di me:</p>
       </div>
 
