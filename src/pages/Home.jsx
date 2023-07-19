@@ -12,9 +12,9 @@ import Swabs from "../components/Swabs";
 const Home = () => {
   const dataItaly = useSelector((state) => state.italy);
   const { loading, italy, error } = dataItaly;
-  console.log(dataItaly);
+  // console.log(dataItaly);
 
-  console.log(loading);
+  // console.log(loading);
 
   const lastMonth = italy.slice(-30)
 

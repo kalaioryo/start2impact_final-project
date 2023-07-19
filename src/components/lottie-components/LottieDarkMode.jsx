@@ -1,67 +1,46 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
-import Lottie, { useLottieInteractivity } from "lottie-react";
+import Lottie from "lottie-react";
 
-// import darkModeAnimation from "../../assets/lotties/dark-mode-animation.json";
+import darModeAnimation from "../../assets/lotties/dark-mode-animation.json"
 
-// import darkModeAnimationCountry from "../../assets/lotties/dark-mode-animation-country.json"
-
-import darkModeAnimation from "../../assets/lotties/animation-dark-mode.json"
-
-const LottieDarkMode = () => {
-  const [isDark, setIsDark] = useState(false);
-
+const LottieDarkMode = ({ theme }) => {
   const lottieRef = useRef();
 
   useEffect(() => {
 
-    if (lottieRef.current && !isDark) {
-      lottieRef.current.goToAndStop([0], true);
+    if(theme && theme === 'dark') {
+      lottieRef.current.playSegments([60, 100], true);
+    }
+    else{
+      lottieRef.current.playSegments([100, 60], true);
     }
 
-    if (lottieRef.current && isDark) {
-      lottieRef.current.goToAndStop([10], true);
-    }
-  }, [lottieRef]);
+  }, [theme])
+
 
   const style = {
     height: "130%",
-    width: "130%",
-
-    // margin: "5px 20px 0 0",
-    // padding: "1px",
-    // backgroundColor: 'red'
   };
 
-  // const handleClick = () => {
-  //   setIsDark(!isDark);
-  //   if (!isDark) {
-  //     lottieRef.current.playSegments([0, 90], true);
-  //   } else {
-  //     lottieRef.current.playSegments([90, 180], true);
-  //   }
-  // };
+  if(lottieRef.current && theme === "dark") {
+      lottieRef.current.goToAndStop([1], true)
+      }
+  if(lottieRef.current && theme === "light") {
+    lottieRef.current.goToAndStop([0], true)
+      }
 
-  const handleClick = () => {
-    setIsDark(!isDark);
-    if (!isDark) {
-      // lottieRef.current.setDirection(1);
-      lottieRef.current.playSegments([0, 90], true);
-    } else {
-      lottieRef.current.playSegments([90, 0], true);
-    }
-  };
+      console.log(theme);
 
   return (
-    // <div className="h">
-      <Lottie
-        onClick={handleClick}
-        animationData={darkModeAnimation}
-        style={style}
-        lottieRef={lottieRef}
-        loop={false}
-      />
-    // </div>
+
+    <Lottie
+      animationData={darModeAnimation}
+      style={style}
+      lottieRef={lottieRef}
+      loop={false}
+    />
+
   );
 };
 

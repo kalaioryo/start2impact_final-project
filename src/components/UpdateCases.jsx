@@ -157,8 +157,8 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
     "Variazione totale positivi" : [categoryData[4]]
   }
 
-  console.log(categoryData[0]);
-  console.log(categoryData[4]);
+  // console.log(categoryData[0]);
+  // console.log(categoryData[4]);
 
 
   // deconstruction data

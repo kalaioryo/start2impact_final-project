@@ -84,7 +84,7 @@ const SidebarMobile = () => {
     <nav className="flex fixed top-0 left-0  w-full justify-end bg-secondary p-2 z-20 md:hidden border-b-2 shadow-2xl">
       {open && <Modal close={closeSidebar} />}
 
-      <div className="h-[45px] w-[100px] relative top-[-10px]">
+      <div className="h-[45px] w-[50px] relative top-[-10px]">
         <DarkMode/>
       </div>
       

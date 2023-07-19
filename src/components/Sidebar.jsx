@@ -30,8 +30,8 @@ const Sidebar = () => {
   };
 
   const closeSidebar = () => {
-    setOpen(false)
-  }
+    setOpen(false);
+  };
 
   const toggleSubMenu = () => {
     setMenuSetting(false);
@@ -72,23 +72,16 @@ const Sidebar = () => {
             </h1>
           </div>
 
-              <div className="h-[45px] w-[50px]">
-                <DarkMode/>
-              </div>
-          
-
-          
-
-
-
           <ul className="pt-2">
             <NavLink to={"/"} onClick={closeSidebar}>
-                <li className="text-quaternary text-sm flex items-center gap-x-4 p-2 hover:bg-ternary/10 rounded-md mt-2">
+              <li className="text-quaternary text-sm flex items-center gap-x-4 p-2 hover:bg-ternary/10 rounded-md mt-2">
                 <span className="text-2xl block float-left">
                   <GiItalia />
                 </span>
                 <span
-                  className={`text-base font-medium flex-1 ${!open && "hidden"}`}
+                  className={`text-base font-medium flex-1 ${
+                    !open && "hidden"
+                  }`}
                 >
                   Italia
                 </span>
@@ -101,20 +94,24 @@ const Sidebar = () => {
                   <TbMapSearch />
                 </span>
                 <span
-                  className={`text-base font-medium flex-1 ${!open && "hidden"}`}
+                  className={`text-base font-medium flex-1 ${
+                    !open && "hidden"
+                  }`}
                 >
                   Mappa
                 </span>
               </li>
             </NavLink>
-            
+
             <NavLink to={"/regions"} onClick={closeSidebar}>
               <li className="text-quaternary text-sm flex items-center gap-x-4 p-2 hover:bg-ternary/10 rounded-md mt-6">
                 <span className="text-2xl block float-left">
                   <GiHills />
                 </span>
                 <span
-                  className={`text-base font-medium flex-1 ${!open && "hidden"}`}
+                  className={`text-base font-medium flex-1 ${
+                    !open && "hidden"
+                  }`}
                 >
                   Regioni
                 </span>
@@ -127,22 +124,22 @@ const Sidebar = () => {
                   <FaCity />
                 </span>
                 <span
-                  className={`text-base font-medium flex-1 ${!open && "hidden"}`}
+                  className={`text-base font-medium flex-1 ${
+                    !open && "hidden"
+                  }`}
                 >
                   Province
                 </span>
-            </li>
+              </li>
             </NavLink>
 
-
-
             <li className="text-quaternary text-sm flex items-center gap-x-4 p-2 hover:bg-ternary/10 rounded-md mt-2">
-              <NavLink to={'/about'}>
+              <NavLink to={"/about"}>
                 <span className="text-2xl block float-left">
                   <GiInfo />
                 </span>
               </NavLink>
-              
+
               <span
                 className={`text-base font-medium flex-1 ${!open && "hidden"}`}
               >
@@ -161,7 +158,7 @@ const Sidebar = () => {
                     About me
                   </li>
                 </NavLink>
-                
+
                 <li className="text-quaternary text-sm flex items-center gap-x-4 p-2 hover:bg-ternary/10 rounded-md mt-2">
                   Portfolio
                 </li>
@@ -176,6 +173,10 @@ const Sidebar = () => {
                 </li>
               </ul>
             )}
+
+            <div className="w-[70px] relative left-[-15px]">
+              <DarkMode />
+            </div>
 
             {/* <li className="text-quaternary text-sm flex items-center gap-x-4 p-2 hover:bg-ternary/10 rounded-md mt-2">
               <span className="text-2xl block float-left">
