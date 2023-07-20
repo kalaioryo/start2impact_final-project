@@ -47,7 +47,7 @@ const Sidebar = () => {
     <div className="flex fixed z-20 top-0">
       <div>
         <div
-          className={`hidden md:block bg-primary h-screen p-5 text-primary min-h-screen h-full pt-8 relative duration-300 ${
+          className={`hidden md:block bg-primary dark:bg-dark-primary h-screen p-5  min-h-screen h-full pt-8 relative duration-300 ${
             open ? "w-72" : "w-20"
           }`}
         >
