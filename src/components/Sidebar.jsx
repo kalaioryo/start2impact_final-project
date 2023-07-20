@@ -74,7 +74,7 @@ const Sidebar = () => {
 
           <ul className="pt-2">
             <NavLink to={"/"} onClick={closeSidebar}>
-              <li className="text-quaternary text-sm flex items-center gap-x-4 p-2 hover:bg-ternary/10 rounded-md mt-2">
+              <li className=" text-sm flex items-center gap-x-4 p-2 rounded-md mt-2 link-sidebar">
                 <span className="text-2xl block float-left">
                   <GiItalia />
                 </span>
@@ -89,7 +89,7 @@ const Sidebar = () => {
             </NavLink>
 
             <NavLink to={"/map"} onClick={closeSidebar}>
-              <li className="text-quaternary text-sm flex items-center gap-x-4 p-2 hover:bg-ternary/10 rounded-md mt-2 border-b border-b-ternary">
+              <li className=" text-sm flex items-center gap-x-4 p-2  rounded-md mt-2 border-b border-b-ternary dark:border-b-dark-ternary link-sidebar">
                 <span className="text-2xl block float-left">
                   <TbMapSearch />
                 </span>
@@ -104,7 +104,7 @@ const Sidebar = () => {
             </NavLink>
 
             <NavLink to={"/regions"} onClick={closeSidebar}>
-              <li className="text-quaternary text-sm flex items-center gap-x-4 p-2 hover:bg-ternary/10 rounded-md mt-6">
+              <li className=" text-sm flex items-center gap-x-4 p-2 rounded-md mt-6 link-sidebar">
                 <span className="text-2xl block float-left">
                   <GiHills />
                 </span>
@@ -119,7 +119,7 @@ const Sidebar = () => {
             </NavLink>
 
             <NavLink to={"/provinces"} onClick={closeSidebar}>
-              <li className="text-quaternary text-sm flex items-center gap-x-4 p-2 hover:bg-ternary/10 rounded-md mt-2 border-b border-b-ternary">
+              <li className="text-sm flex items-center gap-x-4 p-2  rounded-md mt-2 border-b border-b-ternary dark:border-b-dark-ternary link-sidebar">
                 <span className="text-2xl block float-left">
                   <FaCity />
                 </span>
@@ -133,7 +133,7 @@ const Sidebar = () => {
               </li>
             </NavLink>
 
-            <li className="text-quaternary text-sm flex items-center gap-x-4 p-2 hover:bg-ternary/10 rounded-md mt-2">
+            <li className="text-sm flex items-center gap-x-4 p-2 rounded-md mt-2 link-sidebar">
               <NavLink to={"/about"}>
                 <span className="text-2xl block float-left">
                   <GiInfo />

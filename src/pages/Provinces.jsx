@@ -38,8 +38,8 @@ const Provinces = () => {
       {
 
         !IsLoading && provincesLatest[0] ? 
-        <div className='grid grid-cols-12 md:col-span-10 md:col-start-2 bg-quaternary/60'>
-        <h1 className="col-span-12 py-6 text-3xl text-center">Province</h1>
+        <div className='py-8 grid grid-cols-12 md:col-span-10 md:col-start-2 bg-quaternary/60 dark:bg-dark-primary/90'>
+        <h1 className="col-span-12 py-6 text-3xl text-center dark:text-dark-quaternary">Province</h1>
           <BasicTable dataTable={dataTable} columnsData={columnsData}/>
         </div>
 

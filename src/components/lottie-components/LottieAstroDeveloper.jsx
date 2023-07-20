@@ -8,13 +8,13 @@ const LottieAstroDeveloper = () => {
 
   const style = {
     width: '250px',
-    margin: 'auto'
-    // backgroundColor: 'red'
+    margin: 'auto',
+    // backgroundColor: ''
   }
 
   return (
-    <div className=''>
-      <Lottie animationData={astroDev} style={style} />
+    <div className='bg-dark-quaternary/10'>
+      <Lottie className='fill-blue-500' animationData={astroDev} style={style}/>
     </div>
   )
 }

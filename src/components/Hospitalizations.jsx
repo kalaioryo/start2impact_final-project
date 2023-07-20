@@ -166,7 +166,7 @@ const Hospitalizations = ({lastMonth}) => {
         </>
       ) : (
         <>
-          <div className="relative col-span-12 p-4 border-primary/50 dark:border-dark-quaternary/50 border-2 rounded-t-md  bg-quaternary/50 dark:bg-dark-secondary/50 text-center">
+          <div className="relative col-span-12 p-4 border-primary/50 dark:border-dark-quaternary/50 border-2 rounded-t-md  bg-quaternary/50 dark:bg-dark-primary/50 text-center">
             <SwitchTextChart
               component={"main"}
               switchText={handleClickSwitch}

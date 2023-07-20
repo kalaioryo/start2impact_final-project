@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* html {
+  height: 100%;
+} */
+
 body{
+  height: 100%;
   background-image: url('./assets/svg/topography.svg');
   /* //background-color: white; */
   -webkit-tap-highlight-color: transparent;
@@ -50,7 +55,7 @@ body{
     @apply border-primary/50;
     @apply dark:border-dark-quaternary/50;
     @apply bg-primary/10;
-    @apply dark:bg-dark-secondary/70;
+    @apply dark:bg-dark-primary/70;
     @apply dark:text-quaternary;
     @apply rounded-md;
 
@@ -79,7 +84,7 @@ body{
     @apply dark:bg-dark-ternary/50;
     @apply border-2;
     @apply bg-quaternary;
-    @apply dark:bg-dark-secondary;
+    @apply dark:bg-dark-primary;
     @apply dark:text-dark-ternary;
     @apply font-bold;
     @apply rounded-md;
@@ -105,11 +110,26 @@ body{
     @apply active:text-quinary;
 
     @apply dark:text-dark-quaternary;
-    @apply dark:bg-dark-secondary;
+    @apply dark:bg-dark-primary;
     @apply dark:hover:bg-dark-ternary;
     @apply dark:hover:text-dark-primary;
-    @apply dark:active:bg-dark-secondary;
-    @apply dark:active:text-dark-quaternary;
+    @apply dark:active:bg-dark-quaternary;
+    @apply dark:active:text-dark-primary;
+  }
+
+  .link-sidebar {
+    @apply text-quaternary;
+    @apply bg-primary;
+    @apply hover:bg-ternary/20;
+    @apply active:bg-quaternary;
+    @apply active:text-primary;
+
+    @apply dark:text-dark-quaternary;
+    @apply dark:bg-dark-primary;
+    @apply dark:hover:bg-dark-ternary;
+    @apply dark:hover:text-dark-primary;
+    @apply dark:active:bg-dark-quaternary;
+    @apply dark:active:text-dark-primary;
   }
   
 

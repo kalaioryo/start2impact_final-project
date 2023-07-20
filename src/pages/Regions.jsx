@@ -55,7 +55,7 @@ const Regions = () => {
   }
 
   return (
-    <div className=" grid grid-cols-12 md:col-span-11 md:col-start-2 gap-4 bg-quaternary/70 dark:bg-dark-primary/80 dark:text-dark-quaternary">
+    <div className=" grid grid-cols-12 md:col-span-11 md:col-start-2 gap-4 py-8 bg-quaternary/70 dark:bg-dark-primary/90 dark:text-dark-quaternary">
       {/* <h1 className="w-full  text-center">Regions page</h1> */}
 
       {loading && <LoadingComponent />}

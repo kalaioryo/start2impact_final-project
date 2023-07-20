@@ -175,7 +175,7 @@ const Swabs = ({ lastMonth }) => {
 
   return (
     <div className="test-container">
-      <div className="p-4 col-span-12 shadow-lg border-2 rounded-md  bg-quaternary/80 dark:bg-dark-secondary/50 text-center">
+      <div className="p-4 col-span-12 shadow-lg border-2 rounded-md  bg-quaternary/80 dark:bg-dark-primary/50 dark:border-dark-quaternary/50 text-center">
         <h3 className="text-2xl font-semibold">
           Tamponi {isLastDay ? "ultimi dati" : "Totali"}
         </h3>
@@ -189,7 +189,7 @@ const Swabs = ({ lastMonth }) => {
         <div className="flex justify-evenly">
           <button className="my-6">
             <span
-              className="p-4 bg-secondary/50 dark:bg-dark-primary/50 rounded-lg"
+              className="p-4 bg-secondary/20 hover:bg-ternary/50 dark:bg-dark-secondary dark:hover:bg-dark-ternary dark:hover:text-dark-primary rounded-lg"
               onClick={() => setIsLastDay(true)}
             >
               Ultimi dati
@@ -198,7 +198,7 @@ const Swabs = ({ lastMonth }) => {
 
           <button className="my-2">
             <span
-              className="p-4 bg-secondary/50 dark:bg-dark-primary/50 rounded-lg"
+              className="p-4 bg-secondary/20 hover:bg-ternary/50 dark:bg-dark-secondary dark:hover:bg-dark-ternary dark:hover:text-dark-primary rounded-lg"
               onClick={() => setIsLastDay(false)}
             >
               Totale

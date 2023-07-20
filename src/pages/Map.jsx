@@ -35,13 +35,13 @@ const Map = () => {
   };
 
   return (
-    <div>
+    <div className='dark:bg-dark-primary/90 dark:text-dark-quaternary'>
       <div>
         <h1 className='text-center p-4'>Map Page</h1>
       </div>
       
       <div className='flex justify-center '>
-      <label className="p-2 mx-2  bg-ternary text-primary rounded-md ">
+      <label className="p-2 mx-2 rounded-md bg-ternary text-primary dark:bg-dark-primary/80 dark:text-dark-ternary ">
         <span className="w-[80%] mx-[10%] ">Select data:</span>
         <select
           value={category}

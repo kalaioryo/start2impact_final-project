@@ -24,7 +24,7 @@ const SidebarMobile = () => {
   const Modal = ({close}) => {
 
     return (
-      <div className="fixed top-0 left-0 w-screen h-screen bg-secondary dark:bg-dark-primary flex justify-center flex-col items-center xl:hidden">       
+      <div className="fixed top-0 left-0 w-screen h-screen bg-secondary dark:bg-dark-secondary flex justify-center flex-col items-center xl:hidden">       
         <ul className="w-screen flex flex-col justify-evenly">
           <NavLink to={"/"} onClick={close} >
             <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto rounded-md  link">

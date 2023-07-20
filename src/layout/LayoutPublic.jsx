@@ -26,7 +26,7 @@ const LayoutPublic = () => {
 
 
   return (
-    <>
+    <div className="flex flex-col justify-evenly">
       <SidebarMobile />
       <Sidebar />
       <main className="mt-14 w-full h-full md:mt-0">
@@ -40,7 +40,7 @@ const LayoutPublic = () => {
         )}
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

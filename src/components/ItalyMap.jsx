@@ -27,7 +27,7 @@ const ItalyMap = ({ typeData }) => {
     colorAxis: {
       colors: ["#F8F3E6", "#E7CC8F", "#EFAA52", "#AB3E16", "#48120E"],
     },
-    backgroundColor: "transparent",
+    backgroundColor: "#576CBC",
     datalessRegionColor: "lightGray",
     defaultColor: "#f5f5f5",
     // chartArea: { width: "100%", height: "70%" }
