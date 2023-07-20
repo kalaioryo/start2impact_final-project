@@ -24,10 +24,10 @@ const SidebarMobile = () => {
   const Modal = ({close}) => {
 
     return (
-      <div className="fixed top-0 left-0 w-screen h-screen bg-secondary flex justify-center flex-col items-center xl:hidden">       
+      <div className="fixed top-0 left-0 w-screen h-screen bg-secondary dark:bg-dark-primary flex justify-center flex-col items-center xl:hidden">       
         <ul className="w-screen flex flex-col justify-evenly">
           <NavLink to={"/"} onClick={close} >
-            <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto text-primary bg-quaternary rounded-md hover:bg-ternary active:bg-primary active:text-quinary  ">
+            <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto rounded-md  link">
               <span className="fixed py-1 text-2xl block float-left">
                 <GiItalia />
               </span>
@@ -35,7 +35,7 @@ const SidebarMobile = () => {
             </li>
           </NavLink>
           <NavLink to={"/map"} onClick={close}>
-            <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto text-primary bg-quaternary rounded-md hover:bg-ternary active:bg-primary active:text-quinary ">
+            <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto  rounded-md link ">
               <span className="fixed py-1 text-2xl block float-left">
                 <TbMapSearch />
               </span>
@@ -43,7 +43,7 @@ const SidebarMobile = () => {
             </li>
           </NavLink>
           <NavLink to={"/regions"} onClick={close}>
-            <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto text-primary bg-quaternary rounded-md hover:bg-ternary active:bg-primary active:text-quinary ">
+            <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto rounded-md link ">
               <span className="fixed py-1 text-2xl block float-left">
                 <GiHills />
               </span>
@@ -51,7 +51,7 @@ const SidebarMobile = () => {
             </li>
           </NavLink>
           <NavLink to={"/provinces"} onClick={close}>
-            <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto text-primary bg-quaternary rounded-md hover:bg-ternary active:bg-primary active:text-quinary ">
+            <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto rounded-md link ">
               <span className="fixed py-1 text-2xl block float-left">
                 <FaCity />
               </span>
@@ -59,7 +59,7 @@ const SidebarMobile = () => {
             </li>
           </NavLink>
           <NavLink to={"/about"} onClick={close}>
-            <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto text-primary bg-quaternary rounded-md hover:bg-ternary active:bg-primary active:text-quinary ">
+            <li className="cursor-pointer select-none p-2 my-2 text-2xl text-center w-[80%] m-auto rounded-md link ">
               <span className="fixed py-1 text-2xl block float-left">
                 <GiInfo />
               </span>
@@ -81,7 +81,7 @@ const SidebarMobile = () => {
   };
 
   return (
-    <nav className="flex fixed top-0 left-0  w-full justify-end bg-secondary p-2 z-20 md:hidden border-b-2 shadow-2xl">
+    <nav className="flex fixed top-0 left-0 h-14 w-full justify-end p-2 z-20 md:hidden border-b-2 shadow-2xl bg-secondary dark:bg-dark-primary">
       {open && <Modal close={closeSidebar} />}
 
       <div className="h-[45px] w-[50px] relative top-[-10px]">
@@ -91,7 +91,7 @@ const SidebarMobile = () => {
 
       <div className="z-20">
         <GiHamburgerMenu
-          className={` active:bg-ternary cursor-pointer text-4xl rounded-xl  p-1  border-primary bg-secondary text-quaternary " 
+          className={` active:bg-ternary cursor-pointer text-4xl rounded-xl  p-1  border-primary bg-secondary text-quaternary dark:bg-dark-primary dark:text-quaternary dark:border-dark-primary " 
           } `} //${!open && "rotate-180"}
           onClick={toggleSidebar}
         />

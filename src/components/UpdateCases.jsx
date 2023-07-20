@@ -250,7 +250,7 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
             />
           </div>
 
-          <div className="p-4 col-span-12 border-primary/50 border-2 rounded-md bg-quaternary/50 text-center">
+          <div className="p-4 col-span-12 border-primary/50 border-2 rounded-md bg-quaternary/50 dark:border-dark-quaternary/50 dark:bg-dark-secondary/50  text-center">
             <h3 className="text-2xl font-semibold">UpdateCases</h3>
           </div>
 

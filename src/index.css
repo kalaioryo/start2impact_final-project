@@ -4,7 +4,7 @@
 
 body{
   background-image: url('./assets/svg/topography.svg');
-  //background-color: white;
+  /* //background-color: white; */
   -webkit-tap-highlight-color: transparent;
   
 }
@@ -48,7 +48,10 @@ body{
     @apply shadow-xl;
     @apply border-2;
     @apply border-primary/50;
+    @apply dark:border-dark-quaternary/50;
     @apply bg-primary/10;
+    @apply dark:bg-dark-secondary/70;
+    @apply dark:text-quaternary;
     @apply rounded-md;
 
     @apply relative;
@@ -71,9 +74,13 @@ body{
 
     @apply p-4;
 
-    @apply border-primary/50; 
+    @apply border-primary/50;
+    @apply dark:border-dark-quaternary/50;
+    @apply dark:bg-dark-ternary/50;
     @apply border-2;
     @apply bg-quaternary;
+    @apply dark:bg-dark-secondary;
+    @apply dark:text-dark-ternary;
     @apply font-bold;
     @apply rounded-md;
 
@@ -90,6 +97,20 @@ body{
     
   }
 
+  .link{
+    @apply text-primary;
+    @apply bg-quaternary;
+    @apply hover:bg-ternary;
+    @apply active:bg-primary;
+    @apply active:text-quinary;
+
+    @apply dark:text-dark-quaternary;
+    @apply dark:bg-dark-secondary;
+    @apply dark:hover:bg-dark-ternary;
+    @apply dark:hover:text-dark-primary;
+    @apply dark:active:bg-dark-secondary;
+    @apply dark:active:text-dark-quaternary;
+  }
   
 
 }

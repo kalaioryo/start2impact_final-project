@@ -24,7 +24,7 @@ const Home = () => {
   const lastDayData = lastTwoDaysData[1]
 
   return (
-    <div className=" grid grid-cols-12 gap-4 bg-quaternary/90">
+    <div className=" grid grid-cols-12 gap-4 bg-quaternary/90 dark:bg-dark-primary/80 dark:text-dark-quaternary">
       {/* <h1 className="w-full text-center">Home Page</h1> */}
 
       {
