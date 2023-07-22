@@ -202,7 +202,7 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
           </div>
 
           {/* Select Input */}
-          <div className="col-span-12">
+          <div className="col-span-12 md:col-span-7 md:col-start-3 lg:col-span-4 lg:col-start-5">
             <SelectCategoryInput
               categorySelect={category}
               categories={categories}

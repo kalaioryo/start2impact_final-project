@@ -66,7 +66,7 @@ const Regions = () => {
             Dati aggiornati al {moment(lastDayData.data).format("L")}
           </h1>
 
-          <div className="col-span-2 col-start-5 md:col-start-6">
+          <div className="col-span-10 col-start-2 md:col-span-5 md:col-start-5">
             <SelectRegionInput
             regions={regionsList}
             regionSelect={currentRegion}
