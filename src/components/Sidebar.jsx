@@ -44,10 +44,10 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="flex fixed z-20 top-0">
+    <div className="flex fixed min-h-[100%] z-20 top-0">
       <div>
         <div
-          className={`hidden md:block bg-primary dark:bg-dark-primary h-screen p-5  min-h-screen h-full pt-8 relative duration-300 ${
+          className={`hidden md:block bg-primary dark:bg-dark-primary p-5  min-h-screen h-full pt-8 relative duration-300 ${
             open ? "w-72" : "w-20"
           }`}
         >
@@ -72,7 +72,11 @@ const Sidebar = () => {
             </h1>
           </div>
 
-          <ul className="pt-2">
+          <div className="w-[70px] absolute top-[65px] left-[5px]">
+              <DarkMode />
+          </div>
+
+          <ul className="pt-4">
             <NavLink to={"/"} onClick={closeSidebar}>
               <li className=" text-sm flex items-center gap-x-4 p-2 rounded-md mt-2 link-sidebar">
                 <span className="text-2xl block float-left">
@@ -89,7 +93,7 @@ const Sidebar = () => {
             </NavLink>
 
             <NavLink to={"/map"} onClick={closeSidebar}>
-              <li className=" text-sm flex items-center gap-x-4 p-2  rounded-md mt-2 border-b border-b-ternary dark:border-b-dark-ternary link-sidebar">
+              <li className="text-sm flex items-center gap-x-4 p-2  rounded-md mt-2 border-b border-b-ternary dark:border-b-dark-ternary link-sidebar">
                 <span className="text-2xl block float-left">
                   <TbMapSearch />
                 </span>
@@ -104,7 +108,7 @@ const Sidebar = () => {
             </NavLink>
 
             <NavLink to={"/regions"} onClick={closeSidebar}>
-              <li className=" text-sm flex items-center gap-x-4 p-2 rounded-md mt-6 link-sidebar">
+              <li className=" text-sm flex items-center gap-x-4 p-2 rounded-md mt-2 link-sidebar">
                 <span className="text-2xl block float-left">
                   <GiHills />
                 </span>
@@ -147,7 +151,7 @@ const Sidebar = () => {
               </span>
               {open && (
                 <span onClick={toggleMenuSetting}>
-                  <BsChevronDown className="text-2xl" />
+                  <BsChevronDown className="text-2xl"/>
                 </span>
               )}
             </li>
@@ -159,35 +163,15 @@ const Sidebar = () => {
                   </li>
                 </NavLink>
 
-                <li className="text-quaternary text-sm flex items-center gap-x-4 p-2 hover:bg-ternary/10 rounded-md mt-2">
-                  Portfolio
-                </li>
-                <li className="text-quaternary text-sm flex items-center gap-x-4 p-2 hover:bg-ternary/10 rounded-md mt-2">
-                  Github
-                </li>
-                <li className="text-quaternary text-sm flex items-center gap-x-4 p-2 hover:bg-ternary/10 rounded-md mt-2">
-                  Linkedin
-                </li>
-                <li className="text-quaternary text-sm flex items-center gap-x-4 p-2 hover:bg-ternary/10 rounded-md mt-2">
-                  Api
-                </li>
+                <NavLink to={'https://github.com/pcm-dpc/COVID-19'} target="_blank">
+                  <li className="text-quaternary text-sm flex items-center gap-x-4 p-2 hover:bg-ternary/10 rounded-md mt-2">
+                    Fonte dei dati
+                  </li>
+                </NavLink>
+
               </ul>
             )}
 
-            <div className="w-[70px] relative left-[-15px]">
-              <DarkMode />
-            </div>
-
-            {/* <li className="text-quaternary text-sm flex items-center gap-x-4 p-2 hover:bg-ternary/10 rounded-md mt-2">
-              <span className="text-2xl block float-left">
-                <SiWorldhealthorganization />
-              </span>
-              <span
-                className={`text-base font-medium flex-1 ${!open && "hidden"}`}
-              >
-                WHO
-              </span>
-            </li> */}
           </ul>
         </div>
       </div>

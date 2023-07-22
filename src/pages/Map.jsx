@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 import { useSelector } from "react-redux";
 import ItalyMap from "../components/ItalyMap";
 import LoadingComponent from "../components/LoadingComponent";
+import SelectCategoryInput from '../components/input/SelectCategoryInput';
 
 
 const Map = () => {
@@ -30,39 +31,20 @@ const Map = () => {
     "variazione_totale_positivi",
   ];
 
-  const handleChange = (e) => {
+  const handleChangeCategory = (e) => {
     setCategory(e.target.value);
   };
 
   return (
     <div className='dark:bg-dark-primary/90 dark:text-dark-quaternary'>
-      <div>
+      {/* <div>
         <h1 className='text-center p-4'>Map Page</h1>
-      </div>
+      </div> */}
       
-      <div className='flex justify-center '>
-      <label className="p-2 mx-2 rounded-md bg-ternary text-primary dark:bg-dark-primary/80 dark:text-dark-ternary ">
-        <span className="w-[80%] mx-[10%] ">Select data:</span>
-        <select
-          value={category}
-          className="p-2 w-[80%] mx-[10%]"
-          name="selectWord"
-          id="categories"
-          onChange={handleChange}
-        >
-          {categories.map((nameCategory) => {
-            return (
-              <option
-                value={nameCategory}
-                // selected={optionState === nameCategory}
-                key={nameCategory}
-                className="first-letter:uppercase bg-quinary text-primary"
-              >
-                {nameCategory.replaceAll("_", " ")}
-              </option>
-            );
-          })}
-        </select>
+      <div className='flex justify-center'>
+      <label className="p-2 mt-10 mx-2 rounded-md bg-ternary text-primary dark:bg-dark-primary dark:text-dark-ternary">
+        <span className="block p-2">Seleziona la categoria:</span>
+        <SelectCategoryInput categories={categories} handleChangeCategory={handleChangeCategory} categorySelect={category}/>
       </label>
       </div>
 

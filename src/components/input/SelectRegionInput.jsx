@@ -8,6 +8,7 @@ const SelectRegionInput = ({
   return (
     <>
       <select
+        className='text-black border-2 border-primary/60 dark:bg-dark-ternary/10 dark:text-dark-quaternary dark:border-dark-ternary/40 text-lg p-2 w-full shadow-md rounded-md '
         value={regionSelect}
         name="Regions"
         id="Regions"
