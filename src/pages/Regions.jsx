@@ -62,7 +62,7 @@ const Regions = () => {
 
       {!loading && regions[0] ? (
         <>
-          <h1 className="col-span-12 text-center">
+          <h1 className="col-span-11 col-start-2 text-center">
             Dati aggiornati al {moment(lastDayData.data).format("L")}
           </h1>
 

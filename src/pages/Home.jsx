@@ -34,7 +34,7 @@ const Home = () => {
       {
         !loading && italy[0] ?
         <>
-          <h1 className="col-span-12 text-center">Dati aggiornati al {moment(lastDayData.data).format('L')}</h1>
+          <h1 className="col-span-11 col-start-2 text-center">Dati aggiornati al {moment(lastDayData.data).format('L')}</h1>
 
           <Cases lastDayData={lastDayData} />
           

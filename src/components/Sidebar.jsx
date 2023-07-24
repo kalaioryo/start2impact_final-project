@@ -72,11 +72,11 @@ const Sidebar = () => {
             </h1>
           </div>
 
-          <div className="w-[70px] absolute top-[65px] left-[5px]">
-              <DarkMode />
+          <div className="w-[60px] absolute top-[70px] left-[10px]">
+            <DarkMode />
           </div>
 
-          <ul className="pt-4">
+          <ul className="pt-4 mt-3">
             <NavLink to={"/"} onClick={closeSidebar}>
               <li className=" text-sm flex items-center gap-x-4 p-2 rounded-md mt-2 link-sidebar">
                 <span className="text-2xl block float-left">
@@ -137,21 +137,24 @@ const Sidebar = () => {
               </li>
             </NavLink>
 
-            <li className="text-sm flex items-center gap-x-4 p-2 rounded-md mt-2 link-sidebar">
+            <li className="text-sm flex items-center rounded-md mt-2 link-sidebar">
               <NavLink to={"/about"}>
-                <span className="text-2xl block float-left">
+                <span className="text-3xl float-left">
                   <GiInfo />
                 </span>
               </NavLink>
-
-              <span
-                className={`text-base font-medium flex-1 ${!open && "hidden"}`}
-              >
-                About
-              </span>
+              <NavLink to={"/about"} className={"w-full pl-5 cursor-pointer"}>
+                <span
+                  className={`text-base font-medium  w-full ${
+                    !open && "hidden"
+                  }`}
+                >
+                  About
+                </span>
+              </NavLink>
               {open && (
                 <span onClick={toggleMenuSetting}>
-                  <BsChevronDown className="text-2xl"/>
+                  <BsChevronDown className="text-2xl" />
                 </span>
               )}
             </li>
@@ -163,15 +166,16 @@ const Sidebar = () => {
                   </li>
                 </NavLink>
 
-                <NavLink to={'https://github.com/pcm-dpc/COVID-19'} target="_blank">
+                <NavLink
+                  to={"https://github.com/pcm-dpc/COVID-19"}
+                  target="_blank"
+                >
                   <li className="text-quaternary text-sm flex items-center gap-x-4 p-2 hover:bg-ternary/10 rounded-md mt-2">
                     Fonte dei dati
                   </li>
                 </NavLink>
-
               </ul>
             )}
-
           </ul>
         </div>
       </div>
