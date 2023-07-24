@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes, { arrayOf } from 'prop-types';
 
 import { GiOpenBook } from "react-icons/gi";
 
@@ -309,6 +310,18 @@ const Swabs = ({ lastMonth }) => {
     </div>
   );
 };
+
+Swabs.propTypes = {
+  lastMonth: arrayOf(
+    PropTypes.shape({
+      tamponi: PropTypes.number.isRequired,
+      totale_positivi_test_molecolare: PropTypes.number.isRequired,
+      totale_positivi_test_antigenico_rapido: PropTypes.number.isRequired,
+      tamponi_test_molecolare: PropTypes.number.isRequired,
+      tamponi_test_antigenico_rapido: PropTypes.number.isRequired,
+    })
+  )
+}
 
 export default Swabs;
 

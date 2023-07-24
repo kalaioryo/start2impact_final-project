@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types';
+
 
 const Cases = ({ lastDayData, regionName }) => {
 
@@ -16,6 +18,17 @@ const Cases = ({ lastDayData, regionName }) => {
     
     </div>
   )
+}
+
+Cases.propTypes = {
+  lastDayData: PropTypes.shape({
+    nuovi_positivi: PropTypes.number.isRequired,
+    totale_casi: PropTypes.number.isRequired
+  }),
+  regionName: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool
+  ]).isRequired
 }
 
 export default Cases

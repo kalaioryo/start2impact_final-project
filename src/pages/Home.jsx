@@ -36,7 +36,7 @@ const Home = () => {
         <>
           <h1 className="col-span-11 col-start-2 text-center">Dati aggiornati al {moment(lastDayData.data).format('L')}</h1>
 
-          <Cases lastDayData={lastDayData} />
+          <Cases lastDayData={lastDayData} regionName={false} />
           
           <UpdateCases lastMonth={lastMonth} day31Ago={day31Ago}/> 
           <Hospitalizations lastMonth={lastMonth}/>

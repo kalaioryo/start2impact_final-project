@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import { GiOpenBook } from 'react-icons/gi'
 import { BsCardText } from 'react-icons/bs'
 import { BsPieChartFill } from 'react-icons/bs'
@@ -14,6 +16,12 @@ const SwitchTextChart = ({component, switchText, isText}) => {
           </span>
         </button>
   )
+}
+
+SwitchTextChart.propTypes = {
+  component: PropTypes.string.isRequired,
+  switchText: PropTypes.func.isRequired,
+  isText: PropTypes.bool.isRequired
 }
 
 export default SwitchTextChart

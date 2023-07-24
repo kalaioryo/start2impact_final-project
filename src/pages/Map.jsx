@@ -36,10 +36,7 @@ const Map = () => {
   };
 
   return (
-    <div className='pt-4 h-full md:mb-24 pb-40 dark:bg-dark-primary/90 dark:text-dark-quaternary'>
-      {/* <div>
-        <h1 className='text-center p-4'>Map Page</h1>
-      </div> */}
+    <div className='pt-4 h-full md:mb-2 pb-40 dark:bg-dark-primary/90 dark:text-dark-quaternary'>
       
       <div className='flex justify-center'>
       <label className="p-2 mt-10 mx-2 rounded-md bg-ternary text-primary dark:bg-dark-primary dark:text-dark-ternary">
@@ -49,7 +46,7 @@ const Map = () => {
       </div>
 
       {loading && <LoadingComponent />}
-      {!loading && regionsLatest[0] ? <ItalyMap typeData={category} /> : null}
+      {!loading && regionsLatest[0] ? <ItalyMap category={category} /> : null}
 
     </div>
   )

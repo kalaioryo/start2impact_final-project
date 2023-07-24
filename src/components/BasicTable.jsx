@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import PropTypes from "prop-types";
 
 import { useTable } from "react-table";
 
@@ -48,6 +49,21 @@ const BasicTable = ({ dataTable, columnsData }) => {
       </div>
     </div>
   );
+};
+
+BasicTable.propTypes = {
+  columnsData: PropTypes.arrayOf(
+    PropTypes.shape({
+      Header: PropTypes.string.isRequired,
+      accessor: PropTypes.string.isRequired,
+    })
+  ),
+  dataTable: PropTypes.arrayOf(
+    PropTypes.shape({
+      denominazione_provincia: PropTypes.string.isRequired,
+      totale_casi: PropTypes.string.isRequired,
+    })
+  ),
 };
 
 export default BasicTable;

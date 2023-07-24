@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import PropTypes, { oneOfType } from 'prop-types';
 
 import Lottie from "lottie-react";
 
@@ -30,8 +31,6 @@ const LottieDarkMode = ({ theme }) => {
     lottieRef.current.goToAndStop([0], true)
       }
 
-      console.log(theme);
-
   return (
 
     <Lottie
@@ -43,5 +42,12 @@ const LottieDarkMode = ({ theme }) => {
 
   );
 };
+
+LottieDarkMode.propTypes = {
+  theme: oneOfType([
+    PropTypes.string,
+    PropTypes.bool
+  ])
+}
 
 export default LottieDarkMode;

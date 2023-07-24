@@ -1,5 +1,8 @@
 import React from "react";
 
+import PropTypes from 'prop-types';
+
+
 const SelectCategoryInput = ({
   categorySelect,
   categories,
@@ -27,5 +30,11 @@ const SelectCategoryInput = ({
     </>
   );
 };
+
+SelectCategoryInput.propTypes = {
+  categorySelect: PropTypes.string.isRequired,
+  categories: PropTypes.arrayOf(PropTypes.string),
+  handleChangeCategory: PropTypes.func.isRequired
+}
 
 export default SelectCategoryInput;

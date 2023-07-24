@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from 'prop-types';
+
 
 const SelectTimeRange = ({ text, setTimeRange, timeRange }) => {
   return (
@@ -12,6 +14,14 @@ const SelectTimeRange = ({ text, setTimeRange, timeRange }) => {
       </button>
     </div>
   );
+  
 };
 
+SelectTimeRange.propTypes = {
+  text: PropTypes.string.isRequired,
+  setTimeRange: PropTypes.func.isRequired,
+  timeRange: PropTypes.string.isRequired
+}
+
 export default SelectTimeRange;
+

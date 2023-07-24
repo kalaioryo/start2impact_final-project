@@ -4,29 +4,31 @@ import moment from "moment";
 import SwitchTextChart from "./button/SwitchTextChart";
 import SelectCurrentKey from "./button/SelectCurrentKey";
 import SelectTimeRange from "./button/SelectTimeRange";
+import PropTypes from "prop-types";
 
-const Hospitalizations = ({lastMonth}) => {
+const Hospitalizations = ({ lastMonth }) => {
   const [isText, setIsText] = useState({
     main: false,
     a: false,
     b: false,
-    c: false
+    c: false,
   });
   const [currentKeyBar, setCurrentKeyBar] = useState(["hospitalized"]);
-  const [timeRange, setTimeRange] = useState('week')
+  const [timeRange, setTimeRange] = useState("week");
 
-  const lastTwoDay = lastMonth.slice(-2)
-  const prevDay = lastTwoDay[0]
-  const lastDay = lastTwoDay[1]
+  const lastTwoDay = lastMonth.slice(-2);
+  const prevDay = lastTwoDay[0];
+  const lastDay = lastTwoDay[1];
 
+  console.log(lastMonth);
 
   //Time Range of data chart
 
   const getTimeRange = {
-    "month": lastMonth,
-    "twoWeek": lastMonth.slice(-14),
-    "week": lastMonth.slice(-7)
-  }
+    month: lastMonth,
+    twoWeek: lastMonth.slice(-14),
+    week: lastMonth.slice(-7),
+  };
 
   // console.log(getTimeRange);
 
@@ -101,23 +103,22 @@ const Hospitalizations = ({lastMonth}) => {
     <div className="relative test-container ">
       {!isText.main ? (
         <>
-
           <div className="absolute">
-              <SwitchTextChart
-                component={"main"}
-                switchText={handleClickSwitch}
-                isText={isText.main}
-              />
-            </div>
+            <SwitchTextChart
+              component={"main"}
+              switchText={handleClickSwitch}
+              isText={isText.main}
+            />
+          </div>
 
-            <div className="col-span-12 pt-4 text-xl">
+          <div className="col-span-12 pt-4 text-xl">
             <h3 className="text-2xl font-semibold">Ospedalizzazioni</h3>
             {/* <span className="text-3xl font-bold"> */}
-              {totale_ospedalizzati.toLocaleString("it-IT")}
+            {totale_ospedalizzati.toLocaleString("it-IT")}
             {/* </span> */}
-            </div>
+          </div>
 
-            <div className="flex justify-end mr-[2%] col-span-12">
+          <div className="flex justify-end mr-[2%] col-span-12">
             <SelectTimeRange
               text={"week"}
               setTimeRange={setTimeRange}
@@ -134,9 +135,8 @@ const Hospitalizations = ({lastMonth}) => {
               text={"month"}
               setTimeRange={setTimeRange}
               timeRange={"month"}
-            />          
-            </div>
-            
+            />
+          </div>
 
           <div className="h-[400px] col-span-12 bg-white/70 rounded-md">
             <StandardBar
@@ -161,7 +161,6 @@ const Hospitalizations = ({lastMonth}) => {
               text={"intensive care"}
               keyData={"intensive care"}
             />
-
           </div>
         </>
       ) : (
@@ -213,6 +212,18 @@ const Hospitalizations = ({lastMonth}) => {
       )}
     </div>
   );
+};
+
+Hospitalizations.propTypes = {
+  lastMonth: PropTypes.arrayOf(
+    PropTypes.shape({
+      ricoverati_con_sintomi: PropTypes.number.isRequired,
+      terapia_intensiva: PropTypes.number.isRequired,
+      totale_ospedalizzati: PropTypes.number.isRequired,
+      isolamento_domiciliare: PropTypes.number.isRequired,
+      ingressi_terapia_intensiva: PropTypes.number.isRequired,
+    })
+  ),
 };
 
 export default Hospitalizations;

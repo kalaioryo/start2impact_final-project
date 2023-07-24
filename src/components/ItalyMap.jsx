@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import PropTypes from 'prop-types';
+
 import { Chart } from "react-google-charts";
 import { useSelector } from "react-redux";
 import ErrorComponent from "./ErrorComponent";
@@ -6,12 +8,11 @@ import LoadingComponent from "./LoadingComponent";
 
 import moment from "moment/moment";
 
-const ItalyMap = ({ typeData }) => {
+const ItalyMap = ({ category }) => {
 
-  const [valueRange, setValueRange] = useState(0);
   const dataMap = useSelector((state) => state.regionsLatest);
   const { loading, regionsLatest, error } = dataMap;
-  const WordLegend = typeData.replaceAll("_", " ");
+  const keyWord = category.replaceAll("_", " ");
 
   let date = moment(regionsLatest[0].data).format("L");
 
@@ -24,21 +25,18 @@ const ItalyMap = ({ typeData }) => {
     backgroundColor: "#576CBC",
     datalessRegionColor: "lightGray",
     defaultColor: "#f5f5f5",
-    // margin: "35%",
   };
 
-  const dataChart = [["Country", WordLegend]];
+  const dataChart = [["Country", keyWord]];
 
-  // console.log(regionsLatest);
-  const createDataChart = (typeData) => {
-    // setLoadMap(true)
+  const createDataChart = (category) => {
 
     let trento = 0;
     let bolzano = 0;
 
     regionsLatest.map((region) => {
       let nameRegion = region.denominazione_regione;
-      let dataRegion = region[typeData];
+      let dataRegion = region[category];
       switch (nameRegion) {
         case "P.A. Bolzano":
           bolzano += dataRegion;
@@ -63,13 +61,13 @@ const ItalyMap = ({ typeData }) => {
     return dataChart;
   };
 
-  createDataChart(typeData);
+  createDataChart(category);
 
   return (
-    <div className="backdrop-blur-md m-2 md:ml-20">
+    <div className="backdrop-blur-md m-1 md:ml-20">
       <div>
         <h3 className="py-4 first-letter:uppercase text-3xl text-center">
-          {WordLegend}
+          {keyWord}
         </h3>
         <p className="text-center m-2">aggiornati al {date}</p>
       </div>
@@ -83,10 +81,14 @@ const ItalyMap = ({ typeData }) => {
             data={dataChart}
             options={options}
           />
-          
+
       </div>
     </div>
   );
 };
+
+ItalyMap.propTypes = {
+  category: PropTypes.string.isRequired
+}
 
 export default ItalyMap;

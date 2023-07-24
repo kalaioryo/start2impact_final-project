@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types';
+
 
 const SelectRegionInput = ({
   regionSelect,
@@ -26,6 +28,12 @@ const SelectRegionInput = ({
       </select>
     </>
   );
+}
+
+SelectRegionInput.propTypes = {
+  regionSelect: PropTypes.string.isRequired,
+  regions: PropTypes.arrayOf(PropTypes.string),
+  handleChangeRegion: PropTypes.func,
 }
 
 export default SelectRegionInput

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 const SelectCurrentKey = ({handleClickCurrentKey, text, keyData}) => {
   return (
@@ -11,5 +12,11 @@ const SelectCurrentKey = ({handleClickCurrentKey, text, keyData}) => {
       </button>
   );
 };
+
+SelectCurrentKey.propTypes = {
+  handleClickCurrentKey: PropTypes.func,
+  text: PropTypes.string,
+  keyData: PropTypes.string
+}
 
 export default SelectCurrentKey;

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import PropTypes, { arrayOf } from 'prop-types';
+
 import moment from "moment";
 
 import StandardLine from "./chart/StandardLine";
@@ -306,5 +308,16 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
     </div>
   );
 };
+
+UpdateCases.propTypes = {
+  lastMonth: arrayOf(
+    PropTypes.shape({
+      deceduti: PropTypes.number.isRequired,
+      dimessi_guariti: PropTypes.number.isRequired,
+      nuovi_positivi: PropTypes.number.isRequired,
+      variazione_totale_positivi: PropTypes.number.isRequired
+    })
+  )
+}
 
 export default UpdateCases;
