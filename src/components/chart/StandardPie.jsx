@@ -29,6 +29,19 @@ const StandardPie = ({ data, keysPie, perceptual}) => (
       }
     }
 
+    tooltip={ (point) => {
+
+      return <div style={ {
+      fontSize: '18px',
+      background: '#222222',
+      color: `${point.datum.color}`,
+      padding: '10px'
+      }}>
+        <span style={{padding: '2px'}}>{point.datum.label}</span>
+        <span style={{padding: '2px'}}>({point.datum.value})</span>
+        </div>;
+  }}
+
 
 
     // tooltip={({ id, value, label, color }) => (

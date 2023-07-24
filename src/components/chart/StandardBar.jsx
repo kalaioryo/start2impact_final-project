@@ -1,16 +1,6 @@
 import { ResponsiveBar } from "@nivo/bar";
-// import { ThemeProvider } from "@nivo/core";
 
-// const theme = {
-//   tooltip: {
-//     background: "pink",
-//     tableCell: {
-//       background: "red",
-//     },
-//   },
-// };
-
-const StandardBar = ({ data, keysBar, groupMode, layout }) => (
+const StandardBar = ({ data, keysBar }) => (
   // <ThemeProvider theme={theme}>
   <ResponsiveBar
     data={data}
@@ -19,7 +9,7 @@ const StandardBar = ({ data, keysBar, groupMode, layout }) => (
     // layout={layout}
     margin={{ top: 70, right: 40, bottom: 70, left: 50 }}
     borderRadius={5}
-    // colors={{ scheme: 'pastel2' }}
+    // colors={{ scheme: 'categ }}
     enableLabel={false}
     axisBottom={{
       tickSize: 6,

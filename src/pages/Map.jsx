@@ -37,9 +37,10 @@ const Map = () => {
 
   return (
     <div className='pt-4 h-full md:mb-2 pb-40 dark:bg-dark-primary/90 dark:text-dark-quaternary'>
+
       
       <div className='flex justify-center'>
-      <label className="p-2 mt-10 mx-2 rounded-md bg-ternary text-primary dark:bg-dark-primary dark:text-dark-ternary">
+      <label className="p-2 mt-10 mx-2 md:ml-[6%] rounded-md bg-ternary text-primary dark:bg-dark-primary dark:text-dark-ternary">
         <span className="block p-2">Seleziona la categoria:</span>
         <SelectCategoryInput categories={categories} handleChangeCategory={handleChangeCategory} categorySelect={category}/>
       </label>

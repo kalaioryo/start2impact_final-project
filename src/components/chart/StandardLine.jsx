@@ -59,21 +59,22 @@ const StandardLine = ({ data }) => (
           flexDirection: "column",
           padding: 12,
           color,
-          background: "white",
-          // background: "#222222",
+          // background: "white",
+          background: "#222222",
         }}
       >
         <span
           style={{
-            backgroundColor: `${point.color}`,
+            // backgroundColor: `${point.color}`,
+            color: `${point.color}`,
             padding: "4px",
             width: "100px",
           }}
         >
           {point.serieId}
         </span>
-        <span>{point.data.x}</span>
-        <span>{point.data.y.toLocaleString("it-IT")}</span>
+        <span style={{color: `${point.color}`}}>{point.data.x}</span>
+        <span style={{color: `${point.color}`}}>{point.data.y.toLocaleString("it-IT")}</span>
         {/* <span>{value.toLocaleString("it-IT")}</span> */}
       </div>
     )}
