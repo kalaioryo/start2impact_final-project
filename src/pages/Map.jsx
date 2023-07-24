@@ -36,7 +36,7 @@ const Map = () => {
   };
 
   return (
-    <div className='dark:bg-dark-primary/90 dark:text-dark-quaternary'>
+    <div className='pt-4 h-full md:mb-24 pb-40 dark:bg-dark-primary/90 dark:text-dark-quaternary'>
       {/* <div>
         <h1 className='text-center p-4'>Map Page</h1>
       </div> */}

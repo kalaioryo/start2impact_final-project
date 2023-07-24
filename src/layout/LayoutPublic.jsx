@@ -29,7 +29,7 @@ const LayoutPublic = () => {
     <div className="flex flex-col justify-evenly">
       <SidebarMobile />
       <Sidebar />
-      <main className="mt-14 w-full h-full md:mt-0 mb-14">
+      <main className="mt-14 w-full h-full md:mt-0 sm:mb-14">
         { loading ? (
           <div className="mt-14 w-full h-[73vh] lg:mt-0" >
             <p className="mt-32 text-2xl text-center">caricamento dei dati corso</p>

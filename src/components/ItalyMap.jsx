@@ -8,18 +8,12 @@ import moment from "moment/moment";
 
 const ItalyMap = ({ typeData }) => {
 
-  // const [ sizeChart, setSizeChart ] = useState(false)
   const [valueRange, setValueRange] = useState(0);
   const dataMap = useSelector((state) => state.regionsLatest);
   const { loading, regionsLatest, error } = dataMap;
-  const WordLegenda = typeData.replaceAll("_", " ");
-
-  // useEffect(() => {}, []);
+  const WordLegend = typeData.replaceAll("_", " ");
 
   let date = moment(regionsLatest[0].data).format("L");
-
-  var width = 1.5 * window.innerHeight;
-  var height = 1.5 * window.innerWidth;
 
   const options = {
     region: "IT", // Italia
@@ -30,11 +24,10 @@ const ItalyMap = ({ typeData }) => {
     backgroundColor: "#576CBC",
     datalessRegionColor: "lightGray",
     defaultColor: "#f5f5f5",
-    // chartArea: { width: "100%", height: "70%" }
-    // legend: "none",
+    // margin: "35%",
   };
 
-  const dataChart = [["Country", WordLegenda]];
+  const dataChart = [["Country", WordLegend]];
 
   // console.log(regionsLatest);
   const createDataChart = (typeData) => {
@@ -72,18 +65,16 @@ const ItalyMap = ({ typeData }) => {
 
   createDataChart(typeData);
 
-
-
   return (
-    <div className="backdrop-blur-md">
+    <div className="backdrop-blur-md m-2 md:ml-20">
       <div>
-        <h3 className="first-letter:uppercase text-3xl text-center">
-          {WordLegenda}
+        <h3 className="py-4 first-letter:uppercase text-3xl text-center">
+          {WordLegend}
         </h3>
         <p className="text-center m-2">aggiornati al {date}</p>
       </div>
 
-      <div className="p-4 h-full w-full ">
+      <div className="p-4 pt-12">
 
           <Chart
             chartType="GeoChart"
@@ -92,13 +83,8 @@ const ItalyMap = ({ typeData }) => {
             data={dataChart}
             options={options}
           />
-
-        {/* {//flex justify-center backdrop-blur-sm } */}
+          
       </div>
-
-      {/* <div className="flex justify-center">
-        <input onChange={handleChange} type="range" min={0} max={50}/>
-      </div> */}
     </div>
   );
 };

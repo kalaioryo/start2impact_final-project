@@ -10,19 +10,19 @@ import LottieAstroDeveloper from '../components/lottie-components/LottieAstroDev
 
 const About = () => {
   return (
-    <div className='py-10 bg-quaternary/70 dark:bg-dark-primary/95 dark:text-dark-quaternary'>
-      <h1 className="py-5 w-full text-3xl text-center">About me</h1>
+    <div className='pb-24 bg-quaternary/70 dark:bg-dark-primary/95 dark:text-dark-quaternary'>
+      <h1 className="py-10 w-full text-3xl text-center">About me</h1>
 
       <div className=''>
         <LottieAstroDeveloper/>
       </div>
 
-      <div className='py-5 px-2 text-center'>
+      <div className='py-12 px-2 text-center'>
         <p>Se il  sito ti è piaciuto e vuoi saperne di più su di me:</p>
       </div>
 
 
-      <div className=' bg-ternary/20 dark:bg-dark-primary/70 flex flex-col w-3/4 md:w-2/4 lg:w-2/6 xl:w-1/4 m-auto'>
+      <div className='bg-ternary/20 dark:bg-dark-primary/70 flex flex-col w-3/4 md:w-2/4 lg:w-2/6 xl:w-1/4 m-auto'>
 
         <NavLink to={"https://www.linkedin.com/in/antonio-iorio-5376511bb/"} target="_blank">
           <div className='flex p-4 link'>
