@@ -292,10 +292,10 @@ const Swabs = ({ lastMonth }) => {
 
       <div className="test-card relative">
         <div className="col-span-1 col-start-2">
-          <p className="p-2 text-xl text-center absolute top-[35%] left-[42%] md:left-[38%]">
+          <p className="p-2 text-xl text-center absolute top-[35%] left-[40%] md:left-[38%]">
             Positività
           </p>
-          <span className="block text-3xl absolute top-[45%] left-[45%]  md:left-[41%]">
+          <span className="block text-3xl absolute top-[45%] left-[44%]  md:left-[41%]">
             {perceptualPositive}%
           </span>
           <div className="h-[300px]">

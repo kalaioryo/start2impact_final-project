@@ -63,6 +63,11 @@ body{
   }
 
   .test-card{
+
+    @apply flex;
+    @apply flex-col;
+    @apply justify-center;
+    
     @apply h-[350px];
     @apply col-span-12;
 
@@ -76,7 +81,6 @@ body{
     @apply lg:col-span-6;
     
     @apply xl:col-span-4;
-
     @apply p-4;
 
     @apply border-primary/50;
@@ -88,8 +92,6 @@ body{
     @apply dark:text-dark-ternary;
     @apply font-bold;
     @apply rounded-md;
-
-
 
   }
 

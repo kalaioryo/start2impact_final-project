@@ -20,8 +20,6 @@ const Hospitalizations = ({ lastMonth }) => {
   const prevDay = lastTwoDay[0];
   const lastDay = lastTwoDay[1];
 
-  console.log(lastMonth);
-
   //Time Range of data chart
 
   const getTimeRange = {
@@ -30,7 +28,6 @@ const Hospitalizations = ({ lastMonth }) => {
     week: lastMonth.slice(-7),
   };
 
-  // console.log(getTimeRange);
 
   // deconstruction data
 
