@@ -4,7 +4,7 @@ import LottieLoading from './lottie-components/LottieLoading'
 
 const LoadingComponent = () => {
   return (
-    <div>
+    <div className='flex justify-center'>
       <LottieLoading/>
     </div>
   )

@@ -7,6 +7,7 @@ import About from "../pages/About";
 import NotFound from "../pages/NotFound";
 import LayoutPublic from "../layout/LayoutPublic";
 import Provinces from "../pages/Provinces";
+import RootBoundary from "../components/RootBoundary";
 
 export  const router = createBrowserRouter([
   {
@@ -15,7 +16,7 @@ export  const router = createBrowserRouter([
     errorElement: <NotFound/>,
     children: [
       {
-        errorElement: <NotFound/>,
+        errorElement: <RootBoundary/>,
         children: [
           {
             index: true,

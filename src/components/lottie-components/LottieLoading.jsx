@@ -11,7 +11,6 @@ const LottieLoading = () => {
   const style = {
     width: '200px',
     margin: 'auto'
-    // backgroundColor: 'red'
   }
 
 

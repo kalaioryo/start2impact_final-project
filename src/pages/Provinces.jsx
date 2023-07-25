@@ -3,11 +3,14 @@ import { useSelector } from 'react-redux'
 
 import LoadingComponent from '../components/LoadingComponent'
 import BasicTable from '../components/BasicTable'
+import ErrorComponent from '../components/ErrorComponent'
 
 const Provinces = () => {
 
   const provinces = useSelector(state => state.provincesLatest)
-  const { IsLoading, IsError, provincesLatest} = provinces
+  const { loading, error, provincesLatest} = provinces
+
+  if(error) return <ErrorComponent error={error}/>
 
   const dataTable = provincesLatest.map((province) => {
     const provinceObject = {
@@ -32,12 +35,12 @@ const Provinces = () => {
     <div className=''>
 
       {
-        IsLoading ? <LoadingComponent/> : null
+        loading ? <LoadingComponent/> : null
       }
 
       {
 
-        !IsLoading && provincesLatest[0] ? 
+        !loading && provincesLatest[0] ? 
         <div className='py-8 grid grid-cols-12 md:col-span-10 md:col-start-2 bg-quaternary/60 dark:bg-dark-primary/90'>
         <h1 className="col-span-12 py-6 text-3xl text-center dark:text-dark-quaternary">Province</h1>
           <BasicTable dataTable={dataTable} columnsData={columnsData}/>

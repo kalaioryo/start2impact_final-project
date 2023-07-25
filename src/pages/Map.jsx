@@ -4,12 +4,15 @@ import { useSelector } from "react-redux";
 import ItalyMap from "../components/ItalyMap";
 import LoadingComponent from "../components/LoadingComponent";
 import SelectCategoryInput from '../components/input/SelectCategoryInput';
+import ErrorComponent from '../components/ErrorComponent';
 
 
 const Map = () => {
   const [category, setCategory] = useState("casi_testati");
   const dataRegion = useSelector((state) => state.regionsLatest);
   const { loading, regionsLatest, error } = dataRegion;
+
+  if(error) return <ErrorComponent error={error}/>
 
   const categories = [
     "casi_testati",

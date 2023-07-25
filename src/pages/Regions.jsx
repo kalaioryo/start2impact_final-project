@@ -9,12 +9,15 @@ import UpdateCases from "../components/UpdateCases";
 import Hospitalizations from "../components/Hospitalizations";
 import Swabs from "../components/Swabs";
 import SelectRegionInput from "../components/input/SelectRegionInput";
+import ErrorComponent from "../components/ErrorComponent";
 
 const Regions = () => {
   const [currentRegion, setCurrentRegion] = useState("Abruzzo");
 
   const dataRegions = useSelector((state) => state.regions);
   const { loading, regions, error } = dataRegions;
+
+  if(error) return <ErrorComponent error={error}/>
 
   const region = regions.filter(
     (region) => region.denominazione_regione === currentRegion

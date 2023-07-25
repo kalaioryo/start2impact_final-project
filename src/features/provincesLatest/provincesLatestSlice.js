@@ -27,7 +27,7 @@ const provincesLatestSlice = createSlice({
     builder.addCase(fetchDataProvincesLatest.rejected, (state, action) => {
       state.loading = false
       state.provincesLatest = []
-      state.error = ''
+      state.error = action.error.message
     })
   }
 })

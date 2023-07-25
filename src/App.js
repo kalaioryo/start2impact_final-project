@@ -23,18 +23,6 @@ function App() {
 
   return (
     <div className="App bg-quinary bg-opacity-70">
-      {/* <SidebarMobile/> */}
-
-      {/* <RouterProvider router={router} /> */}
-
-
-      {/* <div 
-      // className='sm:pl-20 '
-      className='pt-14'
-      >
-        <MapPage/>
-      </div>
-       */}
     </div>
   );
 }

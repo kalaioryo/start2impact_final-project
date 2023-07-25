@@ -8,13 +8,13 @@ import Cases from "../components/Cases";
 import UpdateCases from "../components/UpdateCases";
 import Hospitalizations from "../components/Hospitalizations";
 import Swabs from "../components/Swabs";
+import ErrorComponent from "../components/ErrorComponent";
 
 const Home = () => {
   const dataItaly = useSelector((state) => state.italy);
   const { loading, italy, error } = dataItaly;
-  // console.log(dataItaly);
 
-  // console.log(loading);
+  if(error) return <ErrorComponent error={error}/> 
 
   const lastMonth = italy.slice(-30)
 
@@ -25,8 +25,6 @@ const Home = () => {
 
   return (
     <div className=" grid grid-cols-12 gap-4 py-8 bg-quaternary/90 dark:bg-dark-primary/90 dark:text-dark-quaternary">
-      {/* <h1 className="w-full text-center">Home Page</h1> */}
-
       {
         loading && <LoadingComponent/>
       }
