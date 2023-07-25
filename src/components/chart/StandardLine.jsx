@@ -1,9 +1,9 @@
 import { ResponsiveLine } from "@nivo/line";
+import PropTypes from 'prop-types'
 
 const StandardLine = ({ data }) => (
   <ResponsiveLine
     data={data}
-    // valueFormat=" >,"
     useMesh={true}
     xScale={{ type: "point" }}
     yScale={{
@@ -14,44 +14,14 @@ const StandardLine = ({ data }) => (
       reverse: false,
     }}
     yFormat=" >-,"
-
-    // enableArea={true}
-    // areaOpacity={0.5}
-    // areaBaselineValue={data}
-    // data={[
-    //   {
-    //     "id": "japan",
-    //     "color": "hsl(316, 70%, 50%)",
-    //     "data": [
-    //       {
-    //         "x": "plane",
-    //         "y": 107
-    //       },
-    //       {
-    //         "x": "helicopter",
-    //         "y": 62
-    //       },
-    //       {
-    //         "x": "boat",
-    //         "y": 38
-    //       },
-    //     ]
-    //   }
-    // ]}
-
     margin={{ top: 50, right: 50, bottom: 50, left: 60 }}
     axisBottom={{
       tickSize: 6,
       tickPadding: 4,
       tickRotation: -47,
-      // legend: 'transportation',
       legendOffset: 36,
       legendPosition: "middle",
     }}
-    // enableSlices="x"
-
-    // sliceTooltip={function noRefCheck(){}}
-
     tooltip={({ point, color }) => (
       <div
         style={{
@@ -59,13 +29,11 @@ const StandardLine = ({ data }) => (
           flexDirection: "column",
           padding: 12,
           color,
-          // background: "white",
           background: "#222222",
         }}
       >
         <span
           style={{
-            // backgroundColor: `${point.color}`,
             color: `${point.color}`,
             padding: "4px",
             width: "100px",
@@ -73,9 +41,10 @@ const StandardLine = ({ data }) => (
         >
           {point.serieId}
         </span>
-        <span style={{color: `${point.color}`}}>{point.data.x}</span>
-        <span style={{color: `${point.color}`}}>{point.data.y.toLocaleString("it-IT")}</span>
-        {/* <span>{value.toLocaleString("it-IT")}</span> */}
+        <span style={{ color: `${point.color}` }}>{point.data.x}</span>
+        <span style={{ color: `${point.color}` }}>
+          {point.data.y.toLocaleString("it-IT")}
+        </span>
       </div>
     )}
     legends={[
@@ -106,5 +75,27 @@ const StandardLine = ({ data }) => (
     ]}
   />
 );
+
+StandardLine.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      data: PropTypes.arrayOf(
+        PropTypes.shape({
+          x: PropTypes.string.isRequired,
+          y: PropTypes.number.isRequired
+        })
+      )
+    })
+  ) 
+  
+  
+  // PropTypes.arrayOf(
+  //   PropTypes.shape({
+  //     x: PropTypes.string,
+  //     y: PropTypes.number
+  //   }).isRequired
+  // )
+}
 
 export default StandardLine;

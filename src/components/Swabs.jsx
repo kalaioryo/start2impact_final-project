@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import PropTypes, { arrayOf } from 'prop-types';
 
-import { GiOpenBook } from "react-icons/gi";
-
-import LoadingComponent from "./LoadingComponent";
-import BaseBar from "./chart/BaseBar";
 import SwitchTextChart from "./button/SwitchTextChart";
 import RingPie from "./chart/RingPie";
 import StandardPie from "./chart/StandardPie";
@@ -185,7 +181,6 @@ const Swabs = ({ lastMonth }) => {
             ? lastDaySwabs.toLocaleString("it-IT")
             : tamponi.toLocaleString("it-IT")}
         </span>
-        {/* <h3>Totale Tamponi {tamponi.toLocaleString('it-IT')}</h3> */}
 
         <div className="flex justify-evenly">
           <button className="my-6">
@@ -236,11 +231,6 @@ const Swabs = ({ lastMonth }) => {
           <div className="h-[300px]">
             <h3>Tamponi usati</h3>
             <StandardPie data={isLastDay ? dataPieSwabs : dataPieTotalSwabs} />
-            {/* <BaseBar
-              data={isLastDay ? barDataSwabs : barDataTotSwabs}
-              keysBar={keysBar}
-              layout={"horizontal"}
-            /> */}
           </div>
         )}
       </div>
@@ -279,11 +269,6 @@ const Swabs = ({ lastMonth }) => {
               data={isLastDay ? dataPiePositive : dataPieTotalPositive}
             />
 
-            {/* <BaseBar
-              data={isLastDay ? dataBar : dataTotalBar}
-              keysBar={keysBar}
-              layout={"horizontal"}
-            /> */}
           </div>
         )}
       </div>
@@ -299,13 +284,10 @@ const Swabs = ({ lastMonth }) => {
             {perceptualPositive}%
           </span>
           <div className="h-[300px]">
-            <RingPie data={dataPie} perceptual={true} />
+            <RingPie data={dataPie}/>
           </div>
         </div>
 
-        {/* <div className="h-[200px]">
-          <RingPie data={dataPie} perceptual={true} />
-        </div> */}
       </div>
     </div>
   );

@@ -39,7 +39,7 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
     week: lastMonth.slice(-8, -7)[0].dimessi_guariti,
   };
 
-  //##### Data for Bar Chart ####
+  //##### Data for Line Chart ####
 
   const dataLineDead = getTimeRange[timeRange].map((day) => {
     const objectDead = {
@@ -156,10 +156,6 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
     "guariti" : [categoryData[3]],
     "Variazione totale positivi" : [categoryData[4]]
   }
-
-  // console.log(categoryData[0]);
-  // console.log(categoryData[4]);
-
 
   // deconstruction data
   const dead = lastDay.deceduti;

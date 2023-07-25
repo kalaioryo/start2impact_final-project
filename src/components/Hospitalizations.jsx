@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import StandardBar from "./chart/StandardBar";
+import PropTypes from "prop-types";
+
 import moment from "moment";
+
+import StandardBar from "./chart/StandardBar";
 import SwitchTextChart from "./button/SwitchTextChart";
 import SelectCurrentKey from "./button/SelectCurrentKey";
 import SelectTimeRange from "./button/SelectTimeRange";
-import PropTypes from "prop-types";
 
 const Hospitalizations = ({ lastMonth }) => {
   const [isText, setIsText] = useState({
@@ -27,7 +29,6 @@ const Hospitalizations = ({ lastMonth }) => {
     twoWeek: lastMonth.slice(-14),
     week: lastMonth.slice(-7),
   };
-
 
   // deconstruction data
 

@@ -1,13 +1,10 @@
 import { ResponsivePie } from "@nivo/pie";
+import PropTypes from "prop-types";
 
-
-const RingPie = ({ data, keysPie, perceptual}) => (
-  
-
+const RingPie = ({ data }) => (
   <ResponsivePie
     data={data}
     margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
-    // valueFormat={ `${perceptual ? " >-.1%" : ""}`}    
     startAngle={0}
     endAngle={360}
     innerRadius={0.9}
@@ -15,40 +12,13 @@ const RingPie = ({ data, keysPie, perceptual}) => (
     cornerRadius={3}
     activeOuterRadiusOffset={8}
     borderWidth={1}
-    colors={{ scheme: 'dark2' }}
+    colors={{ scheme: "dark2" }}
     borderColor={{
       from: "color",
       modifiers: [["darker", 0.2]],
     }}
-    layers={['arcs']}
+    layers={["arcs"]}
     isInteractive={false}
-    // tooltip={({ id, value, label, color }) => (
-    //   <div
-    //     style={{
-    //       display: "flex",
-    //       flexDirection: "column",
-    //       padding: 12,
-    //       color,
-    //       background: "#222222",
-    //     }}
-    //   ><span>{id}</span><span>{label}</span><span>{value}</span></div>
-    // )}
-    // enableArcLinkLabels={false}
-    // arcLinkLabelsSkipAngle={10}
-    // arcLinkLabelsTextColor="#333333"
-    // arcLinkLabelsThickness={2}
-    // arcLinkLabelsColor={{ from: 'color' }}
-    // arcLabelsSkipAngle={10}
-    // arcLabelsTextColor={{
-    //     from: 'color',
-    //     modifiers: [
-    //         [
-    //             'darker',
-    //             2
-    //         ]
-    //     ]
-    // }}
-
     legends={[
       {
         anchor: "right",
@@ -76,5 +46,16 @@ const RingPie = ({ data, keysPie, perceptual}) => (
     ]}
   />
 );
+
+RingPie.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        .isRequired,
+    }).isRequired
+  ),
+};
 
 export default RingPie;

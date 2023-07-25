@@ -1,24 +1,22 @@
 import { ResponsiveBar } from "@nivo/bar";
+import PropTypes from 'prop-types'
 
 const StandardBar = ({ data, keysBar }) => (
-  // <ThemeProvider theme={theme}>
+
   <ResponsiveBar
     data={data}
     keys={keysBar}
     groupMode={"grouped"}
-    // layout={layout}
     margin={{ top: 70, right: 40, bottom: 70, left: 50 }}
     borderRadius={5}
-    // colors={{ scheme: 'categ }}
     enableLabel={false}
     axisBottom={{
       tickSize: 6,
       tickPadding: 9,
       tickRotation: -40,
-      // legend: 'country',
-      // legendPosition: 'top',
       legendOffset: 32,
     }}
+
     tooltip={({ id, value, data, color }) => (
       <div
         style={{
@@ -30,11 +28,10 @@ const StandardBar = ({ data, keysBar }) => (
         }}
       ><span>{data.id}</span><span>{id}</span><span>{value.toLocaleString("it-IT")}</span></div>
     )}
-    // axisBottom={null}
+    
     axisLeft={true}
     valueScale={{ type: "linear" }}
     indexScale={{ type: "band", round: true }}
-    // minValue={"100"}3
 
     valueFormat=" >,"
     theme={
@@ -42,7 +39,6 @@ const StandardBar = ({ data, keysBar }) => (
         // "fontSize": 18,
       }
     }
-    // legends={undefined} //la proprietà accetta undefined
 
     legends={[
       {
@@ -69,7 +65,18 @@ const StandardBar = ({ data, keysBar }) => (
       },
     ]}
   />
-  // </ThemeProvider>
 );
+
+StandardBar.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      hospitalized: PropTypes.number,
+      isolation: PropTypes.number,
+      "intensive care": PropTypes.number
+    }).isRequired
+  ).isRequired,
+  keysBar: PropTypes.arrayOf(PropTypes.string.isRequired)
+}
 
 export default StandardBar;

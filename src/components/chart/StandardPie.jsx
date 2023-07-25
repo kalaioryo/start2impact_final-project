@@ -1,13 +1,11 @@
 import { ResponsivePie } from "@nivo/pie";
+import PropTypes from "prop-types";
 
-
-const StandardPie = ({ data, keysPie, perceptual}) => (
-  
-
+const StandardPie = ({ data }) => (
   <ResponsivePie
     data={data}
     margin={{ top: 90, right: 10, bottom: 20, left: 10 }}
-    valueFormat={">-,"}    
+    valueFormat={">-,"}
     startAngle={0}
     endAngle={360}
     innerRadius={0.1}
@@ -16,61 +14,28 @@ const StandardPie = ({ data, keysPie, perceptual}) => (
     activeOuterRadiusOffset={8}
     borderWidth={1}
     enableArcLinkLabels={false}
-    // colors={{ scheme: 'dark2' }}
     borderColor={{
       from: "color",
       modifiers: [["darker", 0.2]],
     }}
-    // layers={['arcs']}
-    // isInteractive={false}
-    theme={
-      {
-        "fontSize": 16
-      }
-    }
-
-    tooltip={ (point) => {
-
-      return <div style={ {
-      fontSize: '18px',
-      background: '#222222',
-      color: `${point.datum.color}`,
-      padding: '10px'
-      }}>
-        <span style={{padding: '2px'}}>{point.datum.label}</span>
-        <span style={{padding: '2px'}}>({point.datum.value})</span>
-        </div>;
-  }}
-
-
-
-    // tooltip={({ id, value, label, color }) => (
-    //   <div
-    //     style={{
-    //       display: "flex",
-    //       flexDirection: "column",
-    //       padding: 12,
-    //       color,
-    //       background: "#222222",
-    //     }}
-    //   ><span>{id}</span><span>{label}</span><span>{value}</span></div>
-    // )}
-    // enableArcLinkLabels={false}
-    // arcLinkLabelsSkipAngle={10}
-    // arcLinkLabelsTextColor="#333333"
-    // arcLinkLabelsThickness={2}
-    // arcLinkLabelsColor={{ from: 'color' }}
-    // arcLabelsSkipAngle={10}
-    // arcLabelsTextColor={{
-    //     from: 'color',
-    //     modifiers: [
-    //         [
-    //             'darker',
-    //             2
-    //         ]
-    //     ]
-    // }}
-
+    theme={{
+      fontSize: 16,
+    }}
+    tooltip={(point) => {
+      return (
+        <div
+          style={{
+            fontSize: "18px",
+            background: "#222222",
+            color: `${point.datum.color}`,
+            padding: "10px",
+          }}
+        >
+          <span style={{ padding: "2px" }}>{point.datum.label}</span>
+          <span style={{ padding: "2px" }}>({point.datum.value})</span>
+        </div>
+      );
+    }}
     legends={[
       {
         anchor: "top",
@@ -98,5 +63,15 @@ const StandardPie = ({ data, keysPie, perceptual}) => (
     ]}
   />
 );
+
+StandardPie.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      value: PropTypes.number.isRequired,
+    })
+  ).isRequired
+};
 
 export default StandardPie;
