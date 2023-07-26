@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PropTypes, { arrayOf } from 'prop-types';
+import PropTypes, { arrayOf } from "prop-types";
 
 import SwitchTextChart from "./button/SwitchTextChart";
 import RingPie from "./chart/RingPie";
@@ -54,58 +54,9 @@ const Swabs = ({ lastMonth }) => {
 
   const perceptualNegative = 100 - perceptualPositive;
 
-  //Data Chart Component A
+  //#### Data Pie chart
 
-  // const barDataSwabs = [
-  //   {
-  //     id: "questa settimana",
-  //     molecolari: lastDaySwabsMol,
-  //     antigenici: lastDayQuickSwabs,
-  //   },
-  // ];
-
-  // const barDataTotSwabs = [
-  //   {
-  //     id: "Totali",
-  //     molecolari: tamponi_test_molecolare,
-  //     antigenici: tamponi_test_antigenico_rapido,
-  //   },
-  // ];
-
-  //Data Chart Component B
-
-  const dataBar = [
-    {
-      id: "questa settimana",
-      molecolari: lastDaySwabsMolPositive,
-      antigenici: lastDayQuickSwabsPositive,
-    },
-  ];
-
-  const dataTotalBar = [
-    {
-      id: "Totali",
-      molecolari: totale_positivi_test_molecolare,
-      antigenici: totale_positivi_test_antigenico_rapido,
-    },
-  ];
-
-  //dataPie
-
-  const dataPie = [
-    {
-      id: "Positive",
-      label: "Positive",
-      value: perceptualPositive,
-    },
-    {
-      id: "Negative",
-      label: "Negative",
-      value: perceptualNegative,
-    },
-  ];
-
-  //Data Pie chart
+  // Data Component A
 
   const dataPieSwabs = [
     {
@@ -133,6 +84,8 @@ const Swabs = ({ lastMonth }) => {
     },
   ];
 
+  //Data Component B
+
   const dataPiePositive = [
     {
       id: "Molecolari",
@@ -159,9 +112,20 @@ const Swabs = ({ lastMonth }) => {
     },
   ];
 
-  //Keys for Charts
+    //### Data Component C
 
-  const keysBar = ["molecolari", "antigenici"];
+    const dataPieRing = [
+      {
+        id: "Positive",
+        label: "Positive",
+        value: perceptualPositive,
+      },
+      {
+        id: "Negative",
+        label: "Negative",
+        value: perceptualNegative,
+      },
+    ];
 
   const handleClickSwitch = (component) => {
     setIsText({
@@ -238,8 +202,6 @@ const Swabs = ({ lastMonth }) => {
       {/* #### component B ##### */}
 
       <div className="test-card relative px-16">
-        <h3>Tamponi positivi</h3>
-
         <SwitchTextChart
           component={"b"}
           switchText={handleClickSwitch}
@@ -248,7 +210,7 @@ const Swabs = ({ lastMonth }) => {
 
         {isText.b ? (
           <>
-            <p className="pt-6">Positivi molecolari </p>
+            <p>Positivi molecolari </p>
             <span className="text-3xl">
               {isLastDay
                 ? lastDaySwabsMolPositive.toLocaleString("it-IT")
@@ -265,15 +227,15 @@ const Swabs = ({ lastMonth }) => {
           </>
         ) : (
           <div className="h-[300px]">
+            <h3>Tamponi positivi</h3>
             <StandardPie
               data={isLastDay ? dataPiePositive : dataPieTotalPositive}
             />
-
           </div>
         )}
       </div>
 
-      {/* component C*/}
+      {/* #### component C #### */}
 
       <div className="test-card relative">
         <div className="col-span-1 col-start-2">
@@ -284,10 +246,9 @@ const Swabs = ({ lastMonth }) => {
             {perceptualPositive}%
           </span>
           <div className="h-[300px]">
-            <RingPie data={dataPie}/>
+            <RingPie data={dataPieRing} />
           </div>
         </div>
-
       </div>
     </div>
   );
@@ -302,9 +263,7 @@ Swabs.propTypes = {
       tamponi_test_molecolare: PropTypes.number.isRequired,
       tamponi_test_antigenico_rapido: PropTypes.number.isRequired,
     })
-  )
-}
+  ),
+};
 
 export default Swabs;
-
-//top-[34%] left-[38%] sm:left-[43%] lg:[40%] xl:left-[42%] 2xl:left-[44%] z
