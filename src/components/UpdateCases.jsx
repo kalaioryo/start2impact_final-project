@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PropTypes, { arrayOf } from 'prop-types';
+import PropTypes, { arrayOf } from "prop-types";
 
 import moment from "moment";
 
@@ -9,9 +9,9 @@ import SwitchTextChart from "./button/SwitchTextChart";
 import SelectTimeRange from "./button/SelectTimeRange";
 import SelectCategoryInput from "./input/SelectCategoryInput";
 
-const UpdateCases = ({lastMonth, day31Ago }) => {
+const UpdateCases = ({ lastMonth, day31Ago }) => {
   const [timeRange, setTimeRange] = useState("week");
-  const [category, setCategory] = useState("nuovi dati")
+  const [category, setCategory] = useState("nuovi dati");
   const [isText, setIsText] = useState({
     main: false,
     a: false,
@@ -19,9 +19,9 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
     c: false,
   });
 
-  const lastTwoDay = lastMonth.slice(-2)
-  const prevDay = lastTwoDay[0]
-  const lastDay = lastTwoDay[1]
+  const lastTwoDay = lastMonth.slice(-2);
+  const prevDay = lastTwoDay[0];
+  const lastDay = lastTwoDay[1];
 
   //Time Range of data chart
 
@@ -68,19 +68,17 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
   const dataLineVariation = getTimeRange[timeRange].map((day) => {
     const objectVaration = {
       x: moment(day.data).format("MMM D"),
-      y: day.variazione_totale_positivi
-    }
-    return objectVaration
-  })
+      y: day.variazione_totale_positivi,
+    };
+    return objectVaration;
+  });
 
   //#### array element - arrayCopied element
   const wrapperNewHealed = () => {
-
     //Coping array for difference of data
     let arrayPrev = getTimeRange[timeRange].map((day) => day.dimessi_guariti);
     let copyArray = [...arrayPrev];
     let finalArray = [];
-
 
     //remove last data of day and add previous day
     copyArray.pop();
@@ -97,7 +95,7 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
       });
     });
 
-    //create objects for data 
+    //create objects for data
     const dataLineNewHealed = getTimeRange[timeRange].map((day, index) => {
       const objectNewHealed = {
         x: moment(day.data).format("MMM D"),
@@ -110,7 +108,7 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
     return dataLineNewHealed;
   };
 
-//categories for props select input
+  //categories for props select input
 
   const categories = [
     "nuovi dati",
@@ -118,15 +116,15 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
     "nuovi guariti",
     "morti",
     "guariti",
-    "Variazione totale positivi"
-  ]
+    "Variazione totale positivi",
+  ];
 
   //All categories data
 
   const categoryData = [
     {
       id: "Nuovi Positivi",
-      data: dataLineNewPositive
+      data: dataLineNewPositive,
     },
     {
       id: "Nuovi Guariti",
@@ -134,28 +132,28 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
     },
     {
       id: "dead",
-      data: dataLineDead
+      data: dataLineDead,
     },
     {
       id: "healed",
-      data: dataLineHealed
+      data: dataLineHealed,
     },
     {
       id: "Variazione totale positivi",
-      data: dataLineVariation
-    }
+      data: dataLineVariation,
+    },
   ];
 
   //Data selected from select input
 
   const selectCategory = {
-    "nuovi dati": categoryData.slice(0,2),
+    "nuovi dati": categoryData.slice(0, 2),
     "nuovi positivi": [categoryData[0]],
     "nuovi guariti": [categoryData[1]],
-    "morti" : [categoryData[2]],
-    "guariti" : [categoryData[3]],
-    "Variazione totale positivi" : [categoryData[4]]
-  }
+    morti: [categoryData[2]],
+    guariti: [categoryData[3]],
+    "Variazione totale positivi": [categoryData[4]],
+  };
 
   // deconstruction data
   const dead = lastDay.deceduti;
@@ -165,7 +163,6 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
   const healedPrevDay = prevDay.dimessi_guariti;
 
   const { variazione_totale_positivi, totale_positivi } = lastDay;
-  const positivePrevDay = prevDay.totale_positivi;
 
   // const perceptualUpdate = (( variazione_totale_positivi / totale_positivi) * 100).toFixed(2)
 
@@ -177,15 +174,14 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
   };
 
   const handleChangeCategory = (e) => {
-    setCategory(e.target.value)
-  }
+    setCategory(e.target.value);
+  };
 
   return (
     <div className="test-container relative">
       {!isText.main ? (
         <>
-
-          <div className=" absolute">
+          <div className="absolute">
             <SwitchTextChart
               component={"main"}
               switchText={handleClickSwitch}
@@ -194,7 +190,7 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
           </div>
 
           <div className="col-span-12 pt-4 text-xl">
-            <h3 >Aggiornamento Casi</h3>
+            <h3 className="text-2xl">Aggiornamento casi</h3>
           </div>
 
           {/* Select Input */}
@@ -210,35 +206,33 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
 
           <div className="flex justify-end mr-[2%] col-span-12">
             <SelectTimeRange
-              text={"week"}
+              text={"7 giorni"}
               setTimeRange={setTimeRange}
               timeRange={"week"}
             />
 
             <SelectTimeRange
-              text={"twoWeek"}
+              text={"14 giorni"}
               setTimeRange={setTimeRange}
               timeRange={"twoWeek"}
             />
 
             <SelectTimeRange
-              text={"month"}
+              text={"30 giorni"}
               setTimeRange={setTimeRange}
               timeRange={"month"}
-            />          
-            </div>
+            />
+          </div>
 
-            {/* Line chart */}
+          {/* Line chart */}
 
           <div className="h-[400px] col-span-12 bg-white/70 rounded-md">
             <StandardLine data={selectCategory[category]} />
-          </div>        
+          </div>
         </>
-
-
       ) : (
         <>
-          <div className="absolute">
+          <div className="absolute m-2">
             <SwitchTextChart
               component={"main"}
               switchText={handleClickSwitch}
@@ -247,15 +241,10 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
           </div>
 
           <div className="p-4 col-span-12 border-primary/50 border-2 rounded-md bg-quaternary/50 dark:border-dark-quaternary/50 dark:bg-dark-primary/50  text-center">
-            <h3 className="text-2xl font-semibold">UpdateCases</h3>
+            <h3 className="text-2xl font-semibold">Aggiornamento casi</h3>
           </div>
 
           <div className="test-card relative">
-            <SwitchTextChart
-              component={"main"}
-              switchText={handleClickSwitch}
-              isText={isText.main}
-            />
             <p>Morti </p>
             <span className="text-3xl">
               {(dead - deadPrevDay).toLocaleString("it-IT")}
@@ -265,12 +254,6 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
           </div>
 
           <div className="test-card relative">
-            <SwitchTextChart
-              component={"main"}
-              switchText={handleClickSwitch}
-              isText={isText.main}
-            />
-
             <p>Guariti </p>
             <span className="text-3xl">
               {(healed - healedPrevDay).toLocaleString("it-IT")}
@@ -280,12 +263,6 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
           </div>
 
           <div className="test-card relative">
-            <SwitchTextChart
-              component={"main"}
-              switchText={handleClickSwitch}
-              isText={isText.main}
-            />
-
             <p>Variazione positivi </p>
             <span className="text-3xl">
               {variazione_totale_positivi.toLocaleString("it-IT")}
@@ -297,8 +274,6 @@ const UpdateCases = ({lastMonth, day31Ago }) => {
           </div>
         </>
       )}
-
-      {/* <div className="h-[200px] col-span-8">Chart</div> */}
     </div>
   );
 };
@@ -309,9 +284,9 @@ UpdateCases.propTypes = {
       deceduti: PropTypes.number.isRequired,
       dimessi_guariti: PropTypes.number.isRequired,
       nuovi_positivi: PropTypes.number.isRequired,
-      variazione_totale_positivi: PropTypes.number.isRequired
+      variazione_totale_positivi: PropTypes.number.isRequired,
     })
-  )
-}
+  ),
+};
 
 export default UpdateCases;

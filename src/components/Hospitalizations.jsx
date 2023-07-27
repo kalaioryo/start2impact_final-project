@@ -15,7 +15,7 @@ const Hospitalizations = ({ lastMonth }) => {
     b: false,
     c: false,
   });
-  const [currentKeyBar, setCurrentKeyBar] = useState(["hospitalized"]);
+  const [currentKeyBar, setCurrentKeyBar] = useState(["ospedalizzati"]);
   const [timeRange, setTimeRange] = useState("week");
 
   const lastTwoDay = lastMonth.slice(-2);
@@ -55,7 +55,7 @@ const Hospitalizations = ({ lastMonth }) => {
   const dataBarHospitalized = getTimeRange[timeRange].map((day) => {
     const arrayHospitalized = {
       id: moment(day.data).format("MMM D"),
-      hospitalized: day.totale_ospedalizzati,
+      ospedalizzati: day.totale_ospedalizzati,
     };
     return arrayHospitalized;
   });
@@ -63,7 +63,7 @@ const Hospitalizations = ({ lastMonth }) => {
   const dataBarIsolation = getTimeRange[timeRange].map((day) => {
     const arrayIsolation = {
       id: moment(day.data).format("MMM D"),
-      isolation: day.isolamento_domiciliare,
+      isolamento: day.isolamento_domiciliare,
     };
     return arrayIsolation;
   });
@@ -71,18 +71,18 @@ const Hospitalizations = ({ lastMonth }) => {
   const dataBarIntensiveCare = getTimeRange[timeRange].map((day) => {
     const arrayIntensiveCare = {
       id: moment(day.data).format("MMM D"),
-      "intensive care": day.terapia_intensiva,
+      "terapia intensiva": day.terapia_intensiva,
     };
     return arrayIntensiveCare;
   });
 
   const currentDatabar = {
-    hospitalized: dataBarHospitalized,
-    isolation: dataBarIsolation,
-    "intensive care": dataBarIntensiveCare,
+    ospedalizzati: dataBarHospitalized,
+    isolamento: dataBarIsolation,
+    "terapia intensiva": dataBarIntensiveCare,
   };
 
-  // keysBar "hospitalized", "isolation", "intensiveCare"
+  // keysBar "ospedallizzati", "isolamento", "terapia intensiva"
 
   //Handle click function
 
@@ -111,26 +111,24 @@ const Hospitalizations = ({ lastMonth }) => {
 
           <div className="col-span-12 pt-4 text-xl">
             <h3 className="text-2xl font-semibold">Ospedalizzazioni</h3>
-            {/* <span className="text-3xl font-bold"> */}
-            {totale_ospedalizzati.toLocaleString("it-IT")}
-            {/* </span> */}
+            <p className="text-3xl">{totale_ospedalizzati.toLocaleString("it-IT")}</p>
           </div>
 
           <div className="flex justify-end mr-[2%] col-span-12">
             <SelectTimeRange
-              text={"week"}
+              text={"7 giorni"}
               setTimeRange={setTimeRange}
               timeRange={"week"}
             />
 
             <SelectTimeRange
-              text={"twoWeek"}
+              text={"14 giorni"}
               setTimeRange={setTimeRange}
               timeRange={"twoWeek"}
             />
 
             <SelectTimeRange
-              text={"month"}
+              text={"30 giorni"}
               setTimeRange={setTimeRange}
               timeRange={"month"}
             />
@@ -146,18 +144,18 @@ const Hospitalizations = ({ lastMonth }) => {
           <div className="col-span-12">
             <SelectCurrentKey
               handleClickCurrentKey={handleClickCurrentKey}
-              text={"hospitalized"}
-              keyData={"hospitalized"}
+              text={"ospedalizzati"}
+              keyData={"ospedalizzati"}
             />
             <SelectCurrentKey
               handleClickCurrentKey={handleClickCurrentKey}
-              text={"isolation"}
-              keyData={"isolation"}
+              text={"isolamento"}
+              keyData={"isolamento"}
             />
             <SelectCurrentKey
               handleClickCurrentKey={handleClickCurrentKey}
-              text={"intensive care"}
-              keyData={"intensive care"}
+              text={"terapia intensiva"}
+              keyData={"terapia intensiva"}
             />
           </div>
         </>

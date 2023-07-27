@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { GiOpenBook } from 'react-icons/gi'
-import { BsCardText } from 'react-icons/bs'
-import { BsPieChartFill } from 'react-icons/bs'
+import { BsCardText, BsPieChartFill } from 'react-icons/bs'
 
 const SwitchTextChart = ({component, switchText, isText}) => {
   return (

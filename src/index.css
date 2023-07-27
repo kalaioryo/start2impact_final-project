@@ -16,13 +16,6 @@ body{
 
 @layer components {
 
-  .test-div{
-  }
-
-  .test-title{
-  
-  }
-
   .test-container {
     @apply p-2;
     @apply grid;
@@ -71,10 +64,6 @@ body{
     @apply h-[350px];
     @apply col-span-12;
 
-    /* @apply md:bg-red-500; // testing layout
-    @apply lg:bg-orange-700;
-    @apply xl:bg-yellow-500; */
-
     @apply md:col-span-8;
     @apply md:col-start-3;
 
@@ -98,6 +87,7 @@ body{
   .test-card > p {
     @apply text-2xl;
     @apply font-normal;
+    @apply my-4;
   }
 
   .test-chart{
