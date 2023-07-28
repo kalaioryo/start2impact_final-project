@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import { GiHamburgerMenu, GiItalia, GiHills, GiInfo } from "react-icons/gi";
 
-import { TbMapSearch } from "react-icons/tb";
+import { TbMapSearch, TbLetterC } from "react-icons/tb";
 import { FaCity } from "react-icons/fa";
 import DarkMode from "./button/DarkMode";
 
@@ -70,6 +70,12 @@ const SidebarMobile = () => {
 
   return (
     <nav className="flex fixed top-0 left-0 h-14 w-full justify-end p-2 z-30 md:hidden border-b-2 shadow-2xl bg-secondary dark:bg-dark-primary">
+      <div className="text-3xl text-quaternary dark:text-dark-quaternary">
+        <TbLetterC/>
+      </div>
+
+      <h1 className="text-quaternary dark:text-dark-quaternary w-2/4 ml-[18%] m-auto text-center">Covid dashboard</h1>
+
       {open && <Modal close={closeSidebar} />}
 
       <div className="h-[45px] w-[50px] relative top-[-10px]">

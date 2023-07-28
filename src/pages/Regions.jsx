@@ -55,15 +55,15 @@ const Regions = () => {
   const handleChangeRegion = (e) => {
     setCurrentRegion(e.target.value);
   };
-
+ 
   return (
-    <div className=" grid grid-cols-12 sm:col-span-11 sm:col-start-2 gap-4 py-8 bg-quaternary/70 dark:bg-dark-primary/90 dark:text-dark-quaternary">
+    <div className=" grid grid-cols-12 gap-4 py-8 bg-quaternary/70 dark:bg-dark-primary/90 dark:text-dark-quaternary">
 
       {loading && <LoadingComponent />}
 
       {!loading && regions[0] ? (
         <>
-          <h1 className="col-span-11 col-start-2 text-center">
+          <h1 className="col-span-10 col-start-2 text-center">
             Dati aggiornati al {moment(lastDayData.data).format("L")}
           </h1>
 

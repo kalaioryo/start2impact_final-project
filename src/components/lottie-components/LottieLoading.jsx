@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import React from 'react'
 
 import Lottie from 'lottie-react'
 
@@ -10,7 +10,6 @@ const LottieLoading = () => {
     width: '200px',
     margin: 'auto'
   }
-
 
   return (
     <div className=''>

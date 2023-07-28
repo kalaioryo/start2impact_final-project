@@ -4,7 +4,6 @@ import Home from "../pages/Home";
 import Regions from "../pages/Regions";
 import Map from "../pages/Map";
 import About from "../pages/About";
-import NotFound from "../pages/NotFound";
 import LayoutPublic from "../layout/LayoutPublic";
 import Provinces from "../pages/Provinces";
 import RootBoundary from "../components/RootBoundary";

@@ -135,7 +135,7 @@ const Swabs = ({ lastMonth }) => {
   };
 
   return (
-    <div className="test-container">
+    <div className="container">
       <div className="p-4 col-span-12 shadow-lg border-2 rounded-md  bg-quaternary/80 dark:bg-dark-primary/50 dark:border-dark-quaternary/50 text-center">
         <h3 className="text-2xl font-semibold">
           Tamponi {isLastDay ? "ultimi dati" : "Totali"}
@@ -169,7 +169,7 @@ const Swabs = ({ lastMonth }) => {
 
       {/* ##### component A ##### */}
 
-      <div className="test-card relative px-16">
+      <div className="card relative px-16">
         <SwitchTextChart
           component={"a"}
           switchText={handleClickSwitch}
@@ -201,7 +201,7 @@ const Swabs = ({ lastMonth }) => {
 
       {/* #### component B ##### */}
 
-      <div className="test-card relative px-16">
+      <div className="card relative px-16">
         <SwitchTextChart
           component={"b"}
           switchText={handleClickSwitch}
@@ -237,14 +237,18 @@ const Swabs = ({ lastMonth }) => {
 
       {/* #### component C #### */}
 
-      <div className="test-card relative">
-        <div className="col-span-1 col-start-2">
-          <p className="p-2 text-xl text-center absolute top-[35%] left-[40%] md:left-[38%]">
+      <div className="card relative">
+        <div className="col-span-12">
+          {/* <div className="absolute w-full h-full flex justify-center items-center">
+          <p className="h-[100px] w-[100px] text-2xl">Positività {perceptualPositive}%</p>
+          </div> */}
+          
+          {/* <p className="p-2 text-xl text-center absolute top-[35%] left-[30%] md:left-[38%]">
             Positività
-          </p>
-          <span className="block text-3xl absolute top-[45%] left-[44%]  md:left-[41%]">
-            {perceptualPositive}%
-          </span>
+          </p> */}
+          {/* <span className="block text-3xl absolute top-[45%] left-[44%]  md:left-[41%]">
+            {perceptualPositive}% relative text-2xl top-[50%] left-[50%] mt-[-25px]  w-[100px] h-[100px]
+          </span> */}
           <div className="h-[300px]">
             <RingPie data={dataPieRing} />
           </div>

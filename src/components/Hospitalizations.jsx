@@ -98,7 +98,7 @@ const Hospitalizations = ({ lastMonth }) => {
   };
 
   return (
-    <div className="relative test-container ">
+    <div className="relative container ">
       {!isText.main ? (
         <>
           <div className="absolute">
@@ -174,7 +174,7 @@ const Hospitalizations = ({ lastMonth }) => {
             </span>
           </div>
 
-          <div className="test-card">
+          <div className="card">
             <p>Terapia intensiva</p>
             <span className="text-3xl">
               {ingressi_terapia_intensiva.toLocaleString("it-IT")}
@@ -184,7 +184,7 @@ const Hospitalizations = ({ lastMonth }) => {
               {terapia_intensiva.toLocaleString("it-IT")}
             </span>
           </div>
-          <div className="test-card">
+          <div className="card">
             <p>Ricoveri </p>
             <span className="text-3xl">
               {lastHospitalized.toLocaleString("it-IT")}
@@ -194,7 +194,7 @@ const Hospitalizations = ({ lastMonth }) => {
               {ricoverati_con_sintomi.toLocaleString("it-IT")}
             </span>
           </div>
-          <div className="test-card">
+          <div className="card">
             <p>Isolamento domiciliare </p>
             <span className="text-3xl">
               {lastIsolation.toLocaleString("it-IT")}

@@ -24,12 +24,12 @@ const Home = () => {
   const lastDayData = lastTwoDaysData[1];
 
   return (
-    <div className=" grid grid-cols-12 gap-4 py-8 bg-quaternary/90 dark:bg-dark-primary/90 dark:text-dark-quaternary">
+    <div className="grid grid-cols-12 gap-4 py-8 bg-quaternary/90 dark:bg-dark-primary/90 dark:text-dark-quaternary">
       {loading && <LoadingComponent />}
 
       {!loading && italy[0] ? (
         <>
-          <h1 className="col-span-11 col-start-2 text-center">
+          <h1 className="col-span-10 col-start-2 text-center">
             Dati aggiornati al {moment(lastDayData.data).format("L")}
           </h1>
 

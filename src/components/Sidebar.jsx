@@ -4,20 +4,12 @@ import { NavLink } from "react-router-dom";
 import {
   GiHamburgerMenu,
   GiItalia,
-  GiHealthIncrease,
-  GiHealthNormal,
-  GiHospital,
-  GiSyringe,
   GiHills,
   GiInfo,
 } from "react-icons/gi";
-import { BsSearch, BsChevronDown } from "react-icons/bs";
-import { FaVirusSlash, FaVirus, FaBedPulse, FaCity } from "react-icons/fa";
-import { VscGraph, VscPerson, VscPersonAdd, VscMap } from "react-icons/vsc";
-import { SiWorldhealthorganization } from "react-icons/si";
-import { LuSyringe, LuSettings, LuLayoutDashboard } from "react-icons/lu";
-import { SlSettings } from "react-icons/sl";
-import { TbMapSearch } from "react-icons/tb";
+import { BsChevronDown } from "react-icons/bs";
+import { FaVirus, FaCity } from "react-icons/fa";
+import { TbMapSearch, TbLetterC } from "react-icons/tb";
 import DarkMode from "./button/DarkMode";
 
 const Sidebar = () => {
@@ -31,11 +23,6 @@ const Sidebar = () => {
 
   const closeSidebar = () => {
     setOpen(false);
-  };
-
-  const toggleSubMenu = () => {
-    setMenuSetting(false);
-    setSubMenuOpen(!subMenuOpen);
   };
 
   const toggleMenuSetting = () => {
@@ -58,8 +45,8 @@ const Sidebar = () => {
             onClick={toggleSidebar}
           />
           <div className="inline-flex mb-6">
-            <span className="text-4xl text-quaternary p-1 block float-left">
-              <FaVirus />
+            <span className="text-3xl text-quaternary p-1 block float-left">
+              <TbLetterC/>
             </span>
 
             {/* <img className={`w-10 cursor-pointer rounded-full ${!open && "p-0 object-cover"}`} src={logo} alt="logo" /> */}
@@ -139,8 +126,8 @@ const Sidebar = () => {
 
             <li className="text-sm flex items-center rounded-md mt-2 link-sidebar">
               <NavLink to={"/about"}>
-                <span className="text-3xl float-left">
-                  <GiInfo />
+                <span className="text-3xl float-left ml-1">
+                  <GiInfo/>
                 </span>
               </NavLink>
               <NavLink to={"/about"} className={"w-full pl-5 cursor-pointer"}>

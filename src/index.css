@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
- html {
+html {
   height: 100%;
 } 
 
@@ -10,30 +10,25 @@ body{
   height: 100%;
   background-image: url('./assets/svg/topography.svg');
   -webkit-tap-highlight-color: transparent;
-  
 }
 
 @layer components {
 
-  .test-container {
+  .container {
     @apply p-2;
-    @apply grid;
-    
+    @apply grid;    
     @apply grid-cols-12;
     @apply col-span-12;
-
-    @apply md:col-span-9;
+    @apply sm:col-span-10;
+    @apply sm:col-start-2;
+    @apply md:col-span-10;
     @apply md:col-start-3;
-
     @apply lg:col-span-9;
     @apply lg:col-start-3;
-
     @apply xl:col-span-9;
     @apply xl:col-start-3;
-
     @apply gap-4;
     @apply text-center;
-
     @apply shadow-xl;
     @apply border-2;
     @apply border-primary/50;
@@ -42,12 +37,10 @@ body{
     @apply dark:bg-dark-primary/70;
     @apply dark:text-quaternary;
     @apply rounded-md;
-
     @apply relative;
   }
 
-  .test-card{
-
+  .card{
     @apply flex;
     @apply flex-col;
     @apply justify-center;
@@ -55,14 +48,12 @@ body{
     @apply h-[350px];
     @apply col-span-12;
 
-    @apply md:col-span-8;
-    @apply md:col-start-3;
-
-    @apply lg:col-span-6;
+    @apply md:col-span-10;
+    @apply md:col-start-2;
     
+    @apply lg:col-span-6;   
     @apply xl:col-span-4;
     @apply p-4;
-
     @apply border-primary/50;
     @apply dark:border-dark-quaternary/50;
     @apply dark:bg-dark-ternary/50;
@@ -74,14 +65,10 @@ body{
     @apply rounded-md;
   }
 
-  .test-card > p {
+  .card > p {
     @apply text-2xl;
     @apply font-normal;
     @apply my-4;
-  }
-
-  .test-chart{
-    
   }
 
   .link{
@@ -90,7 +77,6 @@ body{
     @apply hover:bg-ternary;
     @apply active:bg-primary;
     @apply active:text-quinary;
-
     @apply dark:text-dark-quaternary;
     @apply dark:bg-dark-primary;
     @apply dark:hover:bg-dark-ternary;
@@ -105,7 +91,6 @@ body{
     @apply hover:bg-ternary/20;
     @apply active:bg-quaternary;
     @apply active:text-primary;
-
     @apply dark:text-dark-quaternary;
     @apply dark:bg-dark-primary;
     @apply dark:hover:bg-dark-ternary;

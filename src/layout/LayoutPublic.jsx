@@ -36,7 +36,10 @@ const LayoutPublic = () => {
             <LoadingComponent />
           </div>
         ) : (
-          <Outlet />
+          
+            <Outlet />
+        
+          
         )}
       </main>
       <Footer />

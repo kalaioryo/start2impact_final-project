@@ -4,7 +4,6 @@ import PropTypes, { arrayOf } from "prop-types";
 import moment from "moment";
 
 import StandardLine from "./chart/StandardLine";
-
 import SwitchTextChart from "./button/SwitchTextChart";
 import SelectTimeRange from "./button/SelectTimeRange";
 import SelectCategoryInput from "./input/SelectCategoryInput";
@@ -178,7 +177,7 @@ const UpdateCases = ({ lastMonth, day31Ago }) => {
   };
 
   return (
-    <div className="test-container relative">
+    <div className="container relative">
       {!isText.main ? (
         <>
           <div className="absolute">
@@ -244,7 +243,7 @@ const UpdateCases = ({ lastMonth, day31Ago }) => {
             <h3 className="text-2xl font-semibold">Aggiornamento</h3>
           </div>
 
-          <div className="test-card relative">
+          <div className="card relative">
             <p>Morti </p>
             <span className="text-3xl">
               {(dead - deadPrevDay).toLocaleString("it-IT")}
@@ -253,7 +252,7 @@ const UpdateCases = ({ lastMonth, day31Ago }) => {
             <span className="text-3xl">{dead.toLocaleString("it-IT")}</span>
           </div>
 
-          <div className="test-card relative">
+          <div className="card relative">
             <p>Guariti </p>
             <span className="text-3xl">
               {(healed - healedPrevDay).toLocaleString("it-IT")}
@@ -262,7 +261,7 @@ const UpdateCases = ({ lastMonth, day31Ago }) => {
             <span className="text-3xl">{healed.toLocaleString("it-IT")}</span>
           </div>
 
-          <div className="test-card relative">
+          <div className="card relative">
             <p>Variazione positivi </p>
             <span className="text-3xl">
               {variazione_totale_positivi.toLocaleString("it-IT")}
