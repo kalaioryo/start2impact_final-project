@@ -239,16 +239,9 @@ const Swabs = ({ lastMonth }) => {
 
       <div className="card relative">
         <div className="col-span-12">
-          {/* <div className="absolute w-full h-full flex justify-center items-center">
+          <div className="absolute w-[93%] h-[88%] flex justify-center items-center">
           <p className="h-[100px] w-[100px] text-2xl">Positività {perceptualPositive}%</p>
-          </div> */}
-          
-          {/* <p className="p-2 text-xl text-center absolute top-[35%] left-[30%] md:left-[38%]">
-            Positività
-          </p> */}
-          {/* <span className="block text-3xl absolute top-[45%] left-[44%]  md:left-[41%]">
-            {perceptualPositive}% relative text-2xl top-[50%] left-[50%] mt-[-25px]  w-[100px] h-[100px]
-          </span> */}
+          </div>
           <div className="h-[300px]">
             <RingPie data={dataPieRing} />
           </div>
