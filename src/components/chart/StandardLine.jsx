@@ -88,14 +88,6 @@ StandardLine.propTypes = {
       )
     })
   ) 
-  
-  
-  // PropTypes.arrayOf(
-  //   PropTypes.shape({
-  //     x: PropTypes.string,
-  //     y: PropTypes.number
-  //   }).isRequired
-  // )
 }
 
 export default StandardLine;

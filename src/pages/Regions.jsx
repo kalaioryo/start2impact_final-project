@@ -17,7 +17,7 @@ const Regions = () => {
   const dataRegions = useSelector((state) => state.regions);
   const { loading, regions, error } = dataRegions;
 
-  if(error) return <ErrorComponent error={error}/>
+  if (error) return <ErrorComponent error={error} />;
 
   const region = regions.filter(
     (region) => region.denominazione_regione === currentRegion
@@ -25,7 +25,6 @@ const Regions = () => {
 
   const lastMonth = region.slice(-30);
   const lastTwoDays = region.slice(-2);
-  const prevDayData = lastTwoDays[0];
   const lastDayData = lastTwoDays[1];
   const day31Ago = region.slice(-31, -30);
 
@@ -54,12 +53,11 @@ const Regions = () => {
   ];
 
   const handleChangeRegion = (e) => {
-    setCurrentRegion(e.target.value)
-  }
+    setCurrentRegion(e.target.value);
+  };
 
   return (
-    <div className=" grid grid-cols-12 md:col-span-11 md:col-start-2 gap-4 py-8 bg-quaternary/70 dark:bg-dark-primary/90 dark:text-dark-quaternary">
-      {/* <h1 className="w-full  text-center">Regions page</h1> */}
+    <div className=" grid grid-cols-12 sm:col-span-11 sm:col-start-2 gap-4 py-8 bg-quaternary/70 dark:bg-dark-primary/90 dark:text-dark-quaternary">
 
       {loading && <LoadingComponent />}
 
@@ -71,12 +69,11 @@ const Regions = () => {
 
           <div className="col-span-10 col-start-2 md:col-span-5 md:col-start-5">
             <SelectRegionInput
-            regions={regionsList}
-            regionSelect={currentRegion}
-            handleChangeRegion={handleChangeRegion}
-          />
+              regions={regionsList}
+              regionSelect={currentRegion}
+              handleChangeRegion={handleChangeRegion}
+            />
           </div>
-          
 
           <Cases
             lastDayData={lastDayData}
@@ -87,7 +84,8 @@ const Regions = () => {
           <Hospitalizations lastMonth={lastMonth} />
           <Swabs lastMonth={lastMonth} />
         </>
-      ) : null}
+      ) : null
+      }
     </div>
   );
 };

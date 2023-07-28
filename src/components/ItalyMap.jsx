@@ -3,15 +3,13 @@ import PropTypes from 'prop-types';
 
 import { Chart } from "react-google-charts";
 import { useSelector } from "react-redux";
-import ErrorComponent from "./ErrorComponent";
-import LoadingComponent from "./LoadingComponent";
 
 import moment from "moment/moment";
 
 const ItalyMap = ({ category }) => {
 
   const dataMap = useSelector((state) => state.regionsLatest);
-  const { loading, regionsLatest, error } = dataMap;
+  const {regionsLatest} = dataMap;
   const keyWord = category.replaceAll("_", " ");
 
   let date = moment(regionsLatest[0].data).format("L");

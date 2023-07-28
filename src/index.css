@@ -9,7 +9,6 @@
 body{
   height: 100%;
   background-image: url('./assets/svg/topography.svg');
-  /* //background-color: white; */
   -webkit-tap-highlight-color: transparent;
   
 }
@@ -23,19 +22,11 @@ body{
     @apply grid-cols-12;
     @apply col-span-12;
 
-
-    /* @apply md:bg-green-700; //testing layout
-    @apply lg:bg-violet-800;
-    @apply xl:bg-blue-600; */
-
     @apply md:col-span-9;
     @apply md:col-start-3;
 
     @apply lg:col-span-9;
     @apply lg:col-start-3;
-
-
-
 
     @apply xl:col-span-9;
     @apply xl:col-start-3;
@@ -81,7 +72,6 @@ body{
     @apply dark:text-dark-ternary;
     @apply font-bold;
     @apply rounded-md;
-
   }
 
   .test-card > p {
@@ -123,6 +113,4 @@ body{
     @apply dark:active:bg-dark-quaternary;
     @apply dark:active:text-dark-primary;
   }
-  
-
 }

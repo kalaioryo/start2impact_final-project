@@ -9,7 +9,6 @@ const LottieAstroDeveloper = () => {
   const style = {
     width: '250px',
     margin: 'auto',
-    // backgroundColor: ''
   }
 
   return (

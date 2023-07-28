@@ -4,9 +4,6 @@ import NotFound from "../pages/NotFound";
 function RootBoundary() {
   const error = useRouteError();
 
-  console.log(error);
-  //et::ERR_CONNECTION_RESET 200
-
   if (isRouteErrorResponse(error)) {
     if (error.status === 404) {
       return <NotFound/>

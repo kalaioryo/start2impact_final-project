@@ -6,8 +6,6 @@ import loading from '../../assets/lotties/pulse-heart-beat-loading-animation.jso
 
 const LottieLoading = () => {
 
-  // const lottieRef = useRef()
-
   const style = {
     width: '200px',
     margin: 'auto'

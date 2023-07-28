@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useRouteError, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import LottieAstro404 from '../components/lottie-components/LottieAstro404'
 import Sidebar from '../components/Sidebar'
@@ -8,8 +8,6 @@ import SidebarMobile from '../components/SidebarMobile'
 import Footer from '../components/Footer'
 
 const NotFound = () => {
-
-  const error = useRouteError()
 
   return (
     <div className="h-full w-full mt-[-60px] pt-4 bg-quaternary/50 dark:bg-dark-primary/90 dark:text-dark-quaternary">

@@ -8,7 +8,7 @@ const Cases = ({ lastDayData, regionName }) => {
   const { nuovi_positivi, totale_casi } = lastDayData
 
   return (
-    <div className='p-4 text-center col-span-12 lg:col-span-7 lg:col-start-4 border-2 border-primary/50  bg-ternary/50 dark:bg-dark-primary/70 dark:border-dark-ternary/50 rounded-md '>
+    <div className='p-4 text-center col-span-12 lg:col-span-7 lg:col-start-4 md:col-span-9 md:col-start-3 border-2 border-primary/50  bg-ternary/50 dark:bg-dark-primary/70 dark:border-dark-ternary/50 rounded-md '>
       <h1 className='text-3xl font-semibold text-center mt-4'>{regionName? regionName : "Italia"}</h1>
       <div>
         <h3 className='text-xl my-4'>Nuovi Casi: </h3>

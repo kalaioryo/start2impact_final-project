@@ -13,7 +13,7 @@ export  const router = createBrowserRouter([
   {
     path: "/",
     element: <LayoutPublic/>,
-    errorElement: <NotFound/>,
+    errorElement: <RootBoundary/>,
     children: [
       {
         errorElement: <RootBoundary/>,

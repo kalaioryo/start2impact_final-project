@@ -21,7 +21,6 @@ const About = () => {
         <p>Se il  sito ti è piaciuto e vuoi saperne di più su di me:</p>
       </div>
 
-
       <div className='bg-ternary/20 dark:bg-dark-primary/70 flex flex-col w-3/4 md:w-2/4 lg:w-2/6 xl:w-1/4 m-auto'>
 
         <NavLink to={"https://www.linkedin.com/in/antonio-iorio-5376511bb/"} target="_blank">
@@ -49,12 +48,10 @@ const About = () => {
           <div className="flex p-4 link">
             <LuFileJson style={{fontSize: '30px'}} />
             <span className="pl-2 m-1">la fonte dei dati</span>
-          </div>
-          
+          </div>          
         </NavLink>
 
       </div>
-
     </div>
   )
 }
