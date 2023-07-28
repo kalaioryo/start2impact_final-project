@@ -3,8 +3,6 @@ import LottiesErrorNetwork from './lottie-components/LottieErrorNetwork';
 import LottieErrorGeneric from './lottie-components/LottieErrorGeneric';
 
 const ErrorComponent = ({error}) => {
-
-  console.log(error);
   
   if(error === 'Network Error') {
     return <LottiesErrorNetwork/>

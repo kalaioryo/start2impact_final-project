@@ -65,7 +65,6 @@ const SidebarMobile = () => {
 
   const closeSidebar = () => {
     setOpen(false);
-    console.log("close");
   };
 
   return (

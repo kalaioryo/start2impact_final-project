@@ -8,14 +8,14 @@ import {
   GiInfo,
 } from "react-icons/gi";
 import { BsChevronDown } from "react-icons/bs";
-import { FaVirus, FaCity } from "react-icons/fa";
+import { FaCity } from "react-icons/fa";
 import { TbMapSearch, TbLetterC } from "react-icons/tb";
 import DarkMode from "./button/DarkMode";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
-  const [subMenuOpen, setSubMenuOpen] = useState(false);
-  const [menuSetting, setMenuSetting] = useState(false);
+  // const [subMenuOpen, setSubMenuOpen] = useState(false);
+  const [menuAbout, setMenuAbout] = useState(false);
 
   const toggleSidebar = () => {
     setOpen(!open);
@@ -25,9 +25,9 @@ const Sidebar = () => {
     setOpen(false);
   };
 
-  const toggleMenuSetting = () => {
-    setSubMenuOpen(false);
-    setMenuSetting(!menuSetting);
+  const toggleMenuAbout = () => {
+    setMenuAbout(!menuAbout);
+
   };
 
   return (
@@ -49,7 +49,6 @@ const Sidebar = () => {
               <TbLetterC/>
             </span>
 
-            {/* <img className={`w-10 cursor-pointer rounded-full ${!open && "p-0 object-cover"}`} src={logo} alt="logo" /> */}
             <h1
               className={`text-quaternary origin-left font-medium uppercase text-xl mt-1 ml-2 py-1 truncate  ${
                 !open && "hidden"
@@ -125,12 +124,12 @@ const Sidebar = () => {
             </NavLink>
 
             <li className="text-sm flex items-center rounded-md mt-2 link-sidebar">
-              <NavLink to={"/about"}>
+              <NavLink to={"/about"} onClick={closeSidebar}>
                 <span className="text-3xl float-left ml-1">
                   <GiInfo/>
                 </span>
               </NavLink>
-              <NavLink to={"/about"} className={"w-full pl-5 cursor-pointer"}>
+              <NavLink to={"/about"} className={"w-full pl-5 cursor-pointer"} onClick={closeSidebar}>
                 <span
                   className={`text-base font-medium  w-full ${
                     !open && "hidden"
@@ -140,12 +139,12 @@ const Sidebar = () => {
                 </span>
               </NavLink>
               {open && (
-                <span onClick={toggleMenuSetting}>
+                <span onClick={toggleMenuAbout}>
                   <BsChevronDown className="text-2xl" />
                 </span>
               )}
             </li>
-            {open && menuSetting && (
+            {open && menuAbout && (
               <ul>
                 <NavLink to={"/about"} onClick={closeSidebar}>
                   <li className="text-quaternary text-sm flex items-center gap-x-4 p-2 hover:bg-ternary/10 rounded-md mt-2">
