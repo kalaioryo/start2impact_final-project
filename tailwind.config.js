@@ -17,10 +17,6 @@ module.exports = {
         'dark-ternary': "#D5CEA3",
         'dark-quaternary': "#E5E5CB"
       }
-
-      //["#F8F3E6", "#E7CC8F", "#EFAA52", "#AB3E16", "#48120E"]
-
-      // ["#ececec", "#9fd3c7", "#385170", "#142d4c"]
     },
   },
   plugins: [],
