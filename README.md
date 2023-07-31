@@ -8,6 +8,7 @@ Realizzare una dashboard che riporti i dati globali del COVID-19 in italia
 
 ## Screenshot
 
+![Screenshot](https://github.com/kalaioryo/start2impact_final-project/blob/main/src/assets/img/screenshoot.png)
 
 utilizzato:
 
@@ -15,6 +16,11 @@ utilizzato:
 - React Router v.6
 - axios
 - tailwind
+- Nivo
+- react-google-charts
+- lottie-react
+- react-icons
+- react-table
 - localStorage
 - Netlify
 # funzionalità extra
@@ -22,6 +28,11 @@ utilizzato:
 - dark mode
 - first mobile
 
+<img src="https://github.com/kalaioryo/start2impact_final-project/blob/main/src/assets/img/screenshoot2.png" width="200" />
+
+# fonte dei dati
+
+https://github.com/pcm-dpc/COVID-19
 
 ## Licenza
 
