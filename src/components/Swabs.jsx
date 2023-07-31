@@ -147,7 +147,7 @@ const Swabs = ({ lastMonth }) => {
         </span>
 
         <div className="flex justify-evenly">
-          <button className="my-6">
+          <button title="Ultimi Dati" className="my-6">
             <span
               className="p-4 bg-secondary/20 hover:bg-ternary/50 dark:bg-dark-secondary dark:hover:bg-dark-ternary dark:hover:text-dark-primary rounded-lg"
               onClick={() => setIsLastDay(true)}
@@ -156,7 +156,7 @@ const Swabs = ({ lastMonth }) => {
             </span>
           </button>
 
-          <button className="my-2">
+          <button title="Totale" className="my-2">
             <span
               className="p-4 bg-secondary/20 hover:bg-ternary/50 dark:bg-dark-secondary dark:hover:bg-dark-ternary dark:hover:text-dark-primary rounded-lg"
               onClick={() => setIsLastDay(false)}

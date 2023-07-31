@@ -14,7 +14,6 @@ import DarkMode from "./button/DarkMode";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
-  // const [subMenuOpen, setSubMenuOpen] = useState(false);
   const [menuAbout, setMenuAbout] = useState(false);
 
   const toggleSidebar = () => {
@@ -38,7 +37,7 @@ const Sidebar = () => {
             open ? "w-72" : "w-20"
           }`}
         >
-          <GiHamburgerMenu
+          <GiHamburgerMenu title="Menu"
             className={`bg-quaternary text-primary cursor-pointer text-3xl rounded-full absolute -right-3 top-9 p-1 border-2 border-primary ${
               !open && "rotate-180"
             }`}
@@ -64,7 +63,7 @@ const Sidebar = () => {
 
           <ul className="pt-4 mt-3">
             <NavLink to={"/"} onClick={closeSidebar}>
-              <li className=" text-sm flex items-center gap-x-4 p-2 rounded-md mt-2 link-sidebar">
+              <li title="Italia" className=" text-sm flex items-center gap-x-4 p-2 rounded-md mt-2 link-sidebar">
                 <span className="text-2xl block float-left">
                   <GiItalia />
                 </span>
@@ -79,7 +78,7 @@ const Sidebar = () => {
             </NavLink>
 
             <NavLink to={"/map"} onClick={closeSidebar}>
-              <li className="text-sm flex items-center gap-x-4 p-2  rounded-md mt-2 border-b border-b-ternary dark:border-b-dark-ternary link-sidebar">
+              <li title="Mappa" className="text-sm flex items-center gap-x-4 p-2  rounded-md mt-2 border-b border-b-ternary dark:border-b-dark-ternary link-sidebar">
                 <span className="text-2xl block float-left">
                   <TbMapSearch />
                 </span>
@@ -94,7 +93,7 @@ const Sidebar = () => {
             </NavLink>
 
             <NavLink to={"/regions"} onClick={closeSidebar}>
-              <li className=" text-sm flex items-center gap-x-4 p-2 rounded-md mt-2 link-sidebar">
+              <li title="Regioni" className=" text-sm flex items-center gap-x-4 p-2 rounded-md mt-2 link-sidebar">
                 <span className="text-2xl block float-left">
                   <GiHills />
                 </span>
@@ -109,7 +108,7 @@ const Sidebar = () => {
             </NavLink>
 
             <NavLink to={"/provinces"} onClick={closeSidebar}>
-              <li className="text-sm flex items-center gap-x-4 p-2  rounded-md mt-2 border-b border-b-ternary dark:border-b-dark-ternary link-sidebar">
+              <li title="Province" className="text-sm flex items-center gap-x-4 p-2  rounded-md mt-2 border-b border-b-ternary dark:border-b-dark-ternary link-sidebar">
                 <span className="text-2xl block float-left">
                   <FaCity />
                 </span>
@@ -123,7 +122,7 @@ const Sidebar = () => {
               </li>
             </NavLink>
 
-            <li className="text-sm flex items-center rounded-md mt-2 link-sidebar">
+            <li title="Info" className="text-sm flex items-center rounded-md mt-2 link-sidebar">
               <NavLink to={"/about"} onClick={closeSidebar}>
                 <span className="text-3xl float-left ml-1">
                   <GiInfo/>

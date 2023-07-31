@@ -29,7 +29,7 @@ const DarkMode = () => {
 
   return (
     <div className='h-full' >
-      <button className='h-full' onClick={handleThemeSwitch}>
+      <button className='h-full' title='Dark/Light mode' onClick={handleThemeSwitch}>
         <LottieDarkMode theme={theme} />
       </button>
       
