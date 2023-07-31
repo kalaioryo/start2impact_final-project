@@ -10,7 +10,7 @@ const initialState = {
 export const fetchDataItaly = createAsyncThunk('italy/fetchDataItaly', () => {
   return axios
     .get('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-andamento-nazionale.json')
-    .then(response => response.data)
+    .then(response => response.data.slice(-32))
 })
 
 const italySlice = createSlice({
