@@ -28,7 +28,9 @@ utilizzato:
 - dark mode
 - first mobile
 
-<img src="https://github.com/kalaioryo/start2impact_final-project/blob/master/src/assets/img/screenshoot2.png" width="200" />
+<img src="https://github.com/kalaioryo/start2impact_final-project/blob/master/src/assets/img/screenshoot2.png" width="300" />
+<img src="https://github.com/kalaioryo/start2impact_final-project/blob/master/src/assets/img/screenshoot3.png" width="300" />
+<img src="https://github.com/kalaioryo/start2impact_final-project/blob/master/src/assets/img/screenshoot4.png" width="300" />
 
 # fonte dei dati
 
