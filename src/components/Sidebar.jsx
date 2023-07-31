@@ -128,7 +128,7 @@ const Sidebar = () => {
                   <GiInfo/>
                 </span>
               </NavLink>
-              <NavLink to={"/about"} className={"w-full pl-5 cursor-pointer"} onClick={closeSidebar}>
+              <NavLink title="Info" to={"/about"} className={"w-full pl-5 cursor-pointer"} onClick={closeSidebar}>
                 <span
                   className={`text-base font-medium  w-full ${
                     !open && "hidden"
