@@ -10,7 +10,7 @@ import Footer from '../components/Footer'
 const NotFound = () => {
 
   return (
-    <div className="h-full w-full mt-[-60px] pt-4 bg-quaternary/50 dark:bg-dark-primary/90 dark:text-dark-quaternary">
+    <div className="h-full min-h-screen w-full mt-[-60px] pt-4 bg-quaternary/50 dark:bg-dark-primary/90 dark:text-dark-quaternary">
       <Sidebar/>
       <SidebarMobile/>
 
