@@ -8,7 +8,7 @@ Realizzare una dashboard che riporti i dati globali del COVID-19 in italia
 
 ## Screenshot
 
-![Screenshot](https://github.com/kalaioryo/start2impact_final-project/blob/main/src/assets/img/screenshoot.png)
+![Screenshot](https://github.com/kalaioryo/start2impact_final-project/blob/master/src/assets/img/screenshoot.png)
 
 utilizzato:
 
@@ -28,7 +28,7 @@ utilizzato:
 - dark mode
 - first mobile
 
-<img src="https://github.com/kalaioryo/start2impact_final-project/blob/main/src/assets/img/screenshoot2.png" width="200" />
+<img src="https://github.com/kalaioryo/start2impact_final-project/blob/master/src/assets/img/screenshoot2.png" width="200" />
 
 # fonte dei dati
 
