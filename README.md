@@ -44,6 +44,6 @@ Distribuito con licenza MIT
 
 Link progetto: [Covid-dashboard-2023](https://dashboard-covid-2023.netlify.app/)
 
-Info progetto: [Info/Presentazione](#) 
+Info progetto: [Info/Presentazione](https://www.canva.com/design/DAFqOhss2NI/eoi659hblCiQS0F6kKhnPQ/view?utm_content=DAFqOhss2NI&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink) 
 
 Portfolio: [antonio-iorio.netlify.app](https://antonio-iorio.netlify.app/)
