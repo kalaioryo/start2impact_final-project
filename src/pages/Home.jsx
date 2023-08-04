@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import moment from "moment/moment";
+import 'moment/locale/it'
 
 import LoadingComponent from "../components/LoadingComponent";
 import Cases from "../components/Cases";
@@ -16,6 +17,7 @@ const Home = () => {
 
   if (error) return <ErrorComponent error={error} />;
 
+  moment.locale()
   const lastMonth = italy.slice(-30);
 
   const lastTwoDaysData = italy.slice(-2);
@@ -30,7 +32,7 @@ const Home = () => {
       {!loading && italy[0] ? (
         <>
           <h1 className="col-span-9 col-start-3 text-center">
-            Dati aggiornati al {moment(lastDayData.data).format("L")}
+            Dati aggiornati al {moment(lastDayData.data).format("LL")}
           </h1>
 
           <Cases lastDayData={lastDayData} regionName={false} />

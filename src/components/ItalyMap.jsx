@@ -5,15 +5,17 @@ import { Chart } from "react-google-charts";
 import { useSelector } from "react-redux";
 
 import moment from "moment/moment";
+import 'moment/locale/it'
 
 const ItalyMap = ({ category }) => {
 
   const dataMap = useSelector((state) => state.regionsLatest);
   const {regionsLatest} = dataMap;
   const keyWord = category.replaceAll("_", " ");
-
-  let date = moment(regionsLatest[0].data).format("L");
-
+  
+  moment.locale('it')
+  let date = moment(regionsLatest[0].data).format("LL");
+ 
   const options = {
     region: "IT", // Italia
     resolution: "provinces",

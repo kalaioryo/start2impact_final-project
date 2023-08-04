@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import moment from "moment";
+import 'moment/locale/it'
 
 import StandardBar from "./chart/StandardBar";
 import SwitchTextChart from "./button/SwitchTextChart";
@@ -17,6 +18,8 @@ const Hospitalizations = ({ lastMonth }) => {
   });
   const [currentKeyBar, setCurrentKeyBar] = useState(["ospedalizzati"]);
   const [timeRange, setTimeRange] = useState("week");
+
+  moment.locale()
 
   const lastTwoDay = lastMonth.slice(-2);
   const prevDay = lastTwoDay[0];
@@ -54,7 +57,7 @@ const Hospitalizations = ({ lastMonth }) => {
 
   const dataBarHospitalized = getTimeRange[timeRange].map((day) => {
     const arrayHospitalized = {
-      id: moment(day.data).format("MMM D"),
+      id: moment(day.data).format("LL"),
       ospedalizzati: day.totale_ospedalizzati,
     };
     return arrayHospitalized;
@@ -62,7 +65,7 @@ const Hospitalizations = ({ lastMonth }) => {
 
   const dataBarIsolation = getTimeRange[timeRange].map((day) => {
     const arrayIsolation = {
-      id: moment(day.data).format("MMM D"),
+      id: moment(day.data).format("LL"),
       isolamento: day.isolamento_domiciliare,
     };
     return arrayIsolation;
@@ -70,7 +73,7 @@ const Hospitalizations = ({ lastMonth }) => {
 
   const dataBarIntensiveCare = getTimeRange[timeRange].map((day) => {
     const arrayIntensiveCare = {
-      id: moment(day.data).format("MMM D"),
+      id: moment(day.data).format("LL"),
       "terapia intensiva": day.terapia_intensiva,
     };
     return arrayIntensiveCare;

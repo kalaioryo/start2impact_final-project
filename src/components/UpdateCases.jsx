@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes, { arrayOf } from "prop-types";
 
 import moment from "moment";
+import 'moment/locale/it'
 
 import StandardLine from "./chart/StandardLine";
 import SwitchTextChart from "./button/SwitchTextChart";
@@ -17,6 +18,8 @@ const UpdateCases = ({ lastMonth, day31Ago }) => {
     b: false,
     c: false,
   });
+
+  moment.locale()
 
   const lastTwoDay = lastMonth.slice(-2);
   const prevDay = lastTwoDay[0];
@@ -42,7 +45,7 @@ const UpdateCases = ({ lastMonth, day31Ago }) => {
 
   const dataLineDead = getTimeRange[timeRange].map((day) => {
     const objectDead = {
-      x: moment(day.data).format("MMM D"),
+      x: moment(day.data).format("LL"),
       y: day.deceduti,
     };
     return objectDead;
@@ -50,7 +53,7 @@ const UpdateCases = ({ lastMonth, day31Ago }) => {
 
   const dataLineHealed = getTimeRange[timeRange].map((day) => {
     const objectHealed = {
-      x: moment(day.data).format("MMM D"),
+      x: moment(day.data).format("LL"),
       y: day.dimessi_guariti,
     };
     return objectHealed;
@@ -58,7 +61,7 @@ const UpdateCases = ({ lastMonth, day31Ago }) => {
 
   const dataLineNewPositive = getTimeRange[timeRange].map((day) => {
     const objectNewPositive = {
-      x: moment(day.data).format("MMM D"),
+      x: moment(day.data).format("LL"),
       y: day.nuovi_positivi,
     };
     return objectNewPositive;
@@ -66,7 +69,7 @@ const UpdateCases = ({ lastMonth, day31Ago }) => {
 
   const dataLineVariation = getTimeRange[timeRange].map((day) => {
     const objectVaration = {
-      x: moment(day.data).format("MMM D"),
+      x: moment(day.data).format("LL"),
       y: day.variazione_totale_positivi,
     };
     return objectVaration;
@@ -97,7 +100,7 @@ const UpdateCases = ({ lastMonth, day31Ago }) => {
     //create objects for data
     const dataLineNewHealed = getTimeRange[timeRange].map((day, index) => {
       const objectNewHealed = {
-        x: moment(day.data).format("MMM D"),
+        x: moment(day.data).format("LL"),
         y: finalArray[index],
       };
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
 import moment from "moment";
+import 'moment/locale/it'
 
 import LoadingComponent from "../components/LoadingComponent";
 import Cases from "../components/Cases";
@@ -18,6 +19,8 @@ const Regions = () => {
   const { loading, regions, error } = dataRegions;
 
   if (error) return <ErrorComponent error={error} />;
+
+  moment.locale()
 
   const region = regions.filter(
     (region) => region.denominazione_regione === currentRegion
@@ -64,7 +67,7 @@ const Regions = () => {
       {!loading && regions[0] ? (
         <>
           <h1 className="col-span-9 col-start-3 text-center">
-            Dati aggiornati al {moment(lastDayData.data).format("L")}
+            Dati aggiornati al {moment(lastDayData.data).format("LL")}
           </h1>
 
           <div className="col-span-10 col-start-2 md:col-span-5 md:col-start-5">
