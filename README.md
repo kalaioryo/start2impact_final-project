@@ -1,16 +1,16 @@
 # Covid-dashboard-2023
 S2I Final project
 
-Progetto basato su React realizzato grazie ai corsi di Start2impact.
+Project based on React realized thanks to Start2impact courses.
 
-L'obbiettivo del progetto:
-Realizzare una dashboard che riporti i dati globali del COVID-19 in italia
+The goal of the project:
+Build a dashboard reporting global COVID-19 data in italy
 
 ## Screenshot
 
 ![Screenshot](https://github.com/kalaioryo/start2impact_final-project/blob/master/src/assets/img/screenshoot.png)
 
-utilizzato:
+used:
 
 - Redux Toolkit
 - React Router v.6
@@ -23,7 +23,7 @@ utilizzato:
 - react-table
 - localStorage
 - Netlify
-# funzionalità extra
+# extra functionality
 
 - dark mode
 - first mobile
@@ -32,18 +32,18 @@ utilizzato:
 <img src="https://github.com/kalaioryo/start2impact_final-project/blob/master/src/assets/img/screenshoot3.png" width="300" />
 <img src="https://github.com/kalaioryo/start2impact_final-project/blob/master/src/assets/img/screenshoot4.png" width="300" />
 
-# fonte dei dati
+# data source
 
 https://github.com/pcm-dpc/COVID-19
 
-## Licenza
+## License
 
-Distribuito con licenza MIT
+Distributed under license MIT
 
-## Contatti
+## Contacts
 
-Link progetto: [Covid-dashboard-2023](https://dashboard-covid-2023.netlify.app/)
+Link project: [Covid-dashboard-2023](https://dashboard-covid-2023.netlify.app/)
 
-Info progetto: [Info/Presentazione](https://www.canva.com/design/DAFqOhss2NI/eoi659hblCiQS0F6kKhnPQ/view?utm_content=DAFqOhss2NI&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink) 
+Info project: [Info/Presentazione](https://www.canva.com/design/DAFqOhss2NI/eoi659hblCiQS0F6kKhnPQ/view?utm_content=DAFqOhss2NI&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink) 
 
 Portfolio: [antonio-iorio.netlify.app](https://antonio-iorio.netlify.app/)
