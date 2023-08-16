@@ -14,7 +14,7 @@ const StandardLine = ({ data }) => (
       reverse: false,
     }}
     yFormat=" >-,"
-    margin={{ top: 50, right: 50, bottom: 50, left: 60 }}
+    margin={{ top: 50, right: 50, bottom: 80, left: 65 }}
     axisBottom={{
       tickSize: 6,
       tickPadding: 4,

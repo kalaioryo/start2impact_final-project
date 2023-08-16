@@ -228,7 +228,7 @@ const UpdateCases = ({ lastMonth, day31Ago }) => {
 
           {/* Line chart */}
 
-          <div className="h-[400px] col-span-12 bg-white/70 rounded-md">
+          <div className="h-[500px] col-span-12 bg-white/70 rounded-md">
             <StandardLine data={selectCategory[category]} />
           </div>
         </>
