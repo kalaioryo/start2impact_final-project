@@ -36,6 +36,13 @@ used:
 
 https://github.com/pcm-dpc/COVID-19
 
+# To start the project
+
+Terminal commands
+
+- npm install
+- npm start
+
 ## License
 
 Distributed under license MIT
