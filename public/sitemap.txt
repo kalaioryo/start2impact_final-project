@@ -1,0 +1,5 @@
+https://dashboard-covid-2023.netlify.app/
+https://dashboard-covid-2023.netlify.app/about
+https://dashboard-covid-2023.netlify.app/map
+https://dashboard-covid-2023.netlify.app/regions
+https://dashboard-covid-2023.netlify.app/provinces

@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import LoadingComponent from "../components/LoadingComponent";
 import BasicTable from "../components/BasicTable";
 import ErrorComponent from "../components/ErrorComponent";
+import { Helmet } from "react-helmet";
 
 const Provinces = () => {
   const provinces = useSelector((state) => state.provincesLatest);
@@ -35,6 +36,12 @@ const Provinces = () => {
 
   return (
     <div className="">
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>Provinces - Covid dashboard 2023</title>
+          <meta name='description' content='Provinces'/>
+          <link rel="canonical" href="/provinces" />
+      </Helmet>
       {loading ? <LoadingComponent /> : null}
 
       {!loading && provincesLatest[0] ? (

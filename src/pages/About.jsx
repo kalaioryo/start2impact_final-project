@@ -6,11 +6,18 @@ import { FaLinkedin, FaGithub } from 'react-icons/fa'
 import { MdOutlineContactPage } from 'react-icons/md'
 import { LuFileJson } from 'react-icons/lu'
 import LottieAstroDeveloper from '../components/lottie-components/LottieAstroDeveloper';
+import { Helmet } from 'react-helmet';
 
 
 const About = () => {
   return (
     <div className='pb-8 h-full min-h-screen bg-quaternary/70 dark:bg-dark-primary/95 dark:text-dark-quaternary'>
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>About - Covid dashboard 2023</title>
+          <meta name='description' content='About me'/>
+          <link rel="canonical" href="/about" />
+      </Helmet>
       <h1 className="py-10 w-full text-3xl text-center">About me</h1>
 
       <div className=''>

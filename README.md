@@ -21,6 +21,7 @@ used:
 - lottie-react
 - react-icons
 - react-table
+- helmet
 - localStorage
 - Netlify
 # extra functionality

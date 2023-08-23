@@ -5,6 +5,7 @@ import ItalyMap from "../components/ItalyMap";
 import LoadingComponent from "../components/LoadingComponent";
 import SelectCategoryInput from "../components/input/SelectCategoryInput";
 import ErrorComponent from "../components/ErrorComponent";
+import { Helmet } from "react-helmet";
 
 const Map = () => {
   const [category, setCategory] = useState("casi_testati");
@@ -39,6 +40,12 @@ const Map = () => {
 
   return (
     <div className="pt-4 h-full min-h-screen md:mb-2 pb-40 dark:bg-dark-primary/90 dark:text-dark-quaternary">
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>Map - Covid dashboard 2023</title>
+          <meta name='description' content='Map'/>
+          <link rel="canonical" href="/map" />
+      </Helmet>
       <div className="flex justify-center">
         <label className="p-2 mt-10 mx-2 md:ml-[6%] rounded-md bg-ternary text-primary dark:bg-dark-primary dark:text-dark-ternary">
           <span className="block p-2">Seleziona la categoria:</span>

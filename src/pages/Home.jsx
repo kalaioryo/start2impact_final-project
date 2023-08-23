@@ -10,6 +10,7 @@ import UpdateCases from "../components/UpdateCases";
 import Hospitalizations from "../components/Hospitalizations";
 import Swabs from "../components/Swabs";
 import ErrorComponent from "../components/ErrorComponent";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   const dataItaly = useSelector((state) => state.italy);
@@ -27,6 +28,12 @@ const Home = () => {
 
   return (
     <div className="grid grid-cols-12 gap-4 py-8 bg-quaternary/90 dark:bg-dark-primary/90 dark:text-dark-quaternary">
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>Home - Covid dashboard 2023</title>
+          <meta name='description' content='Home'/>
+          <link rel="canonical" href="/home" />
+      </Helmet>
       {loading && <LoadingComponent />}
 
       {!loading && italy[0] ? (

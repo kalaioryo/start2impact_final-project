@@ -11,6 +11,7 @@ import Hospitalizations from "../components/Hospitalizations";
 import Swabs from "../components/Swabs";
 import SelectRegionInput from "../components/input/SelectRegionInput";
 import ErrorComponent from "../components/ErrorComponent";
+import { Helmet } from "react-helmet";
 
 const Regions = () => {
   const [currentRegion, setCurrentRegion] = useState("Abruzzo");
@@ -61,7 +62,12 @@ const Regions = () => {
  
   return (
     <div className=" grid grid-cols-12 gap-4 py-8 bg-quaternary/70 dark:bg-dark-primary/90 dark:text-dark-quaternary">
-
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>Regions - Covid dashboard 2023</title>
+          <meta name='description' content='Regions'/>
+          <link rel="canonical" href="/regions" />
+      </Helmet>
       {loading && <LoadingComponent />}
 
       {!loading && regions[0] ? (
